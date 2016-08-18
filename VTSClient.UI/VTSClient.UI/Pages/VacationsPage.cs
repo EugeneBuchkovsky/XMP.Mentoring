@@ -28,8 +28,8 @@ namespace VTSClient.UI.Pages
             };
 
             vocationsListView.SetBinding(ListView.ItemsSourceProperty, new Binding("VocationList", BindingMode.TwoWay));
-            vocationsListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("NameEmployee"));
-            vocationsListView.ItemTemplate.SetBinding(ImageCell.DetailProperty, new Binding("NameAprover"));
+            vocationsListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("ApproverFullName"));
+            vocationsListView.ItemTemplate.SetBinding(ImageCell.DetailProperty, new Binding("StartDate"));
 
             mainLayout.Children.Add(vocationsListView);
 
