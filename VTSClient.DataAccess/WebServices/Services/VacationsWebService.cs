@@ -47,5 +47,20 @@ namespace VTSClient.DataAccess.WebServices.Services
 
             return ab;
         }
+
+        public int UpdateVacationInfo(VacationInfo model)
+        {
+            var client = new RestClient("http://10.6.106.21/test/api");
+
+            var request = new RestRequest("Vacation/Update", Method.POST);
+            request.RequestFormat = DataFormat.Json;
+
+            request.AddBody(model);
+            var a = client.Execute<int>(request);
+            // TO DO:
+            var ab = a.Data;
+
+            return ab;
+        }
     }
 }

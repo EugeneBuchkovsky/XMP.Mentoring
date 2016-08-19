@@ -13,5 +13,7 @@ namespace VTSClient.DataAccess.WebServices.Interfaces
         IEnumerable<ShortVacationInfo> GetVacationsInfoList(int id);
 
         VacationInfo GetVacationInfo(int id);
+
+        int UpdateVacationInfo(VacationInfo model);
     }
 }
