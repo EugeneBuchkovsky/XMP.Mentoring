@@ -9,6 +9,9 @@ using VTSClient.BusinessLogic.Services.Instances;
 using VTSClient.BusinessLogic.Services.Interfaces;
 using VTSClient.BusinessLogic.ViewModels;
 
+using VTSClient.DataAccess.WebServices.Interfaces;
+using VTSClient.DataAccess.WebServices.Services;
+
 
 namespace VTSClient.UI
 {
@@ -32,8 +35,9 @@ namespace VTSClient.UI
 
             Mvx.RegisterType<IVacationsService, VacationsService>();
             Mvx.RegisterType<IAccountService, AccountService>();
-            
 
+            //Mvx.RegisterType<ILoginWebService, LoginWebService>();
+            Mvx.RegisterType<IWEB, LoginWebService>();
 
             Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<AccountViewModel>());
         }

@@ -68,6 +68,10 @@
       <Project>{3163bfb9-2b7f-4295-8684-647df2612af4}</Project>
       <Name>VTSClient.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\Download\VtsMockClient.WebAPI\VtsMockClient.Domain\VtsMockClient.Domain.csproj">
+      <Project>{5b04ae4b-f7dd-418f-afc9-40e77858e874}</Project>
+      <Name>VtsMockClient.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

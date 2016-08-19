@@ -4,35 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VTSClient.BusinessLogic.Services.Interfaces;
-using VTSClient.DataAccess.MockModel;
-
-
+//using VTSClient.DataAccess.MockModel;
+using VTSClient.DataAccess.WebServices.Interfaces;
+using VtsMockClient.Domain.Models;
 
 namespace VTSClient.BusinessLogic.Services.Instances
 {
     public class AccountService : IAccountService
     {
         private List<PersonCredentials> userList;
-        
 
-        public AccountService()
+        private IWEB loginWebService;
+
+        public AccountService(IWEB _loginWebService)
         {
+            this.loginWebService = _loginWebService;
             this.Init();
         }
 
-        public PersonCredentials Authentication(string login, string password)
+        public Person Authentication(string login, string password)
         {
-            return userList.FirstOrDefault(u => u.Email == login && u.Password == password);
-            //var result = webService.Login(login, password);
-            //if (result != null)
-            //{
-            //    var user = new User
-            //    {
-            //        Login = result.FullName
-            //    };
-            //    return user;
-            //}
-            //return null;
+
+            var model = new PersonCredentials { Email = login, Password = password };
+            return loginWebService.Login(model);
         }
 
         public void Registration(PersonCredentials user)

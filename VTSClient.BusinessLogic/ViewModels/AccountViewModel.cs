@@ -82,7 +82,7 @@ namespace VTSClient.BusinessLogic.ViewModels
 
         private void Authentication()
         {
-            if (accountService.Authentication(Login, Password) == null)
+            if (String.IsNullOrEmpty(accountService.Authentication(Login, Password).FullName))
                 //return new MvxCommand(() => ShowViewModel<VocationsListViewModel>());
                 ErrorMessage = "Wrong login or password";
             else
