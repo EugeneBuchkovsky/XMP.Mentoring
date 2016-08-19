@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\VacationDetailsPage.cs" />
     <Compile Include="Pages\VacationsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

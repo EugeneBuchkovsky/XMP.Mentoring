@@ -49,6 +49,8 @@ namespace VTSClient.UI.Droid
 
             dict.Add(typeof(VacationsViewModel), typeof(VacationsPage));
 
+            dict.Add(typeof(SelectedVacationViewModel), typeof(VacationDetailsPage));
+
             var container = Mvx.Resolve<IMvxViewsContainer>();
             container.AddAll(dict);
         }

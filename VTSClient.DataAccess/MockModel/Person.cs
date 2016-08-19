@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace VTSClient.DataAccess.MockModel
 {
+    [Table("Person")]
     public class Person
     {
+        [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
 
         public string FullName { get; set; }

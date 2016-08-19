@@ -11,5 +11,7 @@ namespace VTSClient.DataAccess.WebServices.Interfaces
     public interface IVacationsWebService
     {
         IEnumerable<ShortVacationInfo> GetVacationsInfoList(int id);
+
+        VacationInfo GetVacationInfo(int id);
     }
 }

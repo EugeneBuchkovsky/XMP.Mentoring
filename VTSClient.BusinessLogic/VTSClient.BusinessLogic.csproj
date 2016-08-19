@@ -40,6 +40,7 @@
     <Compile Include="Services\Interfaces\IAccountService.cs" />
     <Compile Include="Services\Interfaces\IVacationsService.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\SelectedVacationViewModel.cs" />
     <Compile Include="ViewModels\VacationsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

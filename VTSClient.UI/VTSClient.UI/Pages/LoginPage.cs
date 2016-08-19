@@ -13,16 +13,16 @@ namespace VTSClient.UI.Pages
         {
 
             //Uri ur = new Uri("http://localhost:63375/api/Vacations/3");
-            WebView wb = new WebView
-            {
-                //Source = new UrlWebViewSource { Url = "http://localhost:63375/api/Vacations/3" },
-                Source = new UrlWebViewSource { Url = "http://10.6.106.21/test/api/Vacations/3" },
+            //WebView wb = new WebView
+            //{
+            //    //Source = new UrlWebViewSource { Url = "http://localhost:63375/api/Vacations/3" },
+            //    Source = new UrlWebViewSource { Url = "http://10.6.106.21/test/api/Vacations/3" },
 
-                //Source = new UrlWebViewSource { Url = "http://google.com" },
+            //    //Source = new UrlWebViewSource { Url = "http://google.com" },
 
-                VerticalOptions = LayoutOptions.FillAndExpand
+            //    VerticalOptions = LayoutOptions.FillAndExpand
 
-            };
+            //};
 
 
 
@@ -80,7 +80,7 @@ namespace VTSClient.UI.Pages
                 //BackgroundColor = new Color(0.1, 0.5, 0.2, 0.1)
             };
 
-            mainLayout.Children.Add(wb);
+            //mainLayout.Children.Add(wb);
 
             //mainLayout.Children.Add(title);
             //mainLayout.Children.Add(img);

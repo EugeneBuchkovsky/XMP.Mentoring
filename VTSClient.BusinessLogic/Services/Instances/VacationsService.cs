@@ -26,7 +26,12 @@ namespace VTSClient.BusinessLogic.Services.Instances
         public IEnumerable<ShortVacationInfo> GetAllVocations()
         {
             return vacationsWebService.GetVacationsInfoList(1);
-            return vocationsList;
+            //return vocationsList;
+        }
+
+        public VacationInfo VacationDetails(int id)
+        {
+            return vacationsWebService.GetVacationInfo(id);
         }
 
         private void Init()

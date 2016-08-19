@@ -28,6 +28,7 @@ namespace VTSClient.UI.Pages
             };
 
             vocationsListView.SetBinding(ListView.ItemsSourceProperty, new Binding("VocationList", BindingMode.TwoWay));
+            vocationsListView.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedVocation", BindingMode.TwoWay));
             vocationsListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("ApproverFullName"));
             vocationsListView.ItemTemplate.SetBinding(ImageCell.DetailProperty, new Binding("StartDate"));
 

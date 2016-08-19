@@ -163,10 +163,20 @@
       <Project>{3c955d13-c090-46b3-963b-0bbdd1243616}</Project>
       <Name>VTSClient.BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\VTSClient.DataAccess\VTSClient.DataAccess.csproj">
+      <Project>{3163bfb9-2b7f-4295-8684-647df2612af4}</Project>
+      <Name>VTSClient.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VTSClient.UI\VTSClient.UI.csproj">
       <Project>{c9077fd0-5ead-404d-b1fd-2d51fbc2ec64}</Project>
       <Name>VTSClient.UI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\VTS_Main_Theme.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bootstrap\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

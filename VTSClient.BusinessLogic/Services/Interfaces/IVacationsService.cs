@@ -11,5 +11,7 @@ namespace VTSClient.BusinessLogic.Services.Interfaces
     public interface IVacationsService
     {
         IEnumerable<ShortVacationInfo> GetAllVocations();
+
+        VacationInfo VacationDetails(int id);
     }
 }
