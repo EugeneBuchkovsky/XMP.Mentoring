@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VTSClient.BusinessLogic.Services.Interfaces;
-using VTSClient.DataAccess.MockModel;
+//using VTSClient.DataAccess.MockModel;
+using VtsMockClient.Domain.Models;
+using VTSClient.DataAccess.WebServices.Interfaces;
 
 
 namespace VTSClient.BusinessLogic.Services.Instances
@@ -13,13 +15,17 @@ namespace VTSClient.BusinessLogic.Services.Instances
     {
         private List<ShortVacationInfo> vocationsList;
 
-        public VacationsService()
+        private IVacationsWebService vacationsWebService;
+
+        public VacationsService(IVacationsWebService _vacationsWebService)
         {
-            this.Init();
+            this.vacationsWebService = _vacationsWebService;
+            //this.Init();
         }
 
-        public List<ShortVacationInfo> GetAllVocations()
+        public IEnumerable<ShortVacationInfo> GetAllVocations()
         {
+            return vacationsWebService.GetVacationsInfoList(1);
             return vocationsList;
         }
 

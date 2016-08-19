@@ -38,6 +38,8 @@ namespace VTSClient.UI
 
             //Mvx.RegisterType<ILoginWebService, LoginWebService>();
             Mvx.RegisterType<IWEB, LoginWebService>();
+            Mvx.RegisterType<IVacationsWebService, VacationsWebService>();
+
 
             Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<AccountViewModel>());
         }

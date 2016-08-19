@@ -39,8 +39,10 @@
     <Compile Include="MockModel\ShortVacationInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebServices\Interfaces\ILoginWebService.cs" />
+    <Compile Include="WebServices\Interfaces\IVacationsWebService.cs" />
     <Compile Include="WebServices\Interfaces\IWEB.cs" />
     <Compile Include="WebServices\Services\LoginWebService.cs" />
+    <Compile Include="WebServices\Services\VacationsWebService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\Download\VtsMockClient.WebAPI\VtsMockClient.Domain\VtsMockClient.Domain.csproj">

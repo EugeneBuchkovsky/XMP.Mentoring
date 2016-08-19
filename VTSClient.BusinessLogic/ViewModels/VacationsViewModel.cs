@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VTSClient.BusinessLogic.Services.Interfaces;
-using VTSClient.DataAccess.MockModel;
+//using VTSClient.DataAccess.MockModel;
+using VtsMockClient.Domain.Models;
 
 namespace VTSClient.BusinessLogic.ViewModels
 {
@@ -23,7 +24,7 @@ namespace VTSClient.BusinessLogic.ViewModels
 
             VocationList = vocationsService.GetAllVocations();
             Name = "Namechko";
-            First = VocationList[0];
+            //First = VocationList[0];
             base.Start();
         }
 
@@ -49,8 +50,8 @@ namespace VTSClient.BusinessLogic.ViewModels
             }
         }
 
-        private List<ShortVacationInfo> vocationList;
-        public List<ShortVacationInfo> VocationList
+        private IEnumerable<ShortVacationInfo> vocationList;
+        public IEnumerable<ShortVacationInfo> VocationList
         {
             get { return vocationList; }
             set
