@@ -34,6 +34,11 @@ namespace VTSClient.BusinessLogic.Services.Instances
             return vacationsWebService.GetVacationInfo(id);
         }
 
+        public int UpdateVacationInfo(VacationInfo vacation)
+        {
+            return vacationsWebService.UpdateVacationInfo(vacation);
+        }
+
         private void Init()
         {
             vocationsList = new List<ShortVacationInfo>();

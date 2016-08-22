@@ -7,6 +7,7 @@ using MvvmCross.Core.ViewModels;
 using VtsMockClient.Domain.Models;
 using VtsMockClient.Domain.Enums;
 using VTSClient.BusinessLogic.Services.Interfaces;
+using System.Windows.Input;
 
 namespace VTSClient.BusinessLogic.ViewModels
 {
@@ -17,11 +18,13 @@ namespace VTSClient.BusinessLogic.ViewModels
         private VacationInfo selectVacation;
         private IVacationsService vacationService;
 
+        private VacationInfo model;
+
         public void Init(int selectId, string aName)
         {
             this.aName = aName;
             this.id = selectId;
-            var model = vacationService.VacationDetails(id);
+            model = vacationService.VacationDetails(id);
             Name = aName;
             Name1 = model.Status;
             Name2 = model.VacationForm;
@@ -87,6 +90,21 @@ namespace VTSClient.BusinessLogic.ViewModels
                 name4 = value;
                 RaisePropertyChanged(() => Name4);
             }
+        }
+
+        public ICommand Save
+        {
+            get
+            {
+                //return new MvxCommand(() => ShowViewModel<VocationsListViewModel>());
+                return new MvxCommand(SaveChanges);
+            }
+        }
+
+        private void SaveChanges()
+        {
+            //TO DO: CHANGE MODEL
+            vacationService.UpdateVacationInfo(model);
         }
     }
 }

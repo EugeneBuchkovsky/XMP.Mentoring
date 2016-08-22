@@ -13,5 +13,7 @@ namespace VTSClient.BusinessLogic.Services.Interfaces
         IEnumerable<ShortVacationInfo> GetAllVocations();
 
         VacationInfo VacationDetails(int id);
+
+        int UpdateVacationInfo(VacationInfo vacation);
     }
 }

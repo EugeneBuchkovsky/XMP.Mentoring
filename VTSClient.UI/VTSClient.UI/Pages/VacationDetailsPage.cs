@@ -40,6 +40,12 @@ namespace VTSClient.UI.Pages
                 HorizontalOptions = LayoutOptions.Center,
             };
 
+            var saveButton = new Button
+            {
+                Text = "Save changes",
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+
             Content = mainLayout = new StackLayout
             {
                 Padding = new Thickness(10),
@@ -54,12 +60,14 @@ namespace VTSClient.UI.Pages
             mainLayout.Children.Add(title);
             mainLayout.Children.Add(title1);
             mainLayout.Children.Add(title2);
+            mainLayout.Children.Add(saveButton);
 
             login.SetBinding(Entry.TextProperty, new Binding("Name"));
             password.SetBinding(Entry.TextProperty, new Binding("Name1"));
             title.SetBinding(Label.TextProperty, new Binding("Name2"));
             title1.SetBinding(Label.TextProperty, new Binding("Name3"));
             title2.SetBinding(Label.TextProperty, new Binding("Name4"));
+            saveButton.SetBinding(Button.CommandProperty, new Binding("Save"));
         }
     }
 }
