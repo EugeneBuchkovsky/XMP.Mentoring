@@ -7,6 +7,7 @@ using VTSClient.BusinessLogic.Services.Interfaces;
 //using VTSClient.DataAccess.MockModel;
 using VtsMockClient.Domain.Models;
 using VTSClient.DataAccess.WebServices.Interfaces;
+using VTSClient.DataAccess.Repositories;
 
 
 namespace VTSClient.BusinessLogic.Services.Instances
@@ -16,16 +17,18 @@ namespace VTSClient.BusinessLogic.Services.Instances
         private List<ShortVacationInfo> vocationsList;
 
         private IVacationsWebService vacationsWebService;
+        private IRepository vacationRepo;
 
-        public VacationsService(IVacationsWebService _vacationsWebService)
+        public VacationsService(IVacationsWebService _vacationsWebService, IRepository _vacationsrepo)
         {
+            this.vacationRepo = _vacationsrepo;
             this.vacationsWebService = _vacationsWebService;
             //this.Init();
         }
 
         public IEnumerable<ShortVacationInfo> GetAllVocations()
         {
-            return vacationsWebService.GetVacationsInfoList(1);
+            return vacationsWebService.GetVacationsInfoList(vacationRepo.GetCurrentUser().Id);
             //return vocationsList;
         }
 

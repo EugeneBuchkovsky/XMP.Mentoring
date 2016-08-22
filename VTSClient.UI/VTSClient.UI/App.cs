@@ -11,6 +11,10 @@ using VTSClient.BusinessLogic.ViewModels;
 
 using VTSClient.DataAccess.WebServices.Interfaces;
 using VTSClient.DataAccess.WebServices.Services;
+using VTSClient.DataAccess.Repositories;
+using VtsMockClient.Domain.Models;
+
+using Xamarin.Forms;
 
 
 namespace VTSClient.UI
@@ -19,7 +23,7 @@ namespace VTSClient.UI
     {
         public App()
         {
-            //Mvx.RegisterType<IVocationsListService, VocationsListService>();
+            //Mvx.RegisterType<IVocationsListService, VocationsListService
         }
 
         public override void Initialize()
@@ -40,7 +44,11 @@ namespace VTSClient.UI
             Mvx.RegisterType<IWEB, LoginWebService>();
             Mvx.RegisterType<IVacationsWebService, VacationsWebService>();
 
+            Mvx.RegisterType<IRepository, PersonRepository>();
+            //Mvx.RegisterType<ISQLite, >
+            //DependencyService.Register<ISQLite>();
 
+            //var a = DependencyService.Get<ISQLite>();
             Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<AccountViewModel>());
         }
     }

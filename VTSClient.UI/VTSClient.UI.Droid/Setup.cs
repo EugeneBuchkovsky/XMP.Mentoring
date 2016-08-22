@@ -17,6 +17,7 @@ using MvvmCross.Core.Views;
 using MvvmCross.Platform;
 using VTSClient.UI.Pages;
 using MvvmCross.Forms.Presenter.Droid;
+using VTSClient.DataAccess.Repositories;
 
 namespace VTSClient.UI.Droid
 {
@@ -29,6 +30,7 @@ namespace VTSClient.UI.Droid
 
         protected override IMvxApplication CreateApp()
         {
+            Mvx.RegisterType<ISQLite, SQLite_Droid>();
             return new VTSClient.UI.App();
         }
 

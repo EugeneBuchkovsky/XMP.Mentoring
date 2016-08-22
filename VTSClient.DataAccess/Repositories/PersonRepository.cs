@@ -1,23 +1,22 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
+﻿//using SQLite;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VTSClient.DataAccess.MockModel;
+
+using SQLite.Net;
+
 
 namespace VTSClient.DataAccess.Repositories
 {
-    public class PersonRepository : IRepository<Person>
+    public class PersonRepository : IRepository
     {
         private SQLiteConnection connection;
+        private ISQLite sqlite;
 
-        public PersonRepository(SQLiteConnection _connection)
+        public PersonRepository(ISQLite _sqlite)
         {
-            this.connection = _connection;
-            //string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal),"ormdemo.db3");
-            //connection = 
+            sqlite = _sqlite;
+            this.connection = sqlite.GetConnection("Person.db");
+
             connection.CreateTable<Person>();
         }
 
@@ -29,6 +28,12 @@ namespace VTSClient.DataAccess.Repositories
         public Person Get(int id)
         {
             return connection.Get<Person>(id);
+        }
+
+        public Person GetCurrentUser()
+        {
+            var id = connection.Table<Person>().Count();
+            return connection.Table<Person>().ElementAt(id-1);
         }
     }
 }

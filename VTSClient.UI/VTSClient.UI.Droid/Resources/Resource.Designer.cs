@@ -47,6 +47,8 @@ namespace VTSClient.UI.Droid
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::VTSClient.UI.Droid.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::VTSClient.UI.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::VTSClient.UI.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::VTSClient.UI.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::VTSClient.UI.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::VTSClient.UI.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -2506,6 +2508,12 @@ namespace VTSClient.UI.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f05001f
+			public const int ApplicationName = 2131034143;
+			
+			// aapt resource value: 0x7f05001e
+			public const int Hello = 2131034142;
 			
 			// aapt resource value: 0x7f05000b
 			public const int abc_action_bar_home_description = 2131034123;

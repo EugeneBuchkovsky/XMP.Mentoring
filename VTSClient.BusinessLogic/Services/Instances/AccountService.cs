@@ -7,6 +7,7 @@ using VTSClient.BusinessLogic.Services.Interfaces;
 //using VTSClient.DataAccess.MockModel;
 using VTSClient.DataAccess.WebServices.Interfaces;
 using VtsMockClient.Domain.Models;
+using VTSClient.DataAccess.Repositories;
 
 namespace VTSClient.BusinessLogic.Services.Instances
 {
@@ -15,10 +16,12 @@ namespace VTSClient.BusinessLogic.Services.Instances
         private List<PersonCredentials> userList;
 
         private IWEB loginWebService;
+        private IRepository personrepository;
 
-        public AccountService(IWEB _loginWebService)
+        public AccountService(IWEB _loginWebService, IRepository repo)
         {
             this.loginWebService = _loginWebService;
+            this.personrepository = repo;
             this.Init();
         }
 
@@ -26,7 +29,18 @@ namespace VTSClient.BusinessLogic.Services.Instances
         {
 
             var model = new PersonCredentials { Email = login, Password = password };
-            return loginWebService.Login(model);
+            
+            var person = loginWebService.Login(model);
+
+            //personrepository = new PersonRepository();
+
+            if (!String.IsNullOrEmpty(person.Id.ToString()))
+                personrepository.Create(new DataAccess.MockModel.Person {
+                    FullName = person.FullName,
+                    Id = person.Id
+                });
+
+            return person;
         }
 
         public void Registration(PersonCredentials user)
