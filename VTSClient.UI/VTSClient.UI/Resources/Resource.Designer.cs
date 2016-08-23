@@ -62,6 +62,24 @@ namespace VTSClient.UI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Approver.
+        /// </summary>
+        internal static string Approver {
+            get {
+                return ResourceManager.GetString("Approver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        internal static string Comment {
+            get {
+                return ResourceManager.GetString("Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string EntryLogin {
@@ -103,6 +121,69 @@ namespace VTSClient.UI.Resources {
         internal static string LoginName {
             get {
                 return ResourceManager.GetString("LoginName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save changes.
+        /// </summary>
+        internal static string SaveChangesButton {
+            get {
+                return ResourceManager.GetString("SaveChangesButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vacation details.
+        /// </summary>
+        internal static string VacationDetailsPage {
+            get {
+                return ResourceManager.GetString("VacationDetailsPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End date.
+        /// </summary>
+        internal static string VacationEndDate {
+            get {
+                return ResourceManager.GetString("VacationEndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vacation form.
+        /// </summary>
+        internal static string VacationForm {
+            get {
+                return ResourceManager.GetString("VacationForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vacations list.
+        /// </summary>
+        internal static string VacationsPageTitle {
+            get {
+                return ResourceManager.GetString("VacationsPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start date.
+        /// </summary>
+        internal static string VacationStartDate {
+            get {
+                return ResourceManager.GetString("VacationStartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string VacationStatus {
+            get {
+                return ResourceManager.GetString("VacationStatus", resourceCulture);
             }
         }
     }

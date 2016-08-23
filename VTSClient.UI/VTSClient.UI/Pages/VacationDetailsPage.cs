@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using VTSClient.UI.Resources;
 
 namespace VTSClient.UI.Pages
 {
@@ -15,12 +16,12 @@ namespace VTSClient.UI.Pages
             StackLayout mainLayout;
 
 
-            Title = "Vacation details";
+            Title = Resource.VacationDetailsPage;
 
             var approverTitle = new Label
             {
                 HorizontalOptions = LayoutOptions.Start,
-                Text = "Approver",
+                Text = Resource.Approver,
                 Font = Font.SystemFontOfSize(NamedSize.Micro)
             };
 
@@ -33,7 +34,7 @@ namespace VTSClient.UI.Pages
             var StatusTitle = new Label
             {
                 HorizontalOptions = LayoutOptions.Start,
-                Text = "Status",
+                Text = Resource.VacationStatus,
                 Font = Font.SystemFontOfSize(NamedSize.Micro)
             };
 
@@ -46,7 +47,7 @@ namespace VTSClient.UI.Pages
             var formTitle = new Label
             {
                 HorizontalOptions = LayoutOptions.Start,
-                Text = "Form",
+                Text = Resource.VacationForm,
                 Font = Font.SystemFontOfSize(NamedSize.Micro)
             };
 
@@ -60,7 +61,7 @@ namespace VTSClient.UI.Pages
             var startDate = new Label
             {
                 HorizontalOptions = LayoutOptions.Start,
-                Text = "Start Date",
+                Text = Resource.VacationStartDate,
                 Font = Font.SystemFontOfSize(NamedSize.Micro)
             };
             
@@ -74,7 +75,7 @@ namespace VTSClient.UI.Pages
             var endDate = new Label
             {
                 HorizontalOptions = LayoutOptions.Start,
-                Text = "End Date",
+                Text = Resource.VacationEndDate,
                 Font = Font.SystemFontOfSize(NamedSize.Micro)
             };
 
@@ -87,7 +88,7 @@ namespace VTSClient.UI.Pages
             var commentTitle = new Label
             {
                 HorizontalOptions = LayoutOptions.Start,
-                Text = "Comment",
+                Text = Resource.Comment,
                 Font = Font.SystemFontOfSize(NamedSize.Micro)
             };
 
@@ -104,7 +105,7 @@ namespace VTSClient.UI.Pages
 
             var saveButton = new Button
             {
-                Text = "Save changes",
+                Text = Resource.SaveChangesButton,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = Color.FromHex("8CAD35"),
                 BorderRadius = 0

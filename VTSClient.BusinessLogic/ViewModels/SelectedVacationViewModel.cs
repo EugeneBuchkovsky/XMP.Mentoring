@@ -9,6 +9,7 @@ using VtsMockClient.Domain.Enums;
 using VTSClient.BusinessLogic.Services.Interfaces;
 using System.Windows.Input;
 
+
 namespace VTSClient.BusinessLogic.ViewModels
 {
     public class SelectedVacationViewModel : MvxViewModel

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using VTSClient.UI.Resources;
+
 
 namespace VTSClient.UI.Pages
 {
@@ -11,7 +13,7 @@ namespace VTSClient.UI.Pages
     {
         public VacationsPage()
         {
-            Title = "Vocations";
+            Title = Resource.VacationsPageTitle;
 
             StackLayout mainLayout;
 
