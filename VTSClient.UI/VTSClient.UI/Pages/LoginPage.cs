@@ -38,13 +38,17 @@ namespace VTSClient.UI.Pages
             BackgroundImage = "VTS_Main_Theme.jpg";
             Entry login = new Entry
             {
-                Placeholder = Resource.EntryLogin
+                Placeholder = Resource.EntryLogin,
+                BackgroundColor = new Color(0.99, 0.99, 0.99, 0.99),
+                TextColor = Color.FromHex("666")
             };
 
             Entry password = new Entry
             {
                 Placeholder = Resource.EntryPassword,
-                IsPassword = true
+                IsPassword = true,
+                BackgroundColor = new Color(0.99, 0.99, 0.99, 0.99),
+                TextColor = Color.FromHex("666")
             };
 
             Button enterbutton = new Button
@@ -86,13 +90,24 @@ namespace VTSClient.UI.Pages
             //mainLayout.Children.Add(title);
             //mainLayout.Children.Add(img);
 
+            StackLayout sl = new StackLayout();
+            sl.Children.Add(login);
+            sl.Children.Add(password);
+            sl.Children.Add(enterbutton);
 
-            mainLayout.Children.Add(login);
-            mainLayout.Children.Add(password);
-            mainLayout.Children.Add(enterbutton);
+            Frame logFrame = new Frame
+            {
+                  Content = sl,
+                  BackgroundColor = new Color (0.99,0.99,0.99,0.8),
+                  VerticalOptions = LayoutOptions.CenterAndExpand
+            };
+
+            //mainLayout.Children.Add(login);
+            //mainLayout.Children.Add(password);
+            //mainLayout.Children.Add(enterbutton);
             mainLayout.Children.Add(errorMessage);
             //mainLayout.Children.Add(wb);
-
+            mainLayout.Children.Add(logFrame);
 
             enterbutton.SetBinding(Button.CommandProperty, new Binding("Logon"));
             login.SetBinding(Entry.TextProperty, new Binding("Login"));

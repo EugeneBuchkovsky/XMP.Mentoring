@@ -30,6 +30,7 @@ namespace VTSClient.BusinessLogic.ViewModels
             Name2 = model.VacationForm;
             Name3 = model.StartDate;
             Name4 = model.EndDate;
+            Comment = model.Comment;
         }
 
         public SelectedVacationViewModel(IVacationsService _vacationService)
@@ -92,7 +93,28 @@ namespace VTSClient.BusinessLogic.ViewModels
             }
         }
 
-        
+        private string comment;
+        public string Comment
+        {
+            get { return comment; }
+            set
+            {
+                comment = value;
+                RaisePropertyChanged(() => Comment);
+            }
+        }
+
+        private string type;
+        public string Type
+        {
+            get { return type; }
+            set
+            {
+                type = value;
+                RaisePropertyChanged(() => Type);
+            }
+        }
+
 
         public ICommand Save
         {
@@ -105,8 +127,10 @@ namespace VTSClient.BusinessLogic.ViewModels
 
         private void SaveChanges()
         {
+            model.Comment = Comment;
             //TO DO: CHANGE MODEL
             vacationService.UpdateVacationInfo(model);
+            ShowViewModel<VacationsViewModel>();
         }
     }
 }
