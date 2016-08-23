@@ -34,6 +34,9 @@ namespace VTSClient.UI.iOS
             setup.Initialize();
 
             var startup = Mvx.Resolve<IMvxAppStart>();
+
+
+
             startup.Start();
 
             window.MakeKeyAndVisible();

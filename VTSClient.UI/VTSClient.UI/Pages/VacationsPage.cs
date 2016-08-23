@@ -25,8 +25,9 @@ namespace VTSClient.UI.Pages
                 Padding = new Thickness(10),
                 Spacing = 1,
                 Orientation = StackOrientation.Vertical,
+                BackgroundColor = Color.White
             };
-
+            
             vocationsListView.SetBinding(ListView.ItemsSourceProperty, new Binding("VocationList", BindingMode.TwoWay));
             vocationsListView.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedVocation", BindingMode.TwoWay));
             vocationsListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("ApproverFullName"));

@@ -13,6 +13,7 @@ using VTSClient.BusinessLogic.ViewModels;
 using VTSClient.UI.Pages;
 using MvvmCross.Platform;
 using MvvmCross.Core.Views;
+using VTSClient.DataAccess.Repositories;
 
 namespace VTSClient.UI.iOS
 {
@@ -26,6 +27,7 @@ namespace VTSClient.UI.iOS
 
         protected override IMvxApplication CreateApp()
         {
+            Mvx.RegisterType<ISQLite, SQLite_iOS>();
             return new App();
         }
 
@@ -47,6 +49,8 @@ namespace VTSClient.UI.iOS
             dict.Add(typeof(AccountViewModel), typeof(LoginPage));
 
             dict.Add(typeof(VacationsViewModel), typeof(VacationsPage));
+
+            dict.Add(typeof(SelectedVacationViewModel), typeof(VacationDetailsPage));
 
             var container = Mvx.Resolve<IMvxViewsContainer>();
             container.AddAll(dict);

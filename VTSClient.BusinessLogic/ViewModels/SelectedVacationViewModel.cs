@@ -92,6 +92,8 @@ namespace VTSClient.BusinessLogic.ViewModels
             }
         }
 
+        
+
         public ICommand Save
         {
             get

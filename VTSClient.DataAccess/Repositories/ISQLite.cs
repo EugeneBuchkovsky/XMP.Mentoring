@@ -10,7 +10,7 @@ namespace VTSClient.DataAccess.Repositories
 {
     public interface ISQLite
     {
-        string GetPath(string fileName);
+        //string GetPath(string fileName);
         SQLiteConnection GetConnection(string fileName);
     }
 }

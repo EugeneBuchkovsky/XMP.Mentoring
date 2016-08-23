@@ -33,7 +33,7 @@ namespace VTSClient.UI.Droid
             // создаем подключение
             //var connection = new SQLiteConnection(path);
 
-            var a = new SQLiteConnection(platform, path);
+            //var a = new SQLiteConnection(platform, path);
             return new SQLiteConnection(platform, path);
         }
 

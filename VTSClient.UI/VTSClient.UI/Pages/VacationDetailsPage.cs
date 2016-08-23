@@ -13,16 +13,18 @@ namespace VTSClient.UI.Pages
         {
 
             StackLayout mainLayout;
-            Title = "Login";
+            Title = "Vacation details";
 
             Entry login = new Entry
             {
-                HorizontalOptions = LayoutOptions.Center,
+                TextColor = Color.FromHex("878d8f"),
+                BackgroundColor = Color.FromHex("ccc")
             };
 
             Entry password = new Entry
             {
-                HorizontalOptions = LayoutOptions.Center,
+                TextColor = Color.FromHex("878d8f"),
+                BackgroundColor = Color.FromHex("ccc")
             };
 
             var title = new Label
@@ -43,16 +45,20 @@ namespace VTSClient.UI.Pages
             var saveButton = new Button
             {
                 Text = "Save changes",
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                BackgroundColor = Color.FromHex("8CAD35"),
+                BorderRadius = 0
             };
 
             Content = mainLayout = new StackLayout
             {
                 Padding = new Thickness(10),
                 Spacing = 10,
-                Orientation = StackOrientation.Vertical
+                Orientation = StackOrientation.Vertical,
+                BackgroundColor = Color.White
                 //BackgroundColor = new Color(0.1, 0.5, 0.2, 0.1)
             };
+
 
 
             mainLayout.Children.Add(login);

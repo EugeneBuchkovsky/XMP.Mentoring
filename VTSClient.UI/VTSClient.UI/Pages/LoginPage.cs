@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using VTSClient.UI.Resources;
 
 namespace VTSClient.UI.Pages
 {
@@ -33,22 +34,22 @@ namespace VTSClient.UI.Pages
             //};
 
             StackLayout mainLayout;
-            Title = "Login";
+            Title = Resource.LoginName;
             BackgroundImage = "VTS_Main_Theme.jpg";
             Entry login = new Entry
             {
-                Placeholder = "Login"
+                Placeholder = Resource.EntryLogin
             };
 
             Entry password = new Entry
             {
-                Placeholder = "Password",
+                Placeholder = Resource.EntryPassword,
                 IsPassword = true
             };
 
             Button enterbutton = new Button
             {
-                Text = "Enter",
+                Text = Resource.LoginButton,
                 BackgroundColor = Color.FromHex("8CAD35"),
                 BorderRadius = 0
                 //VerticalOptions = LayoutOptions.Fill,
