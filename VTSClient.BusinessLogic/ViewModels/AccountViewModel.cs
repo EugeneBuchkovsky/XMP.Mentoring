@@ -18,7 +18,6 @@ namespace VTSClient.BusinessLogic.ViewModels
         public AccountViewModel(IAccountService _accountService)
         {
             this.accountService = _accountService;
-            Title = "hello";
 
             //var source = "http://localhost:63375/api/Vacations/3";
             //using (HttpClient hc = new HttpClient())
@@ -26,18 +25,7 @@ namespace VTSClient.BusinessLogic.ViewModels
             //    var result = hc.GetAsync(source);
             //}
         }
-
-        private string _title;
-        public string Title
-        {
-            get { return _title; }
-            set
-            {
-                _title = value;
-                RaisePropertyChanged(() => Title);
-            }
-        }
-
+        
         private string login;
         public string Login
         {

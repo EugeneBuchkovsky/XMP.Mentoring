@@ -10,10 +10,10 @@ namespace VTSClient.BusinessLogic.Services.Interfaces
 {
     public interface IVacationsService
     {
-        IEnumerable<ShortVacationInfo> GetAllVocations();
+        Task<IEnumerable<ShortVacationInfo>> GetAllVocations();
 
-        VacationInfo VacationDetails(int id);
+        Task<VacationInfo> VacationDetails(int id);
 
-        int UpdateVacationInfo(VacationInfo vacation);
+        Task<int> UpdateVacationInfo(VacationInfo vacation);
     }
 }

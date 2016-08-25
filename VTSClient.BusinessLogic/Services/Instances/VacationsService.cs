@@ -26,20 +26,20 @@ namespace VTSClient.BusinessLogic.Services.Instances
             //this.Init();
         }
 
-        public IEnumerable<ShortVacationInfo> GetAllVocations()
+        public async Task<IEnumerable<ShortVacationInfo>> GetAllVocations()
         {
-            return vacationsWebService.GetVacationsInfoList(vacationRepo.GetCurrentUser().Id);
+            return await vacationsWebService.GetVacationsInfoList(vacationRepo.GetCurrentUser().Id);
             //return vocationsList;
         }
 
-        public VacationInfo VacationDetails(int id)
+        public async Task<VacationInfo> VacationDetails(int id)
         {
-            return vacationsWebService.GetVacationInfo(id);
+            return await vacationsWebService.GetVacationInfo(id);
         }
 
-        public int UpdateVacationInfo(VacationInfo vacation)
+        public async Task<int> UpdateVacationInfo(VacationInfo vacation)
         {
-            return vacationsWebService.UpdateVacationInfo(vacation);
+            return await vacationsWebService.UpdateVacationInfo(vacation);
         }
 
         private void Init()

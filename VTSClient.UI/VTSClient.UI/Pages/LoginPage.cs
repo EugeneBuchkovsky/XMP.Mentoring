@@ -39,21 +39,24 @@ namespace VTSClient.UI.Pages
             Entry login = new Entry
             {
                 Placeholder = Resource.EntryLogin,
-                BackgroundColor = new Color(0.99, 0.99, 0.99, 0.99),
+                BackgroundColor = new Color(0.99, 0.99, 0.99, 0.9),
                 TextColor = Color.FromHex("666")
+                //FontFamily = "DB LCD Temp"
             };
+
 
             Entry password = new Entry
             {
                 Placeholder = Resource.EntryPassword,
                 IsPassword = true,
-                BackgroundColor = new Color(0.99, 0.99, 0.99, 0.99),
+                BackgroundColor = new Color(0.99, 0.99, 0.99, 0.9),
                 TextColor = Color.FromHex("666")
             };
 
             Button enterbutton = new Button
             {
                 Text = Resource.LoginButton,
+                TextColor = Color.White,
                 BackgroundColor = Color.FromHex("8CAD35"),
                 BorderRadius = 0
                 //VerticalOptions = LayoutOptions.Fill,
@@ -94,6 +97,7 @@ namespace VTSClient.UI.Pages
             sl.Children.Add(login);
             sl.Children.Add(password);
             sl.Children.Add(enterbutton);
+            sl.Children.Add(errorMessage);
 
             Frame logFrame = new Frame
             {
@@ -102,12 +106,20 @@ namespace VTSClient.UI.Pages
                   VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
+
+            var image = new Image
+            {
+                Source = "Logo_Epam_Color.png",
+                VerticalOptions = LayoutOptions.End,
+                HorizontalOptions = LayoutOptions.Center
+            };
             //mainLayout.Children.Add(login);
             //mainLayout.Children.Add(password);
             //mainLayout.Children.Add(enterbutton);
-            mainLayout.Children.Add(errorMessage);
+            //mainLayout.Children.Add(errorMessage);
             //mainLayout.Children.Add(wb);
             mainLayout.Children.Add(logFrame);
+            mainLayout.Children.Add(image);
 
             enterbutton.SetBinding(Button.CommandProperty, new Binding("Logon"));
             login.SetBinding(Entry.TextProperty, new Binding("Login"));

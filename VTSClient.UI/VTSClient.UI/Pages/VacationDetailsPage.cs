@@ -95,7 +95,8 @@ namespace VTSClient.UI.Pages
             var comment = new Editor
             {
                 BackgroundColor = Color.FromHex("f4f4f4"),
-                TextColor = Color.FromHex("666")
+                TextColor = Color.FromHex("666"),
+                IsEnabled = true
             };
 
             var vacationType = new Label
@@ -106,12 +107,13 @@ namespace VTSClient.UI.Pages
             var saveButton = new Button
             {
                 Text = Resource.SaveChangesButton,
+                TextColor = Color.White,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = Color.FromHex("8CAD35"),
                 BorderRadius = 0
             };
 
-            Content = mainLayout = new StackLayout
+            mainLayout = new StackLayout
             {
                 Padding = new Thickness(10),
                 Spacing = 10,

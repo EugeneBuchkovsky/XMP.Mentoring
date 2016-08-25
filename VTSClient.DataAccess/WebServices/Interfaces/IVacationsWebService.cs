@@ -10,10 +10,10 @@ namespace VTSClient.DataAccess.WebServices.Interfaces
 {
     public interface IVacationsWebService
     {
-        IEnumerable<ShortVacationInfo> GetVacationsInfoList(int id);
+        Task<IEnumerable<ShortVacationInfo>> GetVacationsInfoList(int id);
 
-        VacationInfo GetVacationInfo(int id);
+        Task<VacationInfo> GetVacationInfo(int id);
 
-        int UpdateVacationInfo(VacationInfo model);
+        Task<int> UpdateVacationInfo(VacationInfo model);
     }
 }

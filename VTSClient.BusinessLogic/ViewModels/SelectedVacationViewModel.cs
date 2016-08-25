@@ -21,11 +21,11 @@ namespace VTSClient.BusinessLogic.ViewModels
 
         private VacationInfo model;
 
-        public void Init(int selectId, string aName)
+        public async void Init(int selectId, string aName)
         {
             this.aName = aName;
             this.id = selectId;
-            model = vacationService.VacationDetails(id);
+            model = await vacationService.VacationDetails(id);
             Name = aName;
             Name1 = model.Status;
             Name2 = model.VacationForm;
@@ -126,12 +126,12 @@ namespace VTSClient.BusinessLogic.ViewModels
             }
         }
 
-        private void SaveChanges()
+        private async void SaveChanges()
         {
             model.Comment = Comment;
             //TO DO: CHANGE MODEL
-            vacationService.UpdateVacationInfo(model);
-            ShowViewModel<VacationsViewModel>();
+            await vacationService.UpdateVacationInfo(model);
+            Close(this);
         }
     }
 }

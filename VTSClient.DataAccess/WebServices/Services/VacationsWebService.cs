@@ -13,7 +13,7 @@ namespace VTSClient.DataAccess.WebServices.Services
 {
     public class VacationsWebService : IVacationsWebService
     {
-        public VacationInfo GetVacationInfo(int id)
+        public async Task<VacationInfo> GetVacationInfo(int id)
         {
             var client = new RestClient("http://10.6.106.21/test/api");
 
@@ -21,15 +21,19 @@ namespace VTSClient.DataAccess.WebServices.Services
 
             request.AddUrlSegment("id", id.ToString());
 
-            var a = client.Execute<VacationInfo>(request);
-            // TO DO:
-            var ab = a.Data;
+            //var a = client.Execute<VacationInfo>(request);
 
-            return ab;
+            var result = await client.ExecuteTaskAsync<VacationInfo>(request);
+
+            // TO DO:
+            //var ab = a.Data;
+
+            return result.Data;
         }
 
-        public IEnumerable<ShortVacationInfo> GetVacationsInfoList(int id)
+        public async Task<IEnumerable<ShortVacationInfo>> GetVacationsInfoList(int id)
         {
+            IEnumerable<ShortVacationInfo> ab = null;
             var client = new RestClient("http://10.6.106.21/test/api");
 
             var request = new RestRequest("Vacation/List/{id}", Method.GET);
@@ -37,18 +41,30 @@ namespace VTSClient.DataAccess.WebServices.Services
             //request.RequestFormat = DataFormat.Json;
             request.AddUrlSegment("id", id.ToString());
 
-            var a = client.Execute<List<ShortVacationInfo>>(request);
+            //var result = client.ExecuteAsync<List<ShortVacationInfo>>(request, response =>
+            //{
+            //    if(response.ResponseStatus == ResponseStatus.Completed)
+            //        ab = response.Data;
+            //});
 
+            //var res = client.Execute<List<ShortVacationInfo>>(request).Data;
+            var r = await client.ExecuteTaskAsync<List<ShortVacationInfo>>(request);
             //var ab = a.Content;
             // TO DO:
-            var ab = a.Data;
+            //var ab = a.Data;
 
             //return ab;
+            //Task.Delay(10000);
 
-            return ab;
+            //var res = r.Data;
+
+
+            //var a = ab;
+
+            return r.Data;
         }
 
-        public int UpdateVacationInfo(VacationInfo model)
+        public async Task<int> UpdateVacationInfo(VacationInfo model)
         {
             var client = new RestClient("http://10.6.106.21/test/api");
 
@@ -56,11 +72,13 @@ namespace VTSClient.DataAccess.WebServices.Services
             request.RequestFormat = DataFormat.Json;
 
             request.AddBody(model);
-            var a = client.Execute<int>(request);
-            // TO DO:
-            var ab = a.Data;
+            //var a = client.Execute<int>(request);
+            var r = await client.ExecuteTaskAsync<int>(request);
 
-            return ab;
+            // TO DO:
+            //var ab = a.Data;
+
+            return r.Data;
         }
     }
 }

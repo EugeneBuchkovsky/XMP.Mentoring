@@ -20,11 +20,10 @@ namespace VTSClient.BusinessLogic.ViewModels
             this.vocationsService = _vocationsService;
         }
 
-        public override void Start()
+        public override async void Start()
         {
 
-            VocationList = vocationsService.GetAllVocations();
-            Name = "Namechko";
+            VocationList = await vocationsService.GetAllVocations();
             base.Start();
         }
 
@@ -65,7 +64,6 @@ namespace VTSClient.BusinessLogic.ViewModels
         public ICommand ShowSelectedVacationCommand()
         {
             return new MvxCommand(() => ShowViewModel<SelectedVacationViewModel>(new { selectId = SelectedVocation.Id, aName = SelectedVocation.ApproverFullName }),() => SelectedVocation != null);
-
         }
     }
 }
