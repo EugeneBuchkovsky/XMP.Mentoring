@@ -22,7 +22,7 @@ namespace VTSClient.BusinessLogic.Services.Instances
         {
             this.loginWebService = _loginWebService;
             this.personrepository = repo;
-            this.Init();
+            //this.Init();
         }
 
         public Person Authentication(string login, string password)
