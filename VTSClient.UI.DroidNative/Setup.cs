@@ -17,6 +17,9 @@ using VTSClient.BusinessLogic.Services.Instances;
 using VTSClient.DataAccess.WebServices.Interfaces;
 using VTSClient.DataAccess.WebServices.Services;
 using VTSClient.DataAccess.Repositories;
+using VTSClient.BusinessLogic.ViewModels;
+using VTSClient.UI.DroidNative.Views;
+using MvvmCross.Core.Views;
 
 namespace VTSClient.UI.DroidNative
 {
@@ -41,6 +44,18 @@ namespace VTSClient.UI.DroidNative
 
 
             return new BusinessLogic.App();
+        }
+
+        protected override void InitializeViewLookup()
+        {
+            base.InitializeViewLookup();
+
+            var dict = new Dictionary<Type, Type>();
+
+            dict.Add(typeof(VacationsViewModel), typeof(VacationsView));
+
+            var container = Mvx.Resolve<IMvxViewsContainer>();
+            container.AddAll(dict);
         }
     }
 }

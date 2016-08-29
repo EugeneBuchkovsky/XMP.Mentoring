@@ -22,6 +22,7 @@ namespace VTSClient.UI.DroidNative.Views
         protected override void OnViewModelSet()
         {
             SetContentView(Resource.Layout.AccountLayout);
+            //SetContentView(Resource.Layout.VacationDetailsView);
         }
     }
 }
