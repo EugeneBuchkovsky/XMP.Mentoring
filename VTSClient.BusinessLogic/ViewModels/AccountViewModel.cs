@@ -76,7 +76,11 @@ namespace VTSClient.BusinessLogic.ViewModels
             else
             {
                 ErrorMessage = "OK";
-                ShowViewModel<VacationsViewModel>();
+                
+                ShowViewModel<CreateVacationViewModel>();
+
+                //ShowViewModel<SubViewModel>();
+                //ShowViewModel<VacationsViewModel>();
             }
 
         }

@@ -41,7 +41,13 @@
     <Compile Include="Services\Interfaces\IAccountService.cs" />
     <Compile Include="Services\Interfaces\IVacationsService.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\CreateTabViewModel\CreateRegularVacationViewModel.cs" />
+    <Compile Include="ViewModels\CreateTabViewModel\CreateSickLeaveViewModel.cs" />
+    <Compile Include="ViewModels\CreateTabViewModel\CreateViewModel.cs" />
+    <Compile Include="ViewModels\CreateVacationViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\SelectedVacationViewModel.cs" />
+    <Compile Include="ViewModels\SubViewModel.cs" />
     <Compile Include="ViewModels\VacationsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

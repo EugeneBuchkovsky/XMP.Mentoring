@@ -14,6 +14,9 @@ using MvvmCross.Droid.Views;
 using MvvmCross.Core.ViewModels;
 using VTSClient.BusinessLogic.ViewModels;
 
+using MvvmCross.Droid.FullFragging.Fragments;
+using MvvmCross.Droid.FullFragging;
+
 namespace VTSClient.UI.DroidNative.Views
 {
     [Activity(Label = "Vacations", MainLauncher = false)]

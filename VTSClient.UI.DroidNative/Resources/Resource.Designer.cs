@@ -47,6 +47,27 @@ namespace VTSClient.UI.DroidNative
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::MvvmCross.Droid.FullFragging.Resource.Attribute.MvxBind = global::VTSClient.UI.DroidNative.Resource.Attribute.MvxBind;
+			global::MvvmCross.Droid.FullFragging.Resource.Attribute.MvxDropDownItemTemplate = global::VTSClient.UI.DroidNative.Resource.Attribute.MvxDropDownItemTemplate;
+			global::MvvmCross.Droid.FullFragging.Resource.Attribute.MvxGroupItemTemplate = global::VTSClient.UI.DroidNative.Resource.Attribute.MvxGroupItemTemplate;
+			global::MvvmCross.Droid.FullFragging.Resource.Attribute.MvxItemTemplate = global::VTSClient.UI.DroidNative.Resource.Attribute.MvxItemTemplate;
+			global::MvvmCross.Droid.FullFragging.Resource.Attribute.MvxLang = global::VTSClient.UI.DroidNative.Resource.Attribute.MvxLang;
+			global::MvvmCross.Droid.FullFragging.Resource.Attribute.MvxSource = global::VTSClient.UI.DroidNative.Resource.Attribute.MvxSource;
+			global::MvvmCross.Droid.FullFragging.Resource.Attribute.MvxTemplate = global::VTSClient.UI.DroidNative.Resource.Attribute.MvxTemplate;
+			global::MvvmCross.Droid.FullFragging.Resource.Id.MvvmCrossTagId = global::VTSClient.UI.DroidNative.Resource.Id.MvvmCrossTagId;
+			global::MvvmCross.Droid.FullFragging.Resource.Id.MvxBindingTagUnique = global::VTSClient.UI.DroidNative.Resource.Id.MvxBindingTagUnique;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxBinding = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxBinding;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxBinding_MvxBind = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxBinding_MvxBind;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxBinding_MvxLang = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxBinding_MvxLang;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxControl = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxControl;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxControl_MvxTemplate = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxControl_MvxTemplate;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxExpandableListView = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxExpandableListView;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxImageView = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxImageView;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxImageView_MvxSource = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxImageView_MvxSource;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxListView = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxListView;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
+			global::MvvmCross.Droid.FullFragging.Resource.Styleable.MvxListView_MvxItemTemplate = global::VTSClient.UI.DroidNative.Resource.Styleable.MvxListView_MvxItemTemplate;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::VTSClient.UI.DroidNative.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::VTSClient.UI.DroidNative.Resource.String.Hello;
 		}
@@ -91,6 +112,9 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f020000
 			public const int Icon = 2130837504;
 			
+			// aapt resource value: 0x7f020001
+			public const int mainIcon = 2130837505;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -113,6 +137,9 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f050002
 			public const int buttonLogon = 2131034114;
 			
+			// aapt resource value: 0x7f050003
+			public const int frag1 = 2131034115;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -130,13 +157,31 @@ namespace VTSClient.UI.DroidNative
 			public const int AccountLayout = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int VacationDetailsView = 2130903041;
+			public const int CreatePageMain = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int VacationItemView = 2130903042;
+			public const int CreateRegularVacationView = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int VacationsLayout = 2130903043;
+			public const int CreateSickLeaveView = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int CreateVacationActivityView = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int CreateVacationTabView = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int MenuFragmentView = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int VacationDetailsView = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int VacationItemView = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int VacationsLayout = 2130903049;
 			
 			static Layout()
 			{

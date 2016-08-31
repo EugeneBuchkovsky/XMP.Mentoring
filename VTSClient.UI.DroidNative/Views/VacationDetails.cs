@@ -9,19 +9,16 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MvvmCross.Droid.Views;
-using MvvmCross.Core.ViewModels;
-using VTSClient.BusinessLogic.ViewModels;
+using MvvmCross.Droid.FullFragging.Views;
 
 namespace VTSClient.UI.DroidNative.Views
 {
-    [Activity(Label = "Login", MainLauncher =true)]
-    [MvxViewFor(typeof(AccountViewModel))]
-    public class AccountActivity : MvxActivity
+    [Activity(Label = "Login", MainLauncher = false)]
+    public class VacationDetails : MvxActivity
     {
         protected override void OnViewModelSet()
         {
-            SetContentView(Resource.Layout.AccountLayout);
+            SetContentView(Resource.Layout.VacationDetailsView);
             //SetContentView(Resource.Layout.VacationDetailsView);
             //SetContentView(Resource.Layout.CreatePageMain);
 

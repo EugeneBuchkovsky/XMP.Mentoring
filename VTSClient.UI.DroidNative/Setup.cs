@@ -20,6 +20,8 @@ using VTSClient.DataAccess.Repositories;
 using VTSClient.BusinessLogic.ViewModels;
 using VTSClient.UI.DroidNative.Views;
 using MvvmCross.Core.Views;
+using VTSClient.BusinessLogic.ViewModels.CreateTabViewModel;
+using VTSClient.UI.DroidNative.Tabs;
 
 namespace VTSClient.UI.DroidNative
 {
@@ -53,6 +55,13 @@ namespace VTSClient.UI.DroidNative
             var dict = new Dictionary<Type, Type>();
 
             dict.Add(typeof(VacationsViewModel), typeof(VacationsView));
+            dict.Add(typeof(CreateVacationViewModel), typeof(CreateVacationActivityTabsView));
+            //dict.Add(typeof(SubViewModel), typeof(CreateVacationTabsView));
+            //dict.Add(typeof(SelectedVacationViewModel), typeof(VacationDetails));
+
+            dict.Add(typeof(CreateRegularVacationViewModel), typeof(CreateRegularVacationView));
+            dict.Add(typeof(CreateSickLeaveViewModel), typeof(CreateSickLeaveView));
+
 
             var container = Mvx.Resolve<IMvxViewsContainer>();
             container.AddAll(dict);
