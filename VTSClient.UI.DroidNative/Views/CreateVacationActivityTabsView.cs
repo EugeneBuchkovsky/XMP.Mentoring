@@ -13,6 +13,7 @@ using MvvmCross.Droid.Views;
 using VTSClient.BusinessLogic.ViewModels;
 using MvvmCross.Core.ViewModels;
 
+
 namespace VTSClient.UI.DroidNative.Views
 {
     [Activity(Label = "New vacation", MainLauncher = false)]
@@ -33,12 +34,12 @@ namespace VTSClient.UI.DroidNative.Views
             TabHost.TabSpec spec;
             Intent intent;
 
-            spec = TabHost.NewTabSpec("child1");
+            spec = TabHost.NewTabSpec("CreateRegularVacation");
             spec.SetIndicator("Regular");
             spec.SetContent(this.CreateIntentFor(CreateVacationViewModel.RegularVacation));
             TabHost.AddTab(spec);
 
-            spec = TabHost.NewTabSpec("child2");
+            spec = TabHost.NewTabSpec("CreateSickLeave");
             spec.SetIndicator("Sick leave");
             spec.SetContent(this.CreateIntentFor(CreateVacationViewModel.SickLeave));
             TabHost.AddTab(spec);

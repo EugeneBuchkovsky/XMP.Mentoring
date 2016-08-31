@@ -27,6 +27,7 @@ namespace VTSClient.BusinessLogic
             Mvx.RegisterType<IRepository, PersonRepository>();
 
             Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<AccountViewModel>());
+            //Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<CreateVacationViewModel>());
         }
     }
 }

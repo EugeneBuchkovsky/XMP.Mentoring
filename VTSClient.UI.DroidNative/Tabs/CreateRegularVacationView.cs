@@ -13,6 +13,7 @@ using MvvmCross.Droid.Views;
 
 namespace VTSClient.UI.DroidNative.Tabs
 {
+    [Activity]
     public class CreateRegularVacationView : MvxActivity
     {
         protected override void OnCreate(Bundle bundle)

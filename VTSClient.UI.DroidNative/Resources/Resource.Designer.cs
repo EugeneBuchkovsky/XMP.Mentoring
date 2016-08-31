@@ -134,6 +134,9 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f050001
 			public const int MvxBindingTagUnique = 2131034113;
 			
+			// aapt resource value: 0x7f050004
+			public const int button = 2131034116;
+			
 			// aapt resource value: 0x7f050002
 			public const int buttonLogon = 2131034114;
 			

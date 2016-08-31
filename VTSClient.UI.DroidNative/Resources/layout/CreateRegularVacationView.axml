@@ -15,35 +15,27 @@
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Status" />
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      local:MvxBind="Text Status" />
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Form" />
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      local:MvxBind="Text VacationForm" />
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
       android:text="Start date" />
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+  <DatePicker
+      android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:calendarViewShown="false"
+        android:layout_marginTop="48dp"
       local:MvxBind="Text StartDate" />
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:text="End date" />
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      local:MvxBind="Text EndDate" />
+  <DatePicker
+      android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:calendarViewShown="false"
+        android:layout_marginTop="48dp"
+      local:MvxBind="Text EndDate" />/>
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
