@@ -15,5 +15,9 @@ namespace VTSClient.DataAccess.WebServices.Interfaces
         Task<VacationInfo> GetVacationInfo(int id);
 
         Task<int> UpdateVacationInfo(VacationInfo model);
+
+        Task<IEnumerable<Person>> GetApprovers(int id);
+
+        IEnumerable<Person> GetApproversSync(int id);
     }
 }

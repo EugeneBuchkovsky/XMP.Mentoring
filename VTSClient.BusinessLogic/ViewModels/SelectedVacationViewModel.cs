@@ -27,10 +27,10 @@ namespace VTSClient.BusinessLogic.ViewModels
             this.id = selectId;
             model = await vacationService.VacationDetails(id);
             Name = aName;
-            Name1 = model.Status;
-            Name2 = model.VacationForm;
-            Name3 = model.StartDate;
-            Name4 = model.EndDate;
+            Status = model.Status;
+            VacationForm = model.VacationForm;
+            StartDate = model.StartDate;
+            EndDate = model.EndDate;
             Comment = model.Comment;
         }
 
@@ -50,47 +50,47 @@ namespace VTSClient.BusinessLogic.ViewModels
             }
         }
 
-        private VacationStatus name1;
-        public VacationStatus Name1
+        private VacationStatus status;
+        public VacationStatus Status
         {
-            get { return name1; }
+            get { return status; }
             set
             {
-                name1 = value;
-                RaisePropertyChanged(() => Name1);
+                status = value;
+                RaisePropertyChanged(() => Status);
             }
         }
 
-        private object name2;
-        public object Name2
+        private object vacationForm;
+        public object VacationForm
         {
-            get { return name2; }
+            get { return vacationForm; }
             set
             {
-                name2 = value;
-                RaisePropertyChanged(() => Name2);
+                vacationForm = value;
+                RaisePropertyChanged(() => VacationForm);
             }
         }
 
-        private DateTime name3;
-        public DateTime Name3
+        private DateTime startDate;
+        public DateTime StartDate
         {
-            get { return name3; }
+            get { return startDate; }
             set
             {
-                name3 = value;
-                RaisePropertyChanged(() => Name3);
+                startDate = value;
+                RaisePropertyChanged(() => StartDate);
             }
         }
 
-        private DateTime name4;
-        public DateTime Name4
+        private DateTime endDate;
+        public DateTime EndDate
         {
-            get { return name4; }
+            get { return endDate; }
             set
             {
-                name4 = value;
-                RaisePropertyChanged(() => Name4);
+                endDate = value;
+                RaisePropertyChanged(() => EndDate);
             }
         }
 

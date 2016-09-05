@@ -77,8 +77,8 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             }
         }
 
-        private string type;
-        public string Type
+        private VacationType type;
+        public VacationType Type
         {
             get { return type; }
             set
@@ -98,7 +98,7 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             }
         }
 
-        private async void SaveChanges()
+        public virtual async void SaveChanges()
         {
             //model.Comment = Comment;
             ////TO DO: CHANGE MODEL

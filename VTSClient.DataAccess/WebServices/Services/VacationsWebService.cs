@@ -13,6 +13,32 @@ namespace VTSClient.DataAccess.WebServices.Services
 {
     public class VacationsWebService : IVacationsWebService
     {
+
+        public async Task<IEnumerable<Person>> GetApprovers(int id)
+        {
+            var client = new RestClient("http://10.6.106.21/test/api");
+
+            var request = new RestRequest("Vacation/Approvers/{id}", Method.GET);
+
+            request.AddUrlSegment("id", id.ToString());
+
+            var r = await client.ExecuteTaskAsync<List<Person>>(request);
+
+            return r.Data;
+        }
+
+        public IEnumerable<Person> GetApproversSync(int id)
+        {
+            var client = new RestClient("http://10.6.106.21/test/api");
+
+            var request = new RestRequest("Vacation/Approvers/{id}", Method.GET);
+
+            request.AddUrlSegment("id", id.ToString());
+
+            var r = client.Execute<List<Person>>(request);
+
+            return r.Data;
+        }
         public async Task<VacationInfo> GetVacationInfo(int id)
         {
             var client = new RestClient("http://10.6.106.21/test/api");

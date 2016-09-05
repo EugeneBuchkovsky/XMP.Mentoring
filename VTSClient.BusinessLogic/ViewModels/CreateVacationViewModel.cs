@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using VTSClient.BusinessLogic.Services.Interfaces;
 using VTSClient.BusinessLogic.ViewModels.CreateTabViewModel;
+using VTSClient.DataAccess.Repositories;
 using VtsMockClient.Domain.Enums;
 using VtsMockClient.Domain.Models;
 
@@ -27,10 +28,10 @@ namespace VTSClient.BusinessLogic.ViewModels
         //    Comment = model.Comment;
         //}
 
-        public CreateVacationViewModel()
+        public CreateVacationViewModel(IVacationsService service, IRepository repo)
         {
             //this.vacationService = _vacationService;
-            RegularVacation = new CreateRegularVacationViewModel();
+            RegularVacation = new CreateRegularVacationViewModel(service, repo);
             SickLeave = new CreateSickLeaveViewModel();
         }
 

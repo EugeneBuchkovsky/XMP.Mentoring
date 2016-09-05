@@ -140,8 +140,14 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f050002
 			public const int buttonLogon = 2131034114;
 			
+			// aapt resource value: 0x7f050005
+			public const int content_frame = 2131034117;
+			
 			// aapt resource value: 0x7f050003
 			public const int frag1 = 2131034115;
+			
+			// aapt resource value: 0x7f050006
+			public const int left_drawer = 2131034118;
 			
 			static Id()
 			{
@@ -160,31 +166,37 @@ namespace VTSClient.UI.DroidNative
 			public const int AccountLayout = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int CreatePageMain = 2130903041;
+			public const int ApproverItemView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int CreateRegularVacationView = 2130903042;
+			public const int CreatePageMain = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int CreateSickLeaveView = 2130903043;
+			public const int CreateRegularVacationView = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int CreateVacationActivityView = 2130903044;
+			public const int CreateSickLeaveView = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int CreateVacationTabView = 2130903045;
+			public const int CreateVacationActivityView = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int MenuFragmentView = 2130903046;
+			public const int CreateVacationTabView = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int VacationDetailsView = 2130903047;
+			public const int Item_menu = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int VacationItemView = 2130903048;
+			public const int MenuFragmentView = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int VacationsLayout = 2130903049;
+			public const int VacationDetailsView = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int VacationItemView = 2130903050;
+			
+			// aapt resource value: 0x7f03000b
+			public const int VacationsLayout = 2130903051;
 			
 			static Layout()
 			{

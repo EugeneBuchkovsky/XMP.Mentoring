@@ -65,5 +65,18 @@ namespace VTSClient.BusinessLogic.ViewModels
         {
             return new MvxCommand(() => ShowViewModel<SelectedVacationViewModel>(new { selectId = SelectedVocation.Id, aName = SelectedVocation.ApproverFullName }),() => SelectedVocation != null);
         }
+
+        public ICommand _someCommand;
+        public ICommand SomeCommand
+        {
+            get
+            {
+                return _someCommand ?? new MvxCommand<ShortVacationInfo>((value) =>
+                {
+                    ShowViewModel<SelectedVacationViewModel>(new { selectId = value.Id, aName = value.ApproverFullName });
+                    //ShowSelectedVacation();
+                });
+            }
+        }
     }
 }

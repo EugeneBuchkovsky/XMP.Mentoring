@@ -42,6 +42,16 @@ namespace VTSClient.BusinessLogic.Services.Instances
             return await vacationsWebService.UpdateVacationInfo(vacation);
         }
 
+        public async Task<IEnumerable<Person>> GetApprovers()
+        {
+            return await vacationsWebService.GetApprovers(vacationRepo.GetCurrentUser().Id);
+        }
+
+        public IEnumerable<Person> GetApproversSync()
+        {
+            return vacationsWebService.GetApproversSync(vacationRepo.GetCurrentUser().Id);
+        }
+
         private void Init()
         {
             vocationsList = new List<ShortVacationInfo>();

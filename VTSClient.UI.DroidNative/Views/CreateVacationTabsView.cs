@@ -20,21 +20,30 @@ namespace VTSClient.UI.DroidNative.Views
 {
     [Activity]
     [MvxViewFor(typeof(SubViewModel))]
-    public class CreateVacationTabsView : MvxTabsFragmentActivity
+    public class CreateVacationTabsView : MvxTabActivity
     {
-        public SubViewModel tabViewModel
+        protected CreateVacationViewModel CreateVacationViewModel
         {
-            get { return (SubViewModel)base.ViewModel; }
+            get { return base.ViewModel as CreateVacationViewModel; }
         }
 
-        public CreateVacationTabsView() :
-            base(Resource.Layout.CreateVacationTabView, Resource.Id.buttonLogon)
-        { }
-
-        protected override void AddTabs(Bundle args)
+        protected override void OnCreate(Bundle bundle)
         {
-            AddTab<CreateVacationFragment>("Tab1", "Tab1", args, tabViewModel.Tab1);
-            AddTab<CreateVacationFragment>("Tab2", "Tab2", args, tabViewModel.Tab2);
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.CreateVacationActivityView);
+
+            TabHost.TabSpec spec;
+            Intent intent;
+
+            spec = TabHost.NewTabSpec("CreateRegularVacation");
+            spec.SetIndicator("Regular");
+            spec.SetContent(this.CreateIntentFor(CreateVacationViewModel.RegularVacation));
+            TabHost.AddTab(spec);
+
+            spec = TabHost.NewTabSpec("CreateSickLeave");
+            spec.SetIndicator("Sick leave");
+            spec.SetContent(this.CreateIntentFor(CreateVacationViewModel.SickLeave));
+            TabHost.AddTab(spec);
         }
     }
 }

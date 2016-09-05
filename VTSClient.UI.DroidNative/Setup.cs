@@ -57,7 +57,7 @@ namespace VTSClient.UI.DroidNative
             dict.Add(typeof(VacationsViewModel), typeof(VacationsView));
             dict.Add(typeof(CreateVacationViewModel), typeof(CreateVacationActivityTabsView));
             //dict.Add(typeof(SubViewModel), typeof(CreateVacationTabsView));
-            //dict.Add(typeof(SelectedVacationViewModel), typeof(VacationDetails));
+            dict.Add(typeof(SelectedVacationViewModel), typeof(VacationDetails));
 
             dict.Add(typeof(CreateRegularVacationViewModel), typeof(CreateRegularVacationView));
             dict.Add(typeof(CreateSickLeaveViewModel), typeof(CreateSickLeaveView));

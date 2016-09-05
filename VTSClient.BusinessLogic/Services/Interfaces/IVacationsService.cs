@@ -15,5 +15,10 @@ namespace VTSClient.BusinessLogic.Services.Interfaces
         Task<VacationInfo> VacationDetails(int id);
 
         Task<int> UpdateVacationInfo(VacationInfo vacation);
+
+        Task<IEnumerable<Person>> GetApprovers();
+
+        IEnumerable<Person> GetApproversSync();
+
     }
 }

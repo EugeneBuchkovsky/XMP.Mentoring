@@ -1,53 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  <TextView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto">
+  <LinearLayout
+      android:orientation="vertical"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Aproover name" />
-  <TextView
+      android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Approver" />
+    <Mvx.MvxSpinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="ItemsSource ApproverList"
+        local:MvxItemTemplate="@layout/approveritemview"
+        local:MvxDropDownItemTemplate="@layout/approveritemview" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start date" />
+
+
+    <LinearLayout android:orientation ="horizontal"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      local:MvxBind="Text Name" />
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Start date" />
-  <DatePicker
-      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+      <TextView
+          android:layout_width="200dp"
+          android:layout_height="wrap_content"
+          local:MvxBind="Text StartDate.Date" />
+      <Button
+          android:text="Change"
+          android:textSize ="7dp"
+          android:layout_width="50dp"
+          android:layout_height="50dp" />
+    </LinearLayout>
+
+
+    <MvxDatePicker
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button"
         android:layout_centerHorizontal="true"
         android:calendarViewShown="false"
         android:layout_marginTop="48dp"
-      local:MvxBind="Text StartDate" />
-  <TextView
+        local:MvxBind="Value StartDate" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="End date" />
+
+
+    <LinearLayout android:orientation ="horizontal"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="End date" />
-  <DatePicker
-      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+      <TextView
+          android:layout_width="200dp"
+          android:layout_height="wrap_content"
+          local:MvxBind="Text EndDate.Date" />
+      <Button
+          android:text="Change"
+          android:textSize ="7dp"
+          android:layout_width="50dp"
+          android:layout_height="50dp" />
+    </LinearLayout>
+
+
+    <MvxDatePicker
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button"
         android:layout_centerHorizontal="true"
         android:calendarViewShown="false"
         android:layout_marginTop="48dp"
-      local:MvxBind="Text EndDate" />/>
-  <TextView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Comment" />
-  <EditText
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      local:MvxBind="Text Comment" />
-  <Button
-      android:text="Save changes"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/buttonLogon"
-      local:MvxBind="Click Save" />
-</LinearLayout>
+        local:MvxBind="Value EndDate" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comment" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Comment" />
+    <Button
+        android:text="Save changes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonLogon"
+        local:MvxBind="Click Save" />
+  </LinearLayout>
+</ScrollView>
