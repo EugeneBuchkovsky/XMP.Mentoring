@@ -5,27 +5,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using VTSClient.BusinessLogic.Enums;
 
 namespace VTSClient.BusinessLogic.ViewModels
 {
     public class MenuViewModel : MvxViewModel
     {
-        private ICommand selectedVocations;
-        public ICommand SelectedVocations
+        private MenuItems section;
+        public MenuItems Section
         {
-            get { return new MvxCommand(() => ShowViewModel<VacationsViewModel>()); }
+            get { return section; }
+            set
+            {
+                section = value;
+                RaisePropertyChanged(() => Section);
+            }
         }
 
-        private ICommand selectedCreate;
-        public ICommand SelectedCreate
+        private string title;
+        public string Title
         {
-            get { return new MvxCommand(() => ShowViewModel<CreateVacationViewModel>()); }
-        }
-
-        private ICommand selectedLogout;
-        public ICommand SelectedLogout
-        {
-            get { return new MvxCommand(() => ShowViewModel<AccountViewModel>()); }
+            get { return title; }
+            set
+            {
+                title = value;
+                RaisePropertyChanged(() => Title);
+            }
         }
     }
 }

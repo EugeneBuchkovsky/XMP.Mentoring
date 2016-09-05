@@ -18,6 +18,29 @@ namespace VTSClient.BusinessLogic.ViewModels
         public VacationsViewModel(IVacationsService _vocationsService)
         {
             this.vocationsService = _vocationsService;
+
+            this.menuItems = new List<MenuViewModel>
+                               {
+                                   new MenuViewModel
+                                       {
+                                           Section = Enums.MenuItems.AddVcation, 
+                                           Title = "Add vacation"
+                                       }, 
+                                   new MenuViewModel
+                                       {
+                                           Section = Enums.MenuItems.SickToday, 
+                                           Title = "sick"
+                                       }, 
+                                   new MenuViewModel
+                                       {
+                                           Section =  Enums.MenuItems.LogOn, 
+                                           Title = "LogOn"
+                                       }, 
+
+
+
+                               };
+
         }
 
         public override async void Start()
@@ -78,5 +101,47 @@ namespace VTSClient.BusinessLogic.ViewModels
                 });
             }
         }
+
+        //Menu_________________________________________________________________________________________________________________
+
+        private List<MenuViewModel> menuItems;
+        public List<MenuViewModel> MenuItems
+        {
+            get { return this.menuItems; } 
+            set { this.menuItems = value; this.RaisePropertyChanged(() => this.MenuItems); }
+        }
+
+        private MvxCommand<MenuViewModel> m_SelectMenuItemCommand; 
+         public ICommand SelectMenuItemCommand 
+         { 
+             get 
+             { 
+                 return this.m_SelectMenuItemCommand ?? (this.m_SelectMenuItemCommand = new MvxCommand<MenuViewModel>(this.ExecuteSelectMenuItemCommand)); 
+             } 
+         } 
+ 
+ 
+         private void ExecuteSelectMenuItemCommand(MenuViewModel item)
+         { 
+             //navigate if we have to, pass the id so we can grab from cache... or not 
+             switch (item.Section) 
+             { 
+ 
+
+                 case Enums.MenuItems.AddVcation: 
+                     this.ShowViewModel<CreateVacationViewModel>();
+                    //Close(this);
+                     break; 
+                 //case Enums.MenuItems.SickToday: 
+                 //    this.ShowViewModel<FriendsViewModel>(new { item.Id }); 
+                 //    break; 
+                 case Enums.MenuItems.LogOn: 
+                     this.ShowViewModel<AccountViewModel>(); 
+                     break; 
+             } 
+ 
+ 
+         } 
+
     }
 }
