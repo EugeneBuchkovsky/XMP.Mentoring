@@ -5,5 +5,13 @@
   <string name="drawer_open">Open</string>
   <string name="drawer_close">Close</string>
   <string name="menu_refresh">Refresh</string>
-
+  <string name="Login">Login</string>
+  <string name="Password">Password</string>
+  <string name="EnterButton">Enter</string>
+  <string name="Approver">Approver name</string>
+  <string name="Status">Status</string>
+  <string name="Form">Vacation Form</string>
+  <string name="Startdate">Start date</string>
+  <string name="EndDate">EndDate</string>
+  <string name="Comment">Comment</string>
 </resources>

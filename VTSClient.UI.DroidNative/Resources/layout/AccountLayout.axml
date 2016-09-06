@@ -4,34 +4,31 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login" />
+
+  <ImageView
+  android:layout_width="200dp"
+  android:layout_height="200dp"
+  android:layout_marginTop="50dp"
+  android:layout_marginBottom="50dp"
+  android:layout_gravity="center"
+  android:src="@drawable/sun"/>
+
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
+        style="@style/editCretentioalStyle"
+        android:hint="@string/Login"
         local:MvxBind="Text Login" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password" />
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password"
+        style="@style/editCretentioalStyle"
+        android:hint="@string/Password"
         local:MvxBind="Text Password"
         android:password="true" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/messageStyle"
         android:text="Ckick to enter"
         local:MvxBind="Text ErrorMessage" />
     <Button
-        android:text="Enter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:text="@string/EnterButton"
+        style="@style/ButtonStyle"
         android:id="@+id/buttonLogon"
         local:MvxBind="Click Logon" />
 

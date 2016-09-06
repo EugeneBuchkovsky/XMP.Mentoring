@@ -106,6 +106,22 @@ namespace VTSClient.UI.DroidNative
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int custom_theme_color = 2131165184;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -117,6 +133,9 @@ namespace VTSClient.UI.DroidNative
 			
 			// aapt resource value: 0x7f020002
 			public const int mainIcon = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int sun = 2130837507;
 			
 			static Drawable()
 			{
@@ -220,8 +239,35 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f040001
 			public const int ApplicationName = 2130968577;
 			
+			// aapt resource value: 0x7f040008
+			public const int Approver = 2130968584;
+			
+			// aapt resource value: 0x7f04000d
+			public const int Comment = 2130968589;
+			
+			// aapt resource value: 0x7f04000c
+			public const int EndDate = 2130968588;
+			
+			// aapt resource value: 0x7f040007
+			public const int EnterButton = 2130968583;
+			
+			// aapt resource value: 0x7f04000a
+			public const int Form = 2130968586;
+			
 			// aapt resource value: 0x7f040000
 			public const int Hello = 2130968576;
+			
+			// aapt resource value: 0x7f040005
+			public const int Login = 2130968581;
+			
+			// aapt resource value: 0x7f040006
+			public const int Password = 2130968582;
+			
+			// aapt resource value: 0x7f04000b
+			public const int Startdate = 2130968587;
+			
+			// aapt resource value: 0x7f040009
+			public const int Status = 2130968585;
 			
 			// aapt resource value: 0x7f040003
 			public const int drawer_close = 2130968579;
@@ -238,6 +284,43 @@ namespace VTSClient.UI.DroidNative
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int ButtonStyle = 2131099648;
+			
+			// aapt resource value: 0x7f060006
+			public const int editCretentioalStyle = 2131099654;
+			
+			// aapt resource value: 0x7f060004
+			public const int infoItemStyle = 2131099652;
+			
+			// aapt resource value: 0x7f060003
+			public const int infoStyle = 2131099651;
+			
+			// aapt resource value: 0x7f060005
+			public const int itemImageStyle = 2131099653;
+			
+			// aapt resource value: 0x7f060002
+			public const int labelStyle = 2131099650;
+			
+			// aapt resource value: 0x7f060007
+			public const int maintheme = 2131099655;
+			
+			// aapt resource value: 0x7f060001
+			public const int messageStyle = 2131099649;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}
