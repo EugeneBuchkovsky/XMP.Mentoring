@@ -5,41 +5,41 @@
       android:orientation="vertical"
       android:layout_width="match_parent"
       android:layout_height="match_parent">
+    
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Aproover name" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        local:MvxBind="Text Name" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/labelStyle"
         android:text="Start date" />
-    <DatePicker
-        android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_below="@+id/button"
-          android:layout_centerHorizontal="true"
-          android:calendarViewShown="false"
-          android:layout_marginTop="48dp"
-        local:MvxBind="Text StartDate" />
+    <LinearLayout android:orientation ="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <TextView
+          android:id="@+id/sick_date_display1"
+          style="@style/DateStyle"
+          local:MvxBind="Text StartDate.Date" />
+      <Button
+          android:id="@+id/sick_date_select_button1"
+          style="@style/DatePickerButtonStyle"/>
+    </LinearLayout>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/labelStyle"
         android:text="End date" />
-    <DatePicker
-        android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_below="@+id/button"
-          android:layout_centerHorizontal="true"
-          android:layout_marginTop="48dp"
-          android:calendarViewShown="false"
-        local:MvxBind="Text EndDate" />
+
+
+    <LinearLayout android:orientation ="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <TextView
+          android:id="@+id/sick_date_display2"
+          style="@style/DateStyle"
+          local:MvxBind="Text EndDate.Date" />
+      <Button
+          android:id="@+id/sick_date_select_button2"
+          style="@style/DatePickerButtonStyle"/>
+    </LinearLayout>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/labelStyle"
         android:text="Comment" />
     <EditText
         android:layout_width="match_parent"
@@ -47,8 +47,7 @@
         local:MvxBind="Text Comment" />
     <Button
         android:text="Save changes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyle"
         android:id="@+id/buttonLogon"
         local:MvxBind="Click Save" />
   </LinearLayout>

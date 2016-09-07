@@ -11,6 +11,13 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
 {
     public abstract class CreateViewModel : MvxViewModel
     {
+        public override void Start()
+        {
+            StartDate = DateTime.Now;
+            EndDate = DateTime.Now.AddHours(8);
+            base.Start();
+        }
+
         private string aprooverName;
         public string AprooverName
         {
@@ -88,6 +95,17 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             }
         }
 
+        private string message;
+        public string Message
+        {
+            get { return message; }
+            set
+            {
+                message = value;
+                RaisePropertyChanged(() => Message);
+            }
+        }
+
 
         public ICommand Save
         {
@@ -104,6 +122,11 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             ////TO DO: CHANGE MODEL
             //await vacationService.UpdateVacationInfo(model);
             //Close(this);
+        }
+
+        protected bool DateCheck(DateTime start, DateTime end)
+        {
+            return start <= end && start >= DateTime.Now.Date;
         }
     }
 }

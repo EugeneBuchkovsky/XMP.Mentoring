@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using VTSClient.BusinessLogic.Converters;
 using VTSClient.BusinessLogic.Services.Interfaces;
 using VTSClient.DataAccess.Repositories;
 using VtsMockClient.Domain.Enums;
@@ -21,8 +23,7 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             this.service = vs;
             this.repo = repo;
 
-            StartDate = DateTime.Now;
-            EndDate = DateTime.Now.AddHours(8);
+            
 
             ApproverList = service.GetApproversSync();
         }
@@ -44,6 +45,28 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             }
         }
 
+        private string startD;
+        public string StartD
+        {
+            get { return startD; }
+            set
+            {
+                startD = value;
+                RaisePropertyChanged(() => StartD);
+            }
+        }
+
+        private string endD;
+        public string EndD
+        {
+            get { return endD; }
+            set
+            {
+                endD = value;
+                RaisePropertyChanged(() => EndD);
+            }
+        }
+
         private Person selectedApprover;
         public Person SelectedApprover
         {
@@ -55,6 +78,19 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             }
         }
 
+        public ICommand _someCommand;
+        public ICommand SomeCommand
+        {
+            get
+            {
+                return _someCommand ?? new MvxCommand<Person>((value) =>
+                {
+                    selectedApprover = value;
+                    //ShowSelectedVacation();
+                });
+            }
+        }
+
         //public IMvxCommand ShowSelectedApproverCommand()
         //{
         //    return new MvxCommand(() => );
@@ -62,19 +98,32 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
 
         public override void SaveChanges()
         {
-            var model = new VacationInfo
-            {
-                //ApproverId = SelectedApprover.Id,
-                EmployeeId = repo.GetCurrentUser().Id,
-                Comment = this.Comment,
-                StartDate = this.StartDate,
-                EndDate = this.EndDate,
-                Status = VacationStatus.WaitingForApproval,
-                Type = VacationType.Regular
-            };
+            var start = MyStringToDateConverter.Convert(StartD);
+            var end = MyStringToDateConverter.Convert(EndD);
 
-            service.UpdateVacationInfo(model);
-            ShowViewModel<VacationsViewModel>();
+            if (DateCheck(start, end))
+            {
+                var model = new VacationInfo
+                {
+                    ApproverId = SelectedApprover.Id,
+                    EmployeeId = repo.GetCurrentUser().Id,
+                    NoProjectManagerObjections = true,
+                    Comment = this.Comment,
+                    //StartDate = this.StartDate,
+                    StartDate = start,
+                    EndDate = end.AddHours(8),
+                    Status = VacationStatus.WaitingForApproval,
+                    Type = VacationType.Regular
+                };
+
+                var a = MyStringToDateConverter.Convert(StartD);
+
+                service.UpdateVacationInfo(model);
+                ShowViewModel<VacationsViewModel>();
+            }
+
+            Message = "Invalid dates!";
+            //Close(this);
         }
     }
 }

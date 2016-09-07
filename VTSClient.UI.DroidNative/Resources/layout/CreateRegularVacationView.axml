@@ -6,18 +6,16 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent">
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Approver" />
+        style="@style/labelStyle"
+        android:text="@string/Approver" />
     <Mvx.MvxSpinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        local:MvxBind="ItemsSource ApproverList"
+        local:MvxBind="ItemsSource ApproverList; HandleItemSelected SomeCommand"
         local:MvxItemTemplate="@layout/approveritemview"
         local:MvxDropDownItemTemplate="@layout/approveritemview" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/labelStyle"
         android:text="Start date" />
 
 
@@ -25,28 +23,17 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
       <TextView
-          android:layout_width="200dp"
-          android:layout_height="wrap_content"
-          local:MvxBind="Text StartDate.Date" />
+          android:id="@+id/date_display1"
+          style="@style/DateStyle" />
+          <!--local:MvxBind="Text StartDate, Converter=StringToDate" />-->
       <Button
-          android:text="Change"
-          android:textSize ="7dp"
-          android:layout_width="50dp"
-          android:layout_height="50dp" />
+          android:id="@+id/date_select_button1"
+          style="@style/DatePickerButtonStyle"/>
     </LinearLayout>
 
-
-    <MvxDatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:calendarViewShown="false"
-        android:layout_marginTop="48dp"
-        local:MvxBind="Value StartDate" />
+    
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/labelStyle"
         android:text="End date" />
 
 
@@ -54,37 +41,27 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content">
       <TextView
-          android:layout_width="200dp"
-          android:layout_height="wrap_content"
-          local:MvxBind="Text EndDate.Date" />
+          android:id="@+id/date_display2"
+          style="@style/DateStyle"
+          local:MvxBind="Text EndD" />
       <Button
-          android:text="Change"
-          android:textSize ="7dp"
-          android:layout_width="50dp"
-          android:layout_height="50dp" />
+          android:id="@+id/date_select_button2"
+          style="@style/DatePickerButtonStyle"/>
     </LinearLayout>
 
-
-    <MvxDatePicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:calendarViewShown="false"
-        android:layout_marginTop="48dp"
-        local:MvxBind="Value EndDate" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/labelStyle"
         android:text="Comment" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         local:MvxBind="Text Comment" />
+    <TextView
+          style="@style/messageStyle"
+          local:MvxBind="Text Message" />
     <Button
         android:text="Save changes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyle"
         android:id="@+id/buttonLogon"
         local:MvxBind="Click Save" />
   </LinearLayout>

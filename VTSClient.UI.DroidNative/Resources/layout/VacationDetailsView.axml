@@ -16,9 +16,16 @@
     <TextView
           style="@style/infoStyle"
         local:MvxBind="Text Status" />
-    <TextView
-                style="@style/labelStyle"
 
+  <TextView
+        style="@style/labelStyle"
+        android:text="Type" />
+  <TextView
+        style="@style/infoStyle"
+      local:MvxBind="Text Type" />
+  
+    <TextView
+        style="@style/labelStyle"
         android:text="Form" />
     <TextView
         style="@style/infoStyle"

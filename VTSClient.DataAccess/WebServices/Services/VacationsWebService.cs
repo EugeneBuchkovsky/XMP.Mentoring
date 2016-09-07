@@ -92,6 +92,7 @@ namespace VTSClient.DataAccess.WebServices.Services
 
         public async Task<int> UpdateVacationInfo(VacationInfo model)
         {
+
             var client = new RestClient("http://10.6.106.21/test/api");
 
             var request = new RestRequest("Vacation/Update", Method.POST);

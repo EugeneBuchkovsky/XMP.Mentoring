@@ -28,6 +28,7 @@ namespace VTSClient.BusinessLogic.ViewModels
             model = await vacationService.VacationDetails(id);
             Name = aName;
             Status = model.Status;
+            Type = model.Type;
             VacationForm = model.VacationForm;
             StartDate = model.StartDate;
             EndDate = model.EndDate;
@@ -105,8 +106,8 @@ namespace VTSClient.BusinessLogic.ViewModels
             }
         }
 
-        private string type;
-        public string Type
+        private VacationType type;
+        public VacationType Type
         {
             get { return type; }
             set

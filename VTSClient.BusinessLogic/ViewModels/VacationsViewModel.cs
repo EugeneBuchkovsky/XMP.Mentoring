@@ -29,23 +29,19 @@ namespace VTSClient.BusinessLogic.ViewModels
                                    new MenuViewModel
                                        {
                                            Section = Enums.MenuItems.SickToday, 
-                                           Title = "sick"
+                                           Title = "Sick"
                                        }, 
                                    new MenuViewModel
                                        {
                                            Section =  Enums.MenuItems.LogOn, 
-                                           Title = "LogOn"
+                                           Title = "Log out"
                                        }, 
-
-
-
                                };
 
         }
 
         public override async void Start()
         {
-
             VocationList = await vocationsService.GetAllVocations();
             base.Start();
         }
@@ -120,7 +116,6 @@ namespace VTSClient.BusinessLogic.ViewModels
              } 
          } 
  
- 
          private void ExecuteSelectMenuItemCommand(MenuViewModel item)
          { 
              //navigate if we have to, pass the id so we can grab from cache... or not 
@@ -132,16 +127,13 @@ namespace VTSClient.BusinessLogic.ViewModels
                      this.ShowViewModel<CreateVacationViewModel>();
                     //Close(this);
                      break; 
-                 //case Enums.MenuItems.SickToday: 
-                 //    this.ShowViewModel<FriendsViewModel>(new { item.Id }); 
-                 //    break; 
+                 case Enums.MenuItems.SickToday: 
+                     //this.ShowViewModel<>(new { item.Id });
+                     break; 
                  case Enums.MenuItems.LogOn: 
                      this.ShowViewModel<AccountViewModel>(); 
                      break; 
              } 
- 
- 
          } 
-
     }
 }

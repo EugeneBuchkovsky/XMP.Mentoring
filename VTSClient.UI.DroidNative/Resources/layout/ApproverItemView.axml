@@ -5,16 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="50dp">
   <Mvx.MvxImageView
-      android:layout_width="40dp"
-      android:layout_height="40dp"
-      android:layout_marginLeft="5dp"
-      android:layout_marginRight="5dp"
-      android:layout_gravity="center"
+      style="@style/itemImageStyle"
       android:src="@drawable/mainIcon"/>
   <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginRight="5dp"
-      android:layout_alignParentRight="true"
+      style="@style/infoItemStyle"
+      android:textSize="30dp"
       local:MvxBind="Text FullName" />
 </LinearLayout>
