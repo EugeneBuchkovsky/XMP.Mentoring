@@ -34,38 +34,6 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
         //    base.Start();
         //}
 
-        private IEnumerable<Person> approverList;
-        public IEnumerable<Person> ApproverList
-        {
-            get { return approverList; }
-            set
-            {
-                approverList = value;
-                RaisePropertyChanged(() => ApproverList);
-            }
-        }
-
-        private string startD;
-        public string StartD
-        {
-            get { return startD; }
-            set
-            {
-                startD = value;
-                RaisePropertyChanged(() => StartD);
-            }
-        }
-
-        private string endD;
-        public string EndD
-        {
-            get { return endD; }
-            set
-            {
-                endD = value;
-                RaisePropertyChanged(() => EndD);
-            }
-        }
 
         private Person selectedApprover;
         public Person SelectedApprover

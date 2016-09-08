@@ -45,8 +45,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         local:MvxBind="Text Comment" />
+    
+    <!--Add files-->
+    <LinearLayout android:orientation ="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <ImageView
+           android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+           android:id="@+id/imageView1"/>
+      <Button
+        android:text="Add image"
+        android:background="#27acc0"
+        style="@style/ButtonStyle"
+        android:id="@+id/imagesButton" />
+    </LinearLayout>
+    <!--files-->
+
+
+    <TextView
+          style="@style/messageStyle"
+          local:MvxBind="Text Message" />
     <Button
-        android:text="Save changes"
+        android:text="@string/submit"
         style="@style/ButtonStyle"
         android:id="@+id/buttonLogon"
         local:MvxBind="Click Save" />

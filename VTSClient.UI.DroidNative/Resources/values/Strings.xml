@@ -14,4 +14,7 @@
   <string name="Startdate">Start date</string>
   <string name="EndDate">EndDate</string>
   <string name="Comment">Comment</string>
+  <string name="FirstView">Mobile VTS Client</string>
+  <string name="Loading">Loading...</string>
+  <string name="submit">Submit request</string>
 </resources>

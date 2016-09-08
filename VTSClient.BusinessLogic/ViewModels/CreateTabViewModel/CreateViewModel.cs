@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VtsMockClient.Domain.Enums;
+using VtsMockClient.Domain.Models;
 
 namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
 {
@@ -16,6 +17,18 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             StartDate = DateTime.Now;
             EndDate = DateTime.Now.AddHours(8);
             base.Start();
+        }
+
+
+        private IEnumerable<Person> approverList;
+        public IEnumerable<Person> ApproverList
+        {
+            get { return approverList; }
+            set
+            {
+                approverList = value;
+                RaisePropertyChanged(() => ApproverList);
+            }
         }
 
         private string aprooverName;
@@ -70,6 +83,28 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             {
                 endDate = value;
                 RaisePropertyChanged(() => EndDate);
+            }
+        }
+
+        private string startD;
+        public string StartD
+        {
+            get { return startD; }
+            set
+            {
+                startD = value;
+                RaisePropertyChanged(() => StartD);
+            }
+        }
+
+        private string endD;
+        public string EndD
+        {
+            get { return endD; }
+            set
+            {
+                endD = value;
+                RaisePropertyChanged(() => EndD);
             }
         }
 

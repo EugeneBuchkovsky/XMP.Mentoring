@@ -6,7 +6,7 @@
     <item name ="android:layout_gravity">center</item>
     <item name ="android:background">#8cad35</item>
   </style>
-  
+
   <style name ="messageStyle">
     <item name ="android:layout_width">match_parent</item>
     <item name ="android:layout_height">wrap_content</item>
@@ -15,6 +15,16 @@
     <item name ="android:layout_marginTop">5dp</item>
     <item name ="android:layout_marginBottom">5dp</item>
     <item name ="android:textColor">#C0C0C0</item>
+  </style>
+  
+  <style name ="loadStyle">
+    <item name ="android:layout_width">match_parent</item>
+    <item name ="android:layout_height">wrap_content</item>
+    <item name ="android:gravity">center</item>
+    <item name ="android:textSize">20dp</item>
+    <item name ="android:layout_marginTop">15dp</item>
+    <item name ="android:layout_marginBottom">15dp</item>
+    <item name ="android:textColor">#DEDD22</item>
   </style>
   
   <style name ="labelStyle">
@@ -65,6 +75,7 @@
      <item name ="android:layout_width">200dp</item>
      <item name ="android:layout_height">wrap_content</item>
      <item name ="android:textSize">15dp</item>
+    <item name ="android:layout_gravity">center</item>
   </style>
 
   <style name="AppTheme" parent="android:Theme.Material.Light">

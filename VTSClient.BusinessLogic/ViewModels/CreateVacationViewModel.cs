@@ -32,7 +32,8 @@ namespace VTSClient.BusinessLogic.ViewModels
         {
             //this.vacationService = _vacationService;
             RegularVacation = new CreateRegularVacationViewModel(service, repo);
-            SickLeave = new CreateSickLeaveViewModel();
+            SickLeave = new CreateSickLeaveViewModel(service, repo);
+            Overtime = new CreateOvertimeVacationViewModel(service, repo);
         }
 
         private CreateRegularVacationViewModel regularVacation;
@@ -54,6 +55,17 @@ namespace VTSClient.BusinessLogic.ViewModels
             {
                 sickLeave = value;
                 RaisePropertyChanged(() => SickLeave);
+            }
+        }
+
+        private CreateOvertimeVacationViewModel overtime;
+        public CreateOvertimeVacationViewModel Overtime
+        {
+            get { return overtime; }
+            set
+            {
+                overtime = value;
+                RaisePropertyChanged(() => Overtime);
             }
         }
     }

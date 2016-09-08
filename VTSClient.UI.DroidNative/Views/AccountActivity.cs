@@ -15,7 +15,7 @@ using VTSClient.BusinessLogic.ViewModels;
 
 namespace VTSClient.UI.DroidNative.Views
 {
-    [Activity(Label = "Login", MainLauncher =true)]
+    [Activity(Label = "Login")]
     [MvxViewFor(typeof(AccountViewModel))]
     public class AccountActivity : MvxActivity
     {

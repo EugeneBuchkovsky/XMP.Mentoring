@@ -1260,20 +1260,20 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f080019
 			public const int collapseActionView = 2131230745;
 			
-			// aapt resource value: 0x7f08004c
-			public const int content_frame = 2131230796;
+			// aapt resource value: 0x7f08004e
+			public const int content_frame = 2131230798;
 			
-			// aapt resource value: 0x7f080043
-			public const int date_display1 = 2131230787;
-			
-			// aapt resource value: 0x7f080045
-			public const int date_display2 = 2131230789;
+			// aapt resource value: 0x7f080042
+			public const int date_display1 = 2131230786;
 			
 			// aapt resource value: 0x7f080044
-			public const int date_select_button1 = 2131230788;
+			public const int date_display2 = 2131230788;
 			
-			// aapt resource value: 0x7f080046
-			public const int date_select_button2 = 2131230790;
+			// aapt resource value: 0x7f080043
+			public const int date_select_button1 = 2131230787;
+			
+			// aapt resource value: 0x7f080045
+			public const int date_select_button2 = 2131230789;
 			
 			// aapt resource value: 0x7f080031
 			public const int decor_content_parent = 2131230769;
@@ -1287,8 +1287,8 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f08000e
 			public const int disableHome = 2131230734;
 			
-			// aapt resource value: 0x7f08004b
-			public const int drawer_layout = 2131230795;
+			// aapt resource value: 0x7f08004d
+			public const int drawer_layout = 2131230797;
 			
 			// aapt resource value: 0x7f08001e
 			public const int dropdown = 2131230750;
@@ -1305,8 +1305,8 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f08002a
 			public const int expanded_menu = 2131230762;
 			
-			// aapt resource value: 0x7f080042
-			public const int frag1 = 2131230786;
+			// aapt resource value: 0x7f080048
+			public const int frag1 = 2131230792;
 			
 			// aapt resource value: 0x7f080004
 			public const int home = 2131230724;
@@ -1323,8 +1323,14 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f080025
 			public const int image = 2131230757;
 			
-			// aapt resource value: 0x7f08004d
-			public const int left_drawer = 2131230797;
+			// aapt resource value: 0x7f080046
+			public const int imageView1 = 2131230790;
+			
+			// aapt resource value: 0x7f080047
+			public const int imagesButton = 2131230791;
+			
+			// aapt resource value: 0x7f08004f
+			public const int left_drawer = 2131230799;
 			
 			// aapt resource value: 0x7f08000b
 			public const int listMode = 2131230731;
@@ -1395,17 +1401,17 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f080013
 			public const int showTitle = 2131230739;
 			
-			// aapt resource value: 0x7f080047
-			public const int sick_date_display1 = 2131230791;
-			
 			// aapt resource value: 0x7f080049
-			public const int sick_date_display2 = 2131230793;
+			public const int sick_date_display1 = 2131230793;
 			
-			// aapt resource value: 0x7f080048
-			public const int sick_date_select_button1 = 2131230792;
+			// aapt resource value: 0x7f08004b
+			public const int sick_date_display2 = 2131230795;
 			
 			// aapt resource value: 0x7f08004a
-			public const int sick_date_select_button2 = 2131230794;
+			public const int sick_date_select_button1 = 2131230794;
+			
+			// aapt resource value: 0x7f08004c
+			public const int sick_date_select_button2 = 2131230796;
 			
 			// aapt resource value: 0x7f080007
 			public const int split_action_bar = 2131230727;
@@ -1536,37 +1542,43 @@ namespace VTSClient.UI.DroidNative
 			public const int ApproverItemView = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int CreatePageMain = 2130903065;
+			public const int CreateOvertimeVacationView = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int CreateRegularVacationView = 2130903066;
+			public const int CreatePageMain = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int CreateSickLeaveView = 2130903067;
+			public const int CreateRegularVacationView = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int CreateVacationActivityView = 2130903068;
+			public const int CreateSickLeaveView = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int CreateVacationTabView = 2130903069;
+			public const int CreateVacationActivityView = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int Item_menu = 2130903070;
+			public const int CreateVacationTabView = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int MenuFragmentView = 2130903071;
+			public const int Item_menu = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int support_simple_spinner_dropdown_item = 2130903072;
+			public const int MenuFragmentView = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int VacationDetailsView = 2130903073;
+			public const int SplashScreenView = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int VacationItemView = 2130903074;
+			public const int support_simple_spinner_dropdown_item = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int VacationsLayout = 2130903075;
+			public const int VacationDetailsView = 2130903075;
+			
+			// aapt resource value: 0x7f030024
+			public const int VacationItemView = 2130903076;
+			
+			// aapt resource value: 0x7f030025
+			public const int VacationsLayout = 2130903077;
 			
 			static Layout()
 			{
@@ -1596,11 +1608,17 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f0a0017
 			public const int EnterButton = 2131361815;
 			
+			// aapt resource value: 0x7f0a001e
+			public const int FirstView = 2131361822;
+			
 			// aapt resource value: 0x7f0a001a
 			public const int Form = 2131361818;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int Hello = 2131361808;
+			
+			// aapt resource value: 0x7f0a001f
+			public const int Loading = 2131361823;
 			
 			// aapt resource value: 0x7f0a0015
 			public const int Login = 2131361813;
@@ -1671,6 +1689,9 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f0a0014
 			public const int menu_refresh = 2131361812;
 			
+			// aapt resource value: 0x7f0a0020
+			public const int submit = 2131361824;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -1684,8 +1705,8 @@ namespace VTSClient.UI.DroidNative
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f0b00f4
-			public const int AppTheme = 2131427572;
+			// aapt resource value: 0x7f0b00f5
+			public const int AppTheme = 2131427573;
 			
 			// aapt resource value: 0x7f0b0000
 			public const int Base_TextAppearance_AppCompat = 2131427328;
@@ -2017,11 +2038,11 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f0b00eb
 			public const int ButtonStyle = 2131427563;
 			
-			// aapt resource value: 0x7f0b00f2
-			public const int DatePickerButtonStyle = 2131427570;
-			
 			// aapt resource value: 0x7f0b00f3
-			public const int DateStyle = 2131427571;
+			public const int DatePickerButtonStyle = 2131427571;
+			
+			// aapt resource value: 0x7f0b00f4
+			public const int DateStyle = 2131427572;
 			
 			// aapt resource value: 0x7f0b0061
 			public const int Platform_AppCompat = 2131427425;
@@ -2401,20 +2422,23 @@ namespace VTSClient.UI.DroidNative
 			// aapt resource value: 0x7f0b00de
 			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131427550;
 			
-			// aapt resource value: 0x7f0b00f1
-			public const int editCretentioalStyle = 2131427569;
-			
-			// aapt resource value: 0x7f0b00ef
-			public const int infoItemStyle = 2131427567;
-			
-			// aapt resource value: 0x7f0b00ee
-			public const int infoStyle = 2131427566;
+			// aapt resource value: 0x7f0b00f2
+			public const int editCretentioalStyle = 2131427570;
 			
 			// aapt resource value: 0x7f0b00f0
-			public const int itemImageStyle = 2131427568;
+			public const int infoItemStyle = 2131427568;
+			
+			// aapt resource value: 0x7f0b00ef
+			public const int infoStyle = 2131427567;
+			
+			// aapt resource value: 0x7f0b00f1
+			public const int itemImageStyle = 2131427569;
+			
+			// aapt resource value: 0x7f0b00ee
+			public const int labelStyle = 2131427566;
 			
 			// aapt resource value: 0x7f0b00ed
-			public const int labelStyle = 2131427565;
+			public const int loadStyle = 2131427565;
 			
 			// aapt resource value: 0x7f0b00ec
 			public const int messageStyle = 2131427564;

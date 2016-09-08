@@ -43,6 +43,11 @@ namespace VTSClient.UI.DroidNative.Views
             spec.SetIndicator("Sick leave");
             spec.SetContent(this.CreateIntentFor(CreateVacationViewModel.SickLeave));
             TabHost.AddTab(spec);
+
+            spec = TabHost.NewTabSpec("CreateOvertimeVacation");
+            spec.SetIndicator("Overtime");
+            spec.SetContent(this.CreateIntentFor(CreateVacationViewModel.Overtime));
+            TabHost.AddTab(spec);
         }
     }
 }
