@@ -25,12 +25,12 @@ namespace VTSClient.BusinessLogic.Services.Instances
             //this.Init();
         }
 
-        public Person Authentication(string login, string password)
+        public async Task<Person> Authentication(string login, string password)
         {
 
             var model = new PersonCredentials { Email = login, Password = password };
             
-            var person = loginWebService.Login(model);
+            var person = await loginWebService.Login(model);
 
             //personrepository = new PersonRepository();
 

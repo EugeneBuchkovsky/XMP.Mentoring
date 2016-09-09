@@ -13,7 +13,7 @@ namespace VTSClient.DataAccess.WebServices.Services
 {
     public class LoginWebService : IWEB
     {
-        public Person Login(PersonCredentials model)
+        public async Task<Person> Login(PersonCredentials model)
         {
             var client = new RestClient("http://10.6.106.21/test/api");
 
@@ -21,7 +21,7 @@ namespace VTSClient.DataAccess.WebServices.Services
             request.RequestFormat = DataFormat.Json;
 
             request.AddBody(model);
-            var  a = client.Execute<Person>(request);
+            var  a = await client.ExecuteTaskAsync<Person>(request);
             // TO DO:
             var ab = a.Data;
             

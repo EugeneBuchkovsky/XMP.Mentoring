@@ -49,6 +49,7 @@
     <Compile Include="ViewModels\CreateTabViewModel\CreateSickLeaveViewModel.cs" />
     <Compile Include="ViewModels\CreateTabViewModel\CreateViewModel.cs" />
     <Compile Include="ViewModels\CreateVacationViewModel.cs" />
+    <Compile Include="ViewModels\LoadingViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\SelectedVacationViewModel.cs" />
     <Compile Include="ViewModels\SubViewModel.cs" />

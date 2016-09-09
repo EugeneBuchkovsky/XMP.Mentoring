@@ -5,13 +5,14 @@
     <item name ="android:layout_height">wrap_content</item>
     <item name ="android:layout_gravity">center</item>
     <item name ="android:background">#8cad35</item>
+
   </style>
 
   <style name ="messageStyle">
     <item name ="android:layout_width">match_parent</item>
     <item name ="android:layout_height">wrap_content</item>
     <item name ="android:gravity">center</item>
-    <item name ="android:textSize">10dp</item>
+    <item name ="android:textSize">20dp</item>
     <item name ="android:layout_marginTop">5dp</item>
     <item name ="android:layout_marginBottom">5dp</item>
     <item name ="android:textColor">#C0C0C0</item>
@@ -24,14 +25,16 @@
     <item name ="android:textSize">20dp</item>
     <item name ="android:layout_marginTop">15dp</item>
     <item name ="android:layout_marginBottom">15dp</item>
-    <item name ="android:textColor">#DEDD22</item>
+    <item name ="android:textColor">#C0C0C0</item>
   </style>
   
   <style name ="labelStyle">
     <item name ="android:layout_width">match_parent</item>
     <item name ="android:layout_height">wrap_content</item>
     <item name ="android:layout_marginLeft">20dp</item>
-    <item name ="android:textSize">10dp</item>
+    <item name ="android:textSize">20dp</item>
+    <item name ="android:textColor">#464547</item>
+
   </style>
   
     <style name ="infoStyle">
@@ -40,12 +43,14 @@
       <item name ="android:gravity">center</item>
       <item name ="android:textSize">30dp</item>
       <item name ="android:layout_marginLeft">20dp</item>
+      <item name ="android:textColor">#464547</item>
     </style>
 
   <style name ="infoItemStyle">
     <item name ="android:layout_width">match_parent</item>
     <item name ="android:layout_height">wrap_content</item>
     <item name ="android:gravity">center</item>
+    <item name ="android:textColor">#464547</item>
   </style>
     
   <style name ="itemImageStyle">
@@ -61,6 +66,7 @@
     <item name ="android:layout_width">200dp</item>
     <item name ="android:layout_height">wrap_content</item>
     <item name ="android:layout_gravity">center</item>
+    <item name ="android:textColor">#4A4A4A</item>
   </style>
 
   <style name="DatePickerButtonStyle">
@@ -74,13 +80,22 @@
     <item name ="android:layout_marginLeft">50dp</item>
      <item name ="android:layout_width">200dp</item>
      <item name ="android:layout_height">wrap_content</item>
-     <item name ="android:textSize">15dp</item>
+     <item name ="android:textSize">25dp</item>
     <item name ="android:layout_gravity">center</item>
+    <item name ="android:textColor">#464547</item>
   </style>
 
-  <style name="AppTheme" parent="android:Theme.Material.Light">
+  <style name ="mainStyle">
+    <item name ="android:layout_width">match_parent</item>
+    <item name ="android:layout_height">match_parent</item>
+    <!--<item name ="android:background">#FFFFFF</item>-->
+    <item name ="android:background">#F2FDEC</item>
+  </style>
+
+  <style name="AppTheme" >
     <!-- Main theme colors -->
     <!--   your app branding color for the app bar -->
+    <item name="android:windowNoTitle">true</item>
     <item name="android:colorPrimary">@color/primary</item>
     <!--   darker variant for the status bar and contextual app bars -->
     <item name="android:colorPrimaryDark">@color/primary_dark</item>

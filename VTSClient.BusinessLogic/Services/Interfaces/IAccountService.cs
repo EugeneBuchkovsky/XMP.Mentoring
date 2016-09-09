@@ -11,6 +11,6 @@ namespace VTSClient.BusinessLogic.Services.Interfaces
 {
     public interface IAccountService
     {
-        Person Authentication(string login, string password);
+        Task<Person> Authentication(string login, string password);
     }
 }

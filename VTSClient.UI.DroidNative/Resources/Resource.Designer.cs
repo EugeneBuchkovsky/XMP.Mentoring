@@ -1170,19 +1170,28 @@ namespace VTSClient.UI.DroidNative
 			public const int abc_textfield_search_material = 2130837554;
 			
 			// aapt resource value: 0x7f020033
-			public const int CalendarIcon = 2130837555;
+			public const int but_back = 2130837555;
 			
 			// aapt resource value: 0x7f020034
-			public const int ic_drawer_light = 2130837556;
+			public const int but_pressed = 2130837556;
 			
 			// aapt resource value: 0x7f020035
-			public const int Icon = 2130837557;
+			public const int CalendarIcon = 2130837557;
 			
 			// aapt resource value: 0x7f020036
-			public const int mainIcon = 2130837558;
+			public const int ic_drawer_light = 2130837558;
 			
 			// aapt resource value: 0x7f020037
-			public const int sun = 2130837559;
+			public const int Icon = 2130837559;
+			
+			// aapt resource value: 0x7f020038
+			public const int mainIcon = 2130837560;
+			
+			// aapt resource value: 0x7f020039
+			public const int sun = 2130837561;
+			
+			// aapt resource value: 0x7f02003a
+			public const int VTS_Main_Theme = 2130837562;
 			
 			static Drawable()
 			{
@@ -1563,22 +1572,25 @@ namespace VTSClient.UI.DroidNative
 			public const int Item_menu = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int MenuFragmentView = 2130903072;
+			public const int LoadingView = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int SplashScreenView = 2130903073;
+			public const int MenuFragmentView = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int support_simple_spinner_dropdown_item = 2130903074;
+			public const int SplashScreenView = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int VacationDetailsView = 2130903075;
+			public const int support_simple_spinner_dropdown_item = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int VacationItemView = 2130903076;
+			public const int VacationDetailsView = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int VacationsLayout = 2130903077;
+			public const int VacationItemView = 2130903077;
+			
+			// aapt resource value: 0x7f030026
+			public const int VacationsLayout = 2130903078;
 			
 			static Layout()
 			{
@@ -1705,8 +1717,8 @@ namespace VTSClient.UI.DroidNative
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f0b00f5
-			public const int AppTheme = 2131427573;
+			// aapt resource value: 0x7f0b00f6
+			public const int AppTheme = 2131427574;
 			
 			// aapt resource value: 0x7f0b0000
 			public const int Base_TextAppearance_AppCompat = 2131427328;
@@ -2439,6 +2451,9 @@ namespace VTSClient.UI.DroidNative
 			
 			// aapt resource value: 0x7f0b00ed
 			public const int loadStyle = 2131427565;
+			
+			// aapt resource value: 0x7f0b00f5
+			public const int mainStyle = 2131427573;
 			
 			// aapt resource value: 0x7f0b00ec
 			public const int messageStyle = 2131427564;

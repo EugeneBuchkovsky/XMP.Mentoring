@@ -6,8 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using VTSClient.BusinessLogic.Services.Interfaces;
-using VTSClient.DataAccess.MockModel;
-
+using VtsMockClient.Domain.Models;
 
 namespace VTSClient.BusinessLogic.ViewModels
 {
@@ -68,19 +67,35 @@ namespace VTSClient.BusinessLogic.ViewModels
             }
         }
 
-        private void Authentication()
+        private async void Authentication()
         {
-            if (String.IsNullOrEmpty(accountService.Authentication(Login, Password).FullName))
+            //var task = new Task<Person>(() => accountService.Authentication(Login, Password).Result);
+            //var task2 = new Task(() => ShowViewModel<LoadingViewModel>());
+            //task.Start();
+            //task2.Start();
+
+
+            ////ShowViewModel<LoadingViewModel>();
+
+            //task.Wait();
+            //Close(this);
+
+
+
+
+            var user = await accountService.Authentication(Login, Password);
+
+            if (String.IsNullOrEmpty(user.FullName))
                 //return new MvxCommand(() => ShowViewModel<VocationsListViewModel>());
                 ErrorMessage = "Wrong login or password";
             else
             {
                 ErrorMessage = "OK";
-                
-                ShowViewModel<CreateVacationViewModel>();
+
+                //ShowViewModel<CreateVacationViewModel>();
 
                 //ShowViewModel<SubViewModel>();
-                //ShowViewModel<VacationsViewModel>();
+                ShowViewModel<VacationsViewModel>();
             }
 
         }

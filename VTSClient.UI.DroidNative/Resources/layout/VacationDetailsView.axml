@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    style="@style/mainStyle">
     <TextView
         style="@style/labelStyle"
         android:text="Approver name" />
@@ -51,6 +50,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="#464547"
         local:MvxBind="Text Comment" />
     <Button
         android:text="Save changes"

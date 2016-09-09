@@ -62,6 +62,7 @@ namespace VTSClient.UI.DroidNative
             dict.Add(typeof(CreateRegularVacationViewModel), typeof(CreateRegularVacationView));
             dict.Add(typeof(CreateSickLeaveViewModel), typeof(CreateSickLeaveView));
             dict.Add(typeof(CreateOvertimeVacationViewModel), typeof(CreateOvertimeVacationView));
+            dict.Add(typeof(LoadingViewModel), typeof(LoadingView));
 
 
             var container = Mvx.Resolve<IMvxViewsContainer>();

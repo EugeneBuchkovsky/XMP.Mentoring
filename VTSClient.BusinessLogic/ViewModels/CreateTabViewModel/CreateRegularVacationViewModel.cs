@@ -89,8 +89,8 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
                 service.UpdateVacationInfo(model);
                 ShowViewModel<VacationsViewModel>();
             }
-
-            Message = "Invalid dates!";
+            else
+                Message = "Invalid dates!";
             //Close(this);
         }
     }

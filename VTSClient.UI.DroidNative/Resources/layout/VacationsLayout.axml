@@ -5,8 +5,9 @@
   
   <Mvx.MvxListView
       android:orientation="vertical"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      style="@style/mainStyle"
+      android:dividerHeight="1dp"
+      android:divider="#000000"
       local:MvxBind="ItemsSource VocationList; ItemClick SomeCommand"
       local:MvxItemTemplate="@layout/vacationitemview" />
 
@@ -19,8 +20,9 @@
          local:MvxBind="ItemsSource MenuItems; ItemClick SelectMenuItemCommand"
          local:MvxItemTemplate="@layout/item_menu"
          android:id="@+id/left_drawer"
-         android:divider="@android:color/transparent"
-         android:dividerHeight="0dp"
+         android:divider="#ECEFEB"
+         android:textColor="#ECEFEB"
+         android:dividerHeight="1dp"
          android:choiceMode="singleChoice"
          android:layout_width="240dp"
          android:layout_height="match_parent"

@@ -17,6 +17,7 @@ namespace VTSClient.BusinessLogic.Converters
             result.AddDays(Int32.Parse(stringDate[1]));
             result.AddMonths(Int32.Parse(stringDate[0]));
             result.AddYears(Int32.Parse(stringDate[2]));
+            result.AddHours(8);
 
             return result;
 
