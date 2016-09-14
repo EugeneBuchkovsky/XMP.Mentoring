@@ -1717,8 +1717,8 @@ namespace VTSClient.UI.DroidNative
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f0b00f6
-			public const int AppTheme = 2131427574;
+			// aapt resource value: 0x7f0b00f7
+			public const int AppTheme = 2131427575;
 			
 			// aapt resource value: 0x7f0b0000
 			public const int Base_TextAppearance_AppCompat = 2131427328;
@@ -2433,6 +2433,9 @@ namespace VTSClient.UI.DroidNative
 			
 			// aapt resource value: 0x7f0b00de
 			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131427550;
+			
+			// aapt resource value: 0x7f0b00f6
+			public const int actionBar = 2131427574;
 			
 			// aapt resource value: 0x7f0b00f2
 			public const int editCretentioalStyle = 2131427570;

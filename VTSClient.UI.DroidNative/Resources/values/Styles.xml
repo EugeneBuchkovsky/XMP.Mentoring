@@ -92,6 +92,11 @@
     <item name ="android:background">#F2FDEC</item>
   </style>
 
+  <style name ="actionBar">
+    <!--<item name ="android:background">#FFFFFF</item>-->
+    <item name ="android:background">#C0C0C0</item>
+  </style>
+
   <style name="AppTheme" >
     <!-- Main theme colors -->
     <!--   your app branding color for the app bar -->
