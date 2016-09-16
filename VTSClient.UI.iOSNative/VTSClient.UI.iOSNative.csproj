@@ -85,6 +85,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="Helpers\ActionShowDatePicker.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
@@ -158,6 +159,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
+    <BundleResource Include="Resources\Images\VTS_Main_Theme.png" />
+    <BundleResource Include="Resources\Images\mainIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VTSClient.BusinessLogic\VTSClient.BusinessLogic.csproj">

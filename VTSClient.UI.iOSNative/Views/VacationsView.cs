@@ -40,7 +40,7 @@ namespace VTSClient.UI.iOSNative.Views
                 EdgesForExtendedLayout = UIRectEdge.None;
 
             var source = new MvxSimpleTableViewSource(TableView, typeof(VacationItemView), VacationItemView.Key);
-            TableView.RowHeight = 150;
+            TableView.RowHeight = 100;
             //var source = new MvxStandardTableViewSource(TableView, "TitleText Type");
             TableView.Source = source;
 

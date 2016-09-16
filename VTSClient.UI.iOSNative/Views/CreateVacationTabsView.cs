@@ -50,7 +50,6 @@ namespace VTSClient.UI.iOSNative.Views
             ViewControllers = viewControllers;
             CustomizableViewControllers = new UIViewController[] { };
             SelectedViewController = ViewControllers[0];
-
         }
 
         private int _createdSoFarCount = 0;
