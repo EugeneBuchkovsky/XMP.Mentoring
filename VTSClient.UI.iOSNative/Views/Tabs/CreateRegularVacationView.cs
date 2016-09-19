@@ -12,35 +12,26 @@ using VTSClient.UI.iOSNative.Helpers;
 
 namespace VTSClient.UI.iOSNative.Views.Tabs
 {
-    [Register("AddVacView")]
-    public class AddVacView : UIScrollView
+    [Register("CreateRegularView")]
+    public class CreateRegularView : CreateView
     {
-        public AddVacView()
-        {
-            Initialize();
-        }
-
-        public AddVacView(RectangleF bounds) : base(bounds)
-        {
-            Initialize();
-        }
-
-        void Initialize()
-        {
-            BackgroundColor = UIColor.Red;
-        }
+        public CreateRegularView()
+            : base()
+        { }
     }
 
     [Register("CreateRegularVacationView")]
     public class CreateRegularVacationView : MvxViewController
     {
+
+        CreateRegularView createView;
         public CreateRegularVacationView()
         {
         }
 
         public override void ViewDidLoad()
         {
-            View = new AddVacView();
+            View = createView = new CreateRegularView();
 
             base.ViewDidLoad();
 
@@ -50,42 +41,106 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             //var startDate = new UIDatePicker(new CoreGraphics.CGRect(50, 150, 200, 200));
             //Add(startDate);
 
-            var comment = new UILabel(new RectangleF(0, 0, 200, 40));
-            comment.BackgroundColor = UIColor.Clear;
-            comment.Text = "Comment";
-            Add(comment);
+            //var comment = new UILabel(new RectangleF(0, 0, 200, 40));
+            //comment.BackgroundColor = UIColor.Clear;
+            //comment.Text = "Comment";
+            //Add(comment);
 
-            var commentEdit = new UITextField(new RectangleF(0, 50, 200, 40));
-            commentEdit.BackgroundColor = UIColor.DarkGray;
-            Add(commentEdit);
+            //var commentEdit = new UITextField(new RectangleF(0, 50, 200, 40));
+            //commentEdit.BackgroundColor = UIColor.DarkGray;
+            //Add(commentEdit);
 
-            
-            var actionDatePicker = new ActionShowDatePicker(this.View);
 
-            var title = new UILabel(new CoreGraphics.CGRect(0, 150, 100, 50));
-            title.TextColor = UIColor.Black;
-            var dateButton = new UIButton(new CoreGraphics.CGRect(0, 200, 50, 50));
-            dateButton.BackgroundColor = UIColor.Yellow;
-            dateButton.TouchUpInside += (sender, e) =>
+            //var actionDatePicker = new ActionShowDatePicker(this.View);
+
+            //var title = new UILabel(new CoreGraphics.CGRect(0, 150, 300, 50));
+            //title.TextColor = UIColor.Black;
+            //var dateButton = new UIButton(new CoreGraphics.CGRect(0, 200, 50, 50));
+            //dateButton.BackgroundColor = UIColor.Yellow;
+
+
+            //dateButton.TouchUpInside += (sender, e) =>
+            //{
+            //    actionDatePicker.Show();
+            //};
+
+
+            //actionDatePicker.Title = "Choose Date:";
+            //actionDatePicker.DatePicker.Mode = UIDatePickerMode.DateAndTime;
+            //actionDatePicker.DatePicker.MinimumDate = NSDate.Now;
+            //actionDatePicker.DatePicker.MaximumDate = NSDate.Now;
+
+
+
+            //actionDatePicker.DatePicker.ValueChanged += (s, e) => {
+            //    title.Text = (s as UIDatePicker).Date.ToString();
+            //  };
+
+            //DATA PICKER 
+            var start = new UIDatePicker();
+            start.Mode = UIDatePickerMode.Date;
+            start.Frame = new CoreGraphics.CGRect(0, 0, 300, 100);
+
+            createView.startDateButton.TouchUpInside += (sender, e) =>
             {
-                actionDatePicker.Show();
+                //Create Alert
+                var textInputAlertController = UIAlertController.Create("", "", UIAlertControllerStyle.Alert);
+                //Add Text Input
+                textInputAlertController.Add(start);
+
+
+                //Add Actions
+                var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => { });
+                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => createView.startDateLabel.Text = start.Date.ToDateTime().ToShortDateString());
+
+                textInputAlertController.AddAction(cancelAction);
+                textInputAlertController.AddAction(okayAction);
+
+                //Present Alert
+                PresentViewController(textInputAlertController, true, null);
             };
 
+            var end = new UIDatePicker();
+            end.Mode = UIDatePickerMode.Date;
+            end.Frame = new CoreGraphics.CGRect(0, 0, 300, 100);
 
-            actionDatePicker.Title = "Choose Date:";
-            actionDatePicker.DatePicker.Mode = UIDatePickerMode.DateAndTime;
-            actionDatePicker.DatePicker.MinimumDate = NSDate.Now;
-            actionDatePicker.DatePicker.MaximumDate = NSDate.Now;
-            
+            createView.endDateButton.TouchUpInside += (sender, e) =>
+            {
+                //Create Alert
+                var textInputAlertController = UIAlertController.Create("", "", UIAlertControllerStyle.Alert);
+                //Add Text Input
+                textInputAlertController.Add(end);
 
 
-            actionDatePicker.DatePicker.ValueChanged += (s, e) => {
-                title.Text = (s as UIDatePicker).Date.ToString();
-              };
+                //Add Actions
+                var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => { });
+                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => createView.endDateLabel.Text = end.Date.ToDateTime().ToShortDateString());
+
+                textInputAlertController.AddAction(cancelAction);
+                textInputAlertController.AddAction(okayAction);
+
+                //Present Alert
+                PresentViewController(textInputAlertController, true, null);
+            };
+
+            //__________________end picker____________________
 
 
-            Add(title);
-            Add(dateButton);
+            //var textInputAlert = UIAlertController.Create("1", "2", UIAlertControllerStyle.ActionSheet);
+            //textInputAlert.Add(new UIDatePicker());
+            ////Add Actions
+            //var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => Console.WriteLine("Cancel was Pressed"));
+
+            //textInputAlert.AddAction(cancelAction);
+
+            ////Present Alert
+            //PresentViewController(textInputAlert, true, null);
+
+
+
+
+            //Add(title);
+            //Add(dateButton);
 
 
             var set = this.CreateBindingSet<CreateRegularVacationView, CreateRegularVacationViewModel>();
@@ -96,6 +151,12 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             //set.Bind(status).To(vm => vm.Status);
             // Perform any additional setup after loading the view
             set.Apply();
+
+            var gesture = new UITapGestureRecognizer(() =>
+            {
+                createView.commentEdit.ResignFirstResponder();
+            });
+            View.AddGestureRecognizer(gesture);
         }
     }
 }

@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Helpers\ActionShowDatePicker.cs" />
+    <Compile Include="Helpers\DateConvert.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Views\CreateVacationTabsView.cs" />
     <Compile Include="Views\Tabs\CreateSickLeaveView .cs" />
     <Compile Include="Views\Tabs\CreateRegularVacationView.cs" />
+    <Compile Include="Views\Tabs\CreateView.cs" />
     <Compile Include="Views\VacationDetailsView.cs" />
     <Compile Include="Views\AccountView.cs" />
     <Compile Include="Views\VacationItemView.cs" />
@@ -161,6 +163,7 @@
     <Content Include="Entitlements.plist" />
     <BundleResource Include="Resources\Images\VTS_Main_Theme.png" />
     <BundleResource Include="Resources\Images\mainIcon.jpg" />
+    <BundleResource Include="Resources\Images\datePicker.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VTSClient.BusinessLogic\VTSClient.BusinessLogic.csproj">
