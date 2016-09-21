@@ -20,6 +20,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
         public UIButton startDateButton;
         public UIButton endDateButton;
         public UIButton saveButton;
+        public UILabel message;
 
         public CreateView()
         {
@@ -33,6 +34,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
         void Initialize()
         {
+
             startNameLabel = new UILabel();
             startNameLabel.BackgroundColor = UIColor.Clear;
             startNameLabel.Text = "Start date:";
@@ -83,6 +85,10 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             saveButton.BackgroundColor = UIColor.FromRGB(140, 173, 53);
             saveButton.TranslatesAutoresizingMaskIntoConstraints = false;
 
+            message = new UILabel();
+            message.TextColor = UIColor.Red;
+            message.TranslatesAutoresizingMaskIntoConstraints = false;
+
             AddSubview(startNameLabel);
             AddSubview(startDateLabel);
             AddSubview(endNameLabel);
@@ -92,32 +98,33 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddSubview(startDateButton);
             AddSubview(endDateButton);
             AddSubview(saveButton);
+            AddSubview(message);
 
 
 
             AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, this, NSLayoutAttribute.TopMargin, 1, 50));
-            AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
+            //AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
-            AddConstraint(NSLayoutConstraint.Create(startNameLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Left, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(startNameLabel, NSLayoutAttribute.Left, NSLayoutRelation.Equal, this, NSLayoutAttribute.Left, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(startNameLabel, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.CenterY, 1, 0));
 
             AddConstraint(NSLayoutConstraint.Create(startDateButton, NSLayoutAttribute.Left, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Right, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(startDateButton, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.CenterY, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(startDateButton, NSLayoutAttribute.Width, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Height, 1, 0));
 
-            AddConstraint(NSLayoutConstraint.Create(endNameLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.Left, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(endNameLabel, NSLayoutAttribute.Left, NSLayoutRelation.Equal, this, NSLayoutAttribute.Left, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(endNameLabel, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.CenterY, 1, 0));
 
             AddConstraint(NSLayoutConstraint.Create(endDateLabel, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(endDateLabel, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, startDateButton, NSLayoutAttribute.BottomMargin, 1, 30));
-            AddConstraint(NSLayoutConstraint.Create(endDateLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
+            //AddConstraint(NSLayoutConstraint.Create(endDateLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
             AddConstraint(NSLayoutConstraint.Create(endDateButton, NSLayoutAttribute.Left, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.Right, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(endDateButton, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.CenterY, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(endDateButton, NSLayoutAttribute.Width, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.Height, 1, 0));
 
-            AddConstraint(NSLayoutConstraint.Create(commentLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, commentEdit, NSLayoutAttribute.Left, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(commentLabel, NSLayoutAttribute.Left, NSLayoutRelation.Equal, this, NSLayoutAttribute.Left, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(commentLabel, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, commentEdit, NSLayoutAttribute.CenterY, 1, 0));
             //AddConstraint(NSLayoutConstraint.Create(commentLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
@@ -129,7 +136,10 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddConstraint(NSLayoutConstraint.Create(saveButton, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, commentEdit, NSLayoutAttribute.TopMargin, 1, 30));
             AddConstraint(NSLayoutConstraint.Create(saveButton, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
-            BackgroundColor = UIColor.Red;
+            AddConstraint(NSLayoutConstraint.Create(message, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(message, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, saveButton, NSLayoutAttribute.TopMargin, 1, 30));
+
+            BackgroundColor = UIColor.White;
             //Frame = new CoreGraphics.CGRect(0, 0, this.Layer.Frame.Width, 5000);
             //ContentSize = new CoreGraphics.CGSize(this.Layer.Frame.Width, 5000);
         }

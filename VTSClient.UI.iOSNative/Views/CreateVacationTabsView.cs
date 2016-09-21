@@ -44,7 +44,8 @@ namespace VTSClient.UI.iOSNative.Views
             var viewControllers = new UIViewController[]
             {
                 CreateTabFor("Regular", CreateVacationViewModel.RegularVacation),
-                CreateTabFor("Sick", CreateVacationViewModel.SickLeave)
+                CreateTabFor("Sick", CreateVacationViewModel.SickLeave),
+                CreateTabFor("Overtime", CreateVacationViewModel.Overtime)
             };
 
             ViewControllers = viewControllers;

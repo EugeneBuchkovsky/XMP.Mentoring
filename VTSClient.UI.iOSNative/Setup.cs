@@ -53,7 +53,7 @@ namespace VTSClient.UI.iOSNative
             dict.Add(typeof(CreateVacationViewModel), typeof(CreateVacationTabsView));
             dict.Add(typeof(CreateRegularVacationViewModel), typeof(CreateRegularVacationView));
             dict.Add(typeof(CreateSickLeaveViewModel), typeof(CreateSickLeaveView));
-            //dict.Add(typeof(CreateOvertimeVacationViewModel), typeof(C));
+            dict.Add(typeof(CreateOvertimeVacationViewModel), typeof(CreateOvertimeVacationView));
             //dict.Add(typeof(ShortVacationInfo), typeof(VacationItemView));
 
             var container = Mvx.Resolve<IMvxViewsContainer>();

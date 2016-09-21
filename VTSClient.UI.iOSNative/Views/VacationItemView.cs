@@ -43,12 +43,16 @@ namespace VTSClient.UI.iOSNative.Views
             image = new UIImageView(UIImage.FromBundle("Images/mainIcon.jpg"));
             //image.TranslatesAutoresizingMaskIntoConstraints = false;
             TypeLabel = new UILabel();
+            TypeLabel.Font = UIFont.FromName("Farah", 20f);
+            
             TypeLabel.TranslatesAutoresizingMaskIntoConstraints = false;
             NameLabel = new UILabel();
             NameLabel.TranslatesAutoresizingMaskIntoConstraints = false;
             StartDate = new UILabel();
+            StartDate.Font = UIFont.FromName("Helvetica-Bold", 10f);
             StartDate.TranslatesAutoresizingMaskIntoConstraints = false;
             EndDate = new UILabel();
+            EndDate.Font = UIFont.FromName("Helvetica-Bold", 10f);
             EndDate.TranslatesAutoresizingMaskIntoConstraints = false;
             StatusLabel = new UILabel();
             StatusLabel.TranslatesAutoresizingMaskIntoConstraints = false;
@@ -82,7 +86,7 @@ namespace VTSClient.UI.iOSNative.Views
             //AddConstraint(NSLayoutConstraint.Create(image, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.5), 0));
             //AddConstraint(NSLayoutConstraint.Create(image, NSLayoutAttribute.Width, NSLayoutRelation.Equal, image, NSLayoutAttribute.Height, 1, 0));
 
-            image.Frame = new CoreGraphics.CGRect( 10, this.Layer.Frame.Height / 2 - image.Layer.Frame.Height / 2, this.Layer.Frame.Height / 2 , 40);
+            image.Frame = new CoreGraphics.CGRect( 10, this.Layer.Frame.Height / 2 - image.Layer.Frame.Height / 2, this.Layer.Frame.Height / 2 , this.Layer.Frame.Height / 2);
 
 
             this.DelayBind(() =>

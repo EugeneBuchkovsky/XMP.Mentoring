@@ -77,7 +77,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             //DATA PICKER 
             var start = new UIDatePicker();
             start.Mode = UIDatePickerMode.Date;
-            start.Frame = new CoreGraphics.CGRect(0, 0, 300, 100);
+            start.Frame = new CoreGraphics.CGRect(0, 0, 300, 50);
 
             createView.startDateButton.TouchUpInside += (sender, e) =>
             {
@@ -85,11 +85,17 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
                 var textInputAlertController = UIAlertController.Create("", "", UIAlertControllerStyle.Alert);
                 //Add Text Input
                 textInputAlertController.Add(start);
-
+                textInputAlertController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
 
                 //Add Actions
                 var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => { });
-                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => createView.startDateLabel.Text = start.Date.ToDateTime().ToShortDateString());
+                //var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => createView.startDateLabel.Text = start.Date.ToDateTime().ToShortDateString());
+                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction =>
+                {
+                    (ViewModel as CreateSickLeaveViewModel).StartD = start.Date.ToDateTime().ToShortDateString();
+                });
+
+
 
                 textInputAlertController.AddAction(cancelAction);
                 textInputAlertController.AddAction(okayAction);
@@ -100,7 +106,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
             var end = new UIDatePicker();
             end.Mode = UIDatePickerMode.Date;
-            end.Frame = new CoreGraphics.CGRect(0, 0, 300, 100);
+            end.Frame = new CoreGraphics.CGRect(0, 0, 250, 50);
 
             createView.endDateButton.TouchUpInside += (sender, e) =>
             {
@@ -112,7 +118,10 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
                 //Add Actions
                 var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => { });
-                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => createView.endDateLabel.Text = end.Date.ToDateTime().ToShortDateString());
+                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction =>
+                {
+                    (ViewModel as CreateSickLeaveViewModel).EndD = end.Date.ToDateTime().ToShortDateString();
+                });
 
                 textInputAlertController.AddAction(cancelAction);
                 textInputAlertController.AddAction(okayAction);
@@ -141,8 +150,19 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             //Add(dateButton);
 
 
+            (ViewModel as CreateSickLeaveViewModel).StartD = NSDate.Now.ToDateTime().ToShortDateString();
+            (ViewModel as CreateSickLeaveViewModel).EndD = NSDate.Now.ToDateTime().ToShortDateString();
             var set = this.CreateBindingSet<CreateSickLeaveView, CreateSickLeaveViewModel>();
-            //set.Bind(type).To(vm => vm.Type);
+            //set.Bind(createView.startDateLabel).For(v=>v.Text).To(vm => vm.StartD).TwoWay();
+
+
+            set.Bind(createView.startDateLabel).To(vm => vm.StartD).TwoWay();
+            set.Bind(createView.endDateLabel).To(vm => vm.EndD).TwoWay();
+            set.Bind(createView.commentEdit).To(vm => vm.Comment).TwoWay();
+            set.Bind(createView.saveButton).To(vm => vm.Save);
+
+            set.Bind(createView.message).To(vm => vm.Message);
+
 
             //set.Bind(name).To(vm => vm.Name);
 

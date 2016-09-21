@@ -8,6 +8,7 @@ using MvvmCross.iOS.Views;
 using VTSClient.BusinessLogic.ViewModels;
 using MvvmCross.Binding.BindingContext;
 using ObjCRuntime;
+using CoreGraphics;
 
 namespace VTSClient.UI.iOSNative.Views
 {
@@ -18,6 +19,7 @@ namespace VTSClient.UI.iOSNative.Views
         public UITextField passwordEdit;
         public UIButton enterButton;
         public UILabel message;
+        public UIImageView logo;
 
         public AccountViewMain()
         {
@@ -34,18 +36,19 @@ namespace VTSClient.UI.iOSNative.Views
             BackgroundColor = UIColor.White;
 
             loginEdit = new UITextField();
-            loginEdit.BackgroundColor = UIColor.Clear;
-            loginEdit.BorderStyle = UITextBorderStyle.Bezel;
+            loginEdit.BorderStyle = UITextBorderStyle.RoundedRect;
+            loginEdit.BackgroundColor = new UIColor(new nfloat(0.9), new nfloat(0.9), new nfloat(0.9), new nfloat(0.2));
             loginEdit.Layer.CornerRadius = 10;
             //loginEdit.Layer.BorderColor =UIColor.FromRGB(250, 250, 250);
             loginEdit.Placeholder = "Login";
             loginEdit.TranslatesAutoresizingMaskIntoConstraints = false;
 
             passwordEdit = new UITextField();
-            passwordEdit.BackgroundColor = new UIColor(new nfloat(0.9), new nfloat(0.9), new nfloat(0.9), new nfloat(0.9));
-            passwordEdit.Placeholder = "Password";
+            passwordEdit.BorderStyle = UITextBorderStyle.RoundedRect;
+            passwordEdit.BackgroundColor = new UIColor(new nfloat(0.9), new nfloat(0.9), new nfloat(0.9), new nfloat(0.2));
+            passwordEdit.Layer.CornerRadius = 10;
             passwordEdit.SecureTextEntry = true;
-            passwordEdit.Layer.CornerRadius = new nfloat(10.0);
+            passwordEdit.Placeholder = "Password";
             passwordEdit.TranslatesAutoresizingMaskIntoConstraints = false;
 
             enterButton = new UIButton();
@@ -57,25 +60,36 @@ namespace VTSClient.UI.iOSNative.Views
             message.TextColor = UIColor.Red;
             message.TranslatesAutoresizingMaskIntoConstraints = false;
 
+            logo = new UIImageView(UIImage.FromBundle("Images/Logo_Epam_Color.png"));
+            logo.TranslatesAutoresizingMaskIntoConstraints = false;
+
             AddSubview(loginEdit);
             AddSubview(passwordEdit);
             AddSubview(enterButton);
             AddSubview(message);
+            AddSubview(logo);
 
             AddConstraint(NSLayoutConstraint.Create(loginEdit, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(loginEdit, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterY, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(loginEdit, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
+            AddConstraint(NSLayoutConstraint.Create(loginEdit, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.1), 0));
 
             AddConstraint(NSLayoutConstraint.Create(passwordEdit, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(passwordEdit, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, loginEdit, NSLayoutAttribute.BottomMargin, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(passwordEdit, NSLayoutAttribute.Top, NSLayoutRelation.Equal, loginEdit, NSLayoutAttribute.Bottom, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(passwordEdit, NSLayoutAttribute.Width, NSLayoutRelation.Equal, loginEdit, NSLayoutAttribute.Width, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(passwordEdit, NSLayoutAttribute.Height, NSLayoutRelation.Equal, loginEdit, NSLayoutAttribute.Height, 1, 0));
 
             AddConstraint(NSLayoutConstraint.Create(enterButton, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(enterButton, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, passwordEdit, NSLayoutAttribute.BottomMargin, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(enterButton, NSLayoutAttribute.Top, NSLayoutRelation.Equal, passwordEdit, NSLayoutAttribute.Bottom, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(enterButton, NSLayoutAttribute.Width, NSLayoutRelation.Equal, loginEdit, NSLayoutAttribute.Width, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(enterButton, NSLayoutAttribute.Height, NSLayoutRelation.Equal, loginEdit, NSLayoutAttribute.Height, 1, 0));
 
             AddConstraint(NSLayoutConstraint.Create(message, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(message, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, enterButton, NSLayoutAttribute.BottomMargin, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(message, NSLayoutAttribute.Top, NSLayoutRelation.Equal, enterButton, NSLayoutAttribute.Bottom, 1, 0));
+
+
+            AddConstraint(NSLayoutConstraint.Create(logo, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(logo, NSLayoutAttribute.Bottom, NSLayoutRelation.Equal, this, NSLayoutAttribute.Bottom, 1, 0));
         }
     }
 
@@ -106,33 +120,6 @@ namespace VTSClient.UI.iOSNative.Views
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                 EdgesForExtendedLayout = UIRectEdge.None;
 
-
-            //var loginEdit = new UITextField(new RectangleF( 0, 0, 200, 40));
-            //loginEdit.BackgroundColor = UIColor.Clear;
-            //loginEdit.BorderStyle = UITextBorderStyle.Bezel;
-            ////loginEdit.Layer.CornerRadius = new nfloat(10.0);
-            ////loginEdit.Layer.BorderColor =UIColor.FromRGB(250, 250, 250);
-            //loginEdit.Placeholder = "Login";
-            //Add(loginEdit);
-
-            //var passwordEdit = new UITextField(new RectangleF(0, 50, 200, 40));
-            //passwordEdit.BackgroundColor = new UIColor(new nfloat(0.9), new nfloat(0.9), new nfloat(0.9), new nfloat(0.9));
-            //passwordEdit.Placeholder = "Password";
-            //passwordEdit.SecureTextEntry = true;
-            //passwordEdit.Layer.CornerRadius = new nfloat(10.0);
-
-            //Add(passwordEdit);
-
-            ////View.Layer.BackgroundColor = UIColor.FromRGBA(250, 250 ,250, 40).CGColor;
-            ////View.Layer.CornerRadius = new nfloat(20.0);
-            ////View.Layer.Frame = new CoreGraphics.CGRect(50, 50, View.Layer.Frame.Width - 20, View.Layer.Frame.Height - 20);
-
-
-            //var button = new UIButton(new RectangleF(0, 100, 200, 40));
-            //button.BackgroundColor = UIColor.FromRGB(140, 173, 53);
-            //button.SetTitle("Enter", new UIControlState());
-            //Add(button);
-
             //accountView.enterButton.TouchUpInside += (sender, e) =>
             //{
             //    NSThread.SleepFor(5);
@@ -159,7 +146,6 @@ namespace VTSClient.UI.iOSNative.Views
             set.Bind(accountView.message).To(vm => vm.ErrorMessage).TwoWay();
             // Perform any additional setup after loading the view
             set.Apply();
-
 
             var gesture = new UITapGestureRecognizer(() =>
             {

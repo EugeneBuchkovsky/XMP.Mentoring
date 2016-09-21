@@ -63,6 +63,7 @@ namespace VTSClient.BusinessLogic.ViewModels
             get
             {
                 //return new MvxCommand(() => ShowViewModel<VocationsListViewModel>());
+                //return new MvxCommand(() => Close(this));
                 return new MvxCommand(Authentication);
             }
         }
@@ -81,8 +82,6 @@ namespace VTSClient.BusinessLogic.ViewModels
             //Close(this);
 
 
-
-
             var user = await accountService.Authentication(Login, Password);
 
             if (String.IsNullOrEmpty(user.FullName))
@@ -93,7 +92,7 @@ namespace VTSClient.BusinessLogic.ViewModels
                 ErrorMessage = "OK";
 
                 ShowViewModel<CreateVacationViewModel>();
-
+                Close(this);
                 //ShowViewModel<SubViewModel>();
                 //ShowViewModel<VacationsViewModel>();
             }

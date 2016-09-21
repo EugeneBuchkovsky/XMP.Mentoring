@@ -81,16 +81,20 @@ namespace VTSClient.UI.iOSNative.Views
             var endDate = new UILabel(new RectangleF(50, 210, 200, 40));
             endDate.BackgroundColor = UIColor.Clear;
             Add(endDate);
-            var comment = new UILabel(new RectangleF(50, 260, 200, 40));
-            comment.BackgroundColor = UIColor.Clear;
-            comment.Text = "Comment";
+            var comment = new UIButton();
+            comment.Frame = new CoreGraphics.CGRect(50, 260, 200, 40);
+            //var comment = new UILabel(new RectangleF(50, 260, 200, 40));
+            comment.BackgroundColor = UIColor.FromRGBA(10, 10, 10, 10);
+            comment.SetTitle("Comment>", new UIControlState());
             Add(comment);
-            var commentEdit = new UITextField(new RectangleF(50, 310, 200, 40));
+            //var commentEdit = new UITextField(new RectangleF(50, 310, 200, 40));
+            var commentEdit = new UITextField();
+            commentEdit.Frame = new CoreGraphics.CGRect(0, 0, 250, 35);
             commentEdit.BackgroundColor = UIColor.Clear;
             commentEdit.Layer.BorderWidth = 1;
             commentEdit.Layer.CornerRadius = 10;
-            Add(commentEdit);
-            var saveButton = new UIButton(new CoreGraphics.CGRect(50, 360, 200, 40));
+            //Add(commentEdit);
+            var saveButton = new UIButton(new CoreGraphics.CGRect(50, 310, 200, 40));
             saveButton.BackgroundColor = UIColor.FromRGB(140, 173, 53);
             saveButton.SetTitle("Save", new UIControlState());
             Add(saveButton);
@@ -105,6 +109,29 @@ namespace VTSClient.UI.iOSNative.Views
             set.Bind(saveButton).To(vm => vm.Save);
             // Perform any additional setup after loading the view
             set.Apply();
+
+            //Create comment modal page
+            comment.TouchUpInside += (sender, e) =>
+            {
+                //Create Alert
+                var textInputAlertController = UIAlertController.Create("", "", UIAlertControllerStyle.Alert);
+                //commentEdit.Frame = new CoreGraphics.CGRect(0, 0, textInputAlertController.PopoverPresentationController.FrameOfPresentedViewInContainerView.Width, 35);
+                //Add Text Input
+                textInputAlertController.Add(commentEdit);
+                //if (textInputAlertController.PopoverPresentationController != null)
+                //    textInputAlertController.PopoverPresentationController.SourceRect = new CoreGraphics.CGRect(0, 0, 200, 200);
+                //textInputAlertController.PreferredContentSize = new CoreGraphics.CGSize(View.Frame.Width, View.Frame.Height / 2);
+                //Add Actions
+                var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => { }); 
+                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => { });
+
+                textInputAlertController.AddAction(cancelAction);
+                textInputAlertController.AddAction(okayAction);
+
+                //Present Alert
+                PresentViewController(textInputAlertController, true, null);
+            };
+            //____end_____
 
             var gesture = new UITapGestureRecognizer(() =>
             {

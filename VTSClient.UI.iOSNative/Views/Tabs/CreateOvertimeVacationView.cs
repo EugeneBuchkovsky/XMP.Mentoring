@@ -13,12 +13,12 @@ using MvvmCross.Binding.iOS.Views;
 
 namespace VTSClient.UI.iOSNative.Views.Tabs
 {
-    [Register("CreateRegularView")]
-    public class CreateRegularView : CreateView
+    [Register("CreateOvertimeView")]
+    public class CreateOvertimeView : CreateView
     {
         public UIPickerView picker;
         public MvxPickerViewModel pickerViewModel;
-        public CreateRegularView()
+        public CreateOvertimeView()
             : base()
         { Initialize(); }
 
@@ -32,79 +32,40 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             picker.BackgroundColor = UIColor.White;
             picker.TranslatesAutoresizingMaskIntoConstraints = false;
 
-
             AddSubview(picker);
 
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Bottom, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Top, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.2), 0));
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.1), 0));
 
             BackgroundColor = UIColor.FromRGB(240, 240, 240);
         }
     }
 
-    [Register("CreateRegularVacationView")]
-    public class CreateRegularVacationView : MvxViewController
+    [Register("CreateOvertimeVacationView")]
+    public class CreateOvertimeVacationView : MvxViewController
     {
 
-        CreateRegularView createView;
-        public CreateRegularVacationView()
+        CreateOvertimeView createView;
+        public CreateOvertimeVacationView()
         {
         }
 
         public override void ViewDidLoad()
         {
-            View = createView = new CreateRegularView();
+            View = createView = new CreateOvertimeView();
 
             base.ViewDidLoad();
 
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                 EdgesForExtendedLayout = UIRectEdge.None;
 
-            //var startDate = new UIDatePicker(new CoreGraphics.CGRect(50, 150, 200, 200));
-            //Add(startDate);
-
-            //var comment = new UILabel(new RectangleF(0, 0, 200, 40));
-            //comment.BackgroundColor = UIColor.Clear;
-            //comment.Text = "Comment";
-            //Add(comment);
-
-            //var commentEdit = new UITextField(new RectangleF(0, 50, 200, 40));
-            //commentEdit.BackgroundColor = UIColor.DarkGray;
-            //Add(commentEdit);
-
-
-            //var actionDatePicker = new ActionShowDatePicker(this.View);
-
-            //var title = new UILabel(new CoreGraphics.CGRect(0, 150, 300, 50));
-            //title.TextColor = UIColor.Black;
-            //var dateButton = new UIButton(new CoreGraphics.CGRect(0, 200, 50, 50));
-            //dateButton.BackgroundColor = UIColor.Yellow;
-
-
-            //dateButton.TouchUpInside += (sender, e) =>
-            //{
-            //    actionDatePicker.Show();
-            //};
-
-
-            //actionDatePicker.Title = "Choose Date:";
-            //actionDatePicker.DatePicker.Mode = UIDatePickerMode.DateAndTime;
-            //actionDatePicker.DatePicker.MinimumDate = NSDate.Now;
-            //actionDatePicker.DatePicker.MaximumDate = NSDate.Now;
-
-
-
-            //actionDatePicker.DatePicker.ValueChanged += (s, e) => {
-            //    title.Text = (s as UIDatePicker).Date.ToString();
-            //  };
-
             //DATA PICKER 
             var start = new UIDatePicker();
             start.Mode = UIDatePickerMode.Date;
             start.Frame = new CoreGraphics.CGRect(0, 0, 300, 50);
-            
+
             createView.startDateButton.TouchUpInside += (sender, e) =>
             {
                 //Create Alert
@@ -118,9 +79,9 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
                 //var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => createView.startDateLabel.Text = start.Date.ToDateTime().ToShortDateString());
                 var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction =>
                 {
-                    (ViewModel as CreateRegularVacationViewModel).StartD = start.Date.ToDateTime().ToShortDateString();
+                    (ViewModel as CreateOvertimeVacationViewModel).StartD = start.Date.ToDateTime().ToShortDateString();
                 });
-                
+
 
 
                 textInputAlertController.AddAction(cancelAction);
@@ -146,7 +107,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
                 var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => { });
                 var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction =>
                 {
-                    (ViewModel as CreateRegularVacationViewModel).EndD = end.Date.ToDateTime().ToShortDateString();
+                    (ViewModel as CreateOvertimeVacationViewModel).EndD = end.Date.ToDateTime().ToShortDateString();
                 });
 
                 textInputAlertController.AddAction(cancelAction);
@@ -169,20 +130,18 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
             //Add(picker);         
 
-            (ViewModel as CreateRegularVacationViewModel).StartD = NSDate.Now.ToDateTime().ToShortDateString();
-            (ViewModel as CreateRegularVacationViewModel).EndD = NSDate.Now.ToDateTime().ToShortDateString();
-            var set = this.CreateBindingSet<CreateRegularVacationView, CreateRegularVacationViewModel>();
+            (ViewModel as CreateOvertimeVacationViewModel).StartD = NSDate.Now.ToDateTime().ToShortDateString();
+            (ViewModel as CreateOvertimeVacationViewModel).EndD = NSDate.Now.ToDateTime().ToShortDateString();
+            var set = this.CreateBindingSet<CreateOvertimeVacationView, CreateOvertimeVacationViewModel>();
             //set.Bind(createView.startDateLabel).For(v=>v.Text).To(vm => vm.StartD).TwoWay();
+            //set.Bind(createView.startDateLabel).To(vm => vm.StartD).TwoWay();
 
-
-            set.Bind(createView.startDateLabel).To(vm => vm.StartD).TwoWay();
-            set.Bind(createView.endDateLabel).To(vm => vm.EndD).TwoWay();
+            set.Bind(createView.endDateLabel.Text).To(vm => vm.EndD).TwoWay();
             set.Bind(createView.commentEdit).To(vm => vm.Comment).TwoWay();
             set.Bind(createView.saveButton).To(vm => vm.Save);
 
             set.Bind(createView.pickerViewModel).For(p => p.ItemsSource).To(vm => vm.ApproverList);
             set.Bind(createView.pickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedApprover);
-
             set.Bind(createView.message).To(vm => vm.Message);
 
 

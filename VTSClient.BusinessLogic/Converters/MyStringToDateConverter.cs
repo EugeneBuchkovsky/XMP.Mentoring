@@ -10,13 +10,19 @@ namespace VTSClient.BusinessLogic.Converters
     {
         public static DateTime Convert(string value)
         {
-            var stringDate = value.Split('/');
-            var a = Int32.Parse(stringDate[1]);
-            var a1 = Int32.Parse(stringDate[0]);
-            var a2 = Int32.Parse(stringDate[2]);
-            var result = new DateTime(a2, a1, a, 8, 0, 0);
+            DateTime result;
 
-            return result;
+            if (value != null)
+            {
+                var stringDate = value.Split('/');
+                var day = Int32.Parse(stringDate[1]);
+                var month = Int32.Parse(stringDate[0]);
+                var year = Int32.Parse(stringDate[2]);
+                result = new DateTime(year, month, day, 8, 0, 0);
+                return result;
+            }
+
+            return new DateTime();
         }
     }
 }
