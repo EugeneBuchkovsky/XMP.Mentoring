@@ -116,7 +116,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
                 //Add Actions
                 var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => { });
                 //var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction => createView.startDateLabel.Text = start.Date.ToDateTime().ToShortDateString());
-                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction =>
+                var okayAction = UIAlertAction.Create("Ok", UIAlertActionStyle.Default, alertAction =>
                 {
                     (ViewModel as CreateRegularVacationViewModel).StartD = start.Date.ToDateTime().ToShortDateString();
                 });
@@ -144,7 +144,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
                 //Add Actions
                 var cancelAction = UIAlertAction.Create("Cancel", UIAlertActionStyle.Cancel, alertAction => { });
-                var okayAction = UIAlertAction.Create("Okay", UIAlertActionStyle.Default, alertAction =>
+                var okayAction = UIAlertAction.Create("Ok", UIAlertActionStyle.Default, alertAction =>
                 {
                     (ViewModel as CreateRegularVacationViewModel).EndD = end.Date.ToDateTime().ToShortDateString();
                 });

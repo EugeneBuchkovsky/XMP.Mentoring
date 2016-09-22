@@ -93,6 +93,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SQLite_iOS.cs" />
     <Compile Include="Views\CreateVacationTabsView.cs" />
+    <Compile Include="Views\MenuView.cs" />
     <Compile Include="Views\Tabs\CreateOvertimeVacationView.cs" />
     <Compile Include="Views\Tabs\CreateSickLeaveView .cs" />
     <Compile Include="Views\Tabs\CreateRegularVacationView.cs" />
@@ -167,6 +168,7 @@
     <BundleResource Include="Resources\Images\datePicker.png" />
     <BundleResource Include="Resources\Images\Logo_Epam_Color.png" />
     <BundleResource Include="Resources\Images\VTS_Main_Theme.png" />
+    <BundleResource Include="Resources\Images\menu.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VTSClient.BusinessLogic\VTSClient.BusinessLogic.csproj">
