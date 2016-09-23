@@ -23,19 +23,24 @@ namespace VTSClient.BusinessLogic.ViewModels
                                {
                                    new MenuViewModel
                                        {
-                                           Section = Enums.MenuItems.AddVcation, 
+                                           Section = Enums.MenuItems.AddVcation,
                                            Title = "Add vacation"
-                                       }, 
+                                       },
                                    new MenuViewModel
                                        {
-                                           Section = Enums.MenuItems.SickToday, 
-                                           Title = "Sick"
-                                       }, 
+                                           Section = Enums.MenuItems.Vacations,
+                                           Title = "Vacations"
+                                       },
                                    new MenuViewModel
                                        {
-                                           Section =  Enums.MenuItems.LogOn, 
+                                           Section =  Enums.MenuItems.LogOn,
                                            Title = "Log out"
-                                       }, 
+                                       },
+                                    new MenuViewModel
+                                       {
+                                           Section =  Enums.MenuItems.SickToday,
+                                           Title = "Sick today"
+                                       }
                                };
 
         }
@@ -107,6 +112,19 @@ namespace VTSClient.BusinessLogic.ViewModels
             set { this.menuItems = value; this.RaisePropertyChanged(() => this.MenuItems); }
         }
 
+        private MenuViewModel selectedItem;
+        public MenuViewModel SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                selectedItem = value;
+                RaisePropertyChanged(() => SelectedItem);
+                ExecuteSelectMenuItemCommand(selectedItem);
+            }
+        }
+
+
         private MvxCommand<MenuViewModel> m_SelectMenuItemCommand; 
          public ICommand SelectMenuItemCommand 
          { 
@@ -123,7 +141,7 @@ namespace VTSClient.BusinessLogic.ViewModels
              { 
  
 
-                 case Enums.MenuItems.AddVcation: 
+                 case Enums.MenuItems.AddVcation:
                      this.ShowViewModel<CreateVacationViewModel>();
                     //Close(this);
                      break; 
@@ -132,7 +150,10 @@ namespace VTSClient.BusinessLogic.ViewModels
                      break; 
                  case Enums.MenuItems.LogOn: 
                      this.ShowViewModel<AccountViewModel>(); 
-                     break; 
+                     break;
+                case Enums.MenuItems.Vacations:
+                    this.ShowViewModel<VacationsViewModel>();
+                    break; 
              } 
          } 
     }

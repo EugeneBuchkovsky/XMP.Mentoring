@@ -8,8 +8,8 @@ using Foundation;
 
 namespace VTSClient.UI.iOSNative.Views
 {
-    [Register("MenuItemView ")]
-    partial class MenuItemView
+    [Register("VacationItemView")]
+    partial class VacationItemView
     {
         void ReleaseDesignerOutlets()
         {

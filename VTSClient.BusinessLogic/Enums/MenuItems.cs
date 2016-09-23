@@ -9,7 +9,8 @@ namespace VTSClient.BusinessLogic.Enums
     public enum MenuItems
     {
         AddVcation,
-        SickToday,
-        LogOn
+        Vacations,
+        LogOn,
+        SickToday
     }
 }

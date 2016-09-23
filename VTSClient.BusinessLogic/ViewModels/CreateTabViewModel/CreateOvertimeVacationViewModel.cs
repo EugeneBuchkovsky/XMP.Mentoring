@@ -80,7 +80,7 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
                     //StartDate = this.StartDate,
                     StartDate = start,
                     EndDate = end.AddHours(8),
-                    Status = VacationStatus.WaitingForApproval,
+                    Status = VacationStatus.Waiting,
                     Type = VacationType.Overtime
                 };
 

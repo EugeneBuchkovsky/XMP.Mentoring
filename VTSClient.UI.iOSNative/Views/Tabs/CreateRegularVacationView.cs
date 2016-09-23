@@ -36,9 +36,9 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddSubview(picker);
 
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Bottom, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Top, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Bottom, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Top, 1, -30));
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.2), 0));
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.15), 0));
 
             BackgroundColor = UIColor.FromRGB(240, 240, 240);
         }

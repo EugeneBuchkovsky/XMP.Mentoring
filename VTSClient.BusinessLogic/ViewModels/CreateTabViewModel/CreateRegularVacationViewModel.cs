@@ -68,6 +68,8 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
         {
             var start = MyStringToDateConverter.Convert(StartD);
             var end = MyStringToDateConverter.Convert(EndD);
+            if (SelectedApprover == null)
+                SelectedApprover = ApproverList.First();
 
             if (DateCheck(start, end))
             {
@@ -80,7 +82,7 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
                     //StartDate = this.StartDate,
                     StartDate = start,
                     EndDate = end.AddHours(8),
-                    Status = VacationStatus.WaitingForApproval,
+                    Status = VacationStatus.Waiting,
                     Type = VacationType.Regular
                 };
 

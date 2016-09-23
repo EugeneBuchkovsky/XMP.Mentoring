@@ -18,6 +18,28 @@ using System.Collections.Generic;
 
 namespace VTSClient.UI.iOSNative.Views
 {
+    public class MyTableController : MvxSimpleTableViewSource
+    {
+        public MyTableController(UITableView tableView, Type cellType, string cellIdentifier = null)
+            : base(tableView, cellType, cellIdentifier)
+        { }
+
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            base.RowSelected(tableView, indexPath);
+
+            //var item = this.GetItemAt(indexPath);
+
+            //var command = this.SelectionChangedCommand;
+            //if (command != null && command.CanExecute(item))
+            //    command.Execute(item);
+
+            //this.SelectedItem = item;
+            tableView.DeselectRow(indexPath, true);
+            this.SelectedItem = null;
+        }
+    }
+
     [Register("VacationsView")]
     public class VacationsView : MvxTableViewController
     {
@@ -84,6 +106,13 @@ namespace VTSClient.UI.iOSNative.Views
                     MenuScreen.Frame = new CoreGraphics.CGRect(-250, 0, 250, View.Frame.Height);
             });
         }
+        
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            isOpen = false;
+        }
 
         public override void ViewDidLayoutSubviews()
         {
@@ -103,6 +132,12 @@ namespace VTSClient.UI.iOSNative.Views
                     // button was clicked
                     IsOpen = !IsOpen;
                 }), true);
+
+            //View.AddGestureRecognizer(new UITapGestureRecognizer(() =>
+            //{
+            //    if(IsOpen)
+            //        IsOpen = !IsOpen;
+            //}));
 
             TableScreen.Frame = View.Bounds;
 
@@ -126,15 +161,26 @@ namespace VTSClient.UI.iOSNative.Views
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                 EdgesForExtendedLayout = UIRectEdge.None;
 
-            var source = new MvxSimpleTableViewSource(TableScreen, typeof(VacationItemView), VacationItemView.Key);
+            var source = new MyTableController(TableScreen, typeof(VacationItemView), VacationItemView.Key);
+            //source.DeselectAutomatically = true;
             TableScreen.RowHeight = 100;
             //var source = new MvxStandardTableViewSource(TableView, "TitleText Type");
             TableScreen.Source = source;
+
+            //____________________
+            var menuSource = new MyTableController(MenuScreen, typeof(MenuItemView), MenuItemView.Key);
+            MenuScreen.RowHeight = 50;
+            MenuScreen.Source = menuSource;
+            //____________________
 
             var set = this.CreateBindingSet<VacationsView, VacationsViewModel>();
             //set.Bind(source.SelectedItem).To(vm => vm.SelectedVocation);
             set.Bind(source).To(vm => vm.VocationList);
             set.Bind(source).For((qwe) => qwe.SelectedItem).To(vm => vm.SelectedVocation);
+
+            set.Bind(menuSource).To(vm => vm.MenuItems);
+            set.Bind(menuSource).For(si=>si.SelectedItem).To(vm => vm.SelectedItem);
+
             set.Apply();
 
             TableScreen.ReloadData();

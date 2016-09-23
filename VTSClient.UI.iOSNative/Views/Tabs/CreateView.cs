@@ -58,9 +58,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             endDateLabel.TranslatesAutoresizingMaskIntoConstraints = false;
 
             commentLabel = new UILabel();
-            commentLabel.Text = "Comment";
-            commentLabel.BackgroundColor = UIColor.White;
-            commentLabel.Layer.CornerRadius = 10;
+            commentLabel.Text = "Comment: ";
             commentLabel.TranslatesAutoresizingMaskIntoConstraints = false;
 
             commentEdit = new UITextField();
@@ -103,7 +101,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
 
             AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, this, NSLayoutAttribute.TopMargin, 1, 50));
+            AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, this, NSLayoutAttribute.TopMargin, 1, 70));
             //AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
             AddConstraint(NSLayoutConstraint.Create(startNameLabel, NSLayoutAttribute.Left, NSLayoutRelation.Equal, this, NSLayoutAttribute.Left, 1, 0));

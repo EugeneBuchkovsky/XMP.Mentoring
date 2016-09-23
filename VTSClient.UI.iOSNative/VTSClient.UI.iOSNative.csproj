@@ -100,6 +100,10 @@
     <Compile Include="Views\Tabs\CreateView.cs" />
     <Compile Include="Views\VacationDetailsView.cs" />
     <Compile Include="Views\AccountView.cs" />
+    <Compile Include="Views\MenuItemView .cs" />
+    <Compile Include="Views\MenuItemView .designer.cs">
+      <DependentUpon>MenuItemView .cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\VacationItemView.cs" />
     <Compile Include="Views\VacationItemView.designer.cs">
       <DependentUpon>VacationItemView.cs</DependentUpon>
