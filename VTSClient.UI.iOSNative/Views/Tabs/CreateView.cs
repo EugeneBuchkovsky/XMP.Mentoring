@@ -38,6 +38,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             startNameLabel = new UILabel();
             startNameLabel.BackgroundColor = UIColor.Clear;
             startNameLabel.Text = "Start date:";
+            startNameLabel.Font = UIFont.FromName("CourierNewPS-ItalicMT", 15f);
             startNameLabel.TranslatesAutoresizingMaskIntoConstraints = false;
 
             startDateLabel = new UILabel();
@@ -49,6 +50,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             endNameLabel = new UILabel();
             endNameLabel.BackgroundColor = UIColor.Clear;
             endNameLabel.Text = "End date:";
+            endNameLabel.Font = UIFont.FromName("CourierNewPS-ItalicMT", 15f);
             endNameLabel.TranslatesAutoresizingMaskIntoConstraints = false;
 
             endDateLabel = new UILabel();
@@ -59,6 +61,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
             commentLabel = new UILabel();
             commentLabel.Text = "Comment: ";
+            commentLabel.Font = UIFont.FromName("CourierNewPS-ItalicMT", 15f);
             commentLabel.TranslatesAutoresizingMaskIntoConstraints = false;
 
             commentEdit = new UITextField();

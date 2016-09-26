@@ -125,6 +125,8 @@ namespace VTSClient.UI.iOSNative.Views
             //        IsOpen = !IsOpen;
             //    }), true);
 
+            
+
             this.Title = "Vacations";
             this.NavigationItem.SetLeftBarButtonItem(
                 new UIBarButtonItem(UIBarButtonSystemItem.Bookmarks, (sender, args) =>
@@ -167,11 +169,15 @@ namespace VTSClient.UI.iOSNative.Views
             //var source = new MvxStandardTableViewSource(TableView, "TitleText Type");
             TableScreen.Source = source;
 
-            //____________________
+            //_____Menu___________
             var menuSource = new MyTableController(MenuScreen, typeof(MenuItemView), MenuItemView.Key);
             MenuScreen.RowHeight = 50;
             MenuScreen.Source = menuSource;
             //____________________
+
+            var uinavRightButton = new UIBarButtonItem(UIBarButtonSystemItem.Add);
+
+            this.NavigationItem.SetRightBarButtonItem(uinavRightButton, true);
 
             var set = this.CreateBindingSet<VacationsView, VacationsViewModel>();
             //set.Bind(source.SelectedItem).To(vm => vm.SelectedVocation);
@@ -180,6 +186,7 @@ namespace VTSClient.UI.iOSNative.Views
 
             set.Bind(menuSource).To(vm => vm.MenuItems);
             set.Bind(menuSource).For(si=>si.SelectedItem).To(vm => vm.SelectedItem);
+            set.Bind(uinavRightButton).To(vm => vm.AddCommand);
 
             set.Apply();
 

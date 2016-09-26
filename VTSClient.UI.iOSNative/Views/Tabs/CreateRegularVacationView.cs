@@ -36,7 +36,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddSubview(picker);
 
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Bottom, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Top, 1, -30));
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Bottom, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Top, 1, -20));
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.15), 0));
 
@@ -103,7 +103,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             //DATA PICKER 
             var start = new UIDatePicker();
             start.Mode = UIDatePickerMode.Date;
-            start.Frame = new CoreGraphics.CGRect(0, 0, 300, 50);
+            start.Frame = new CoreGraphics.CGRect(0, 0, 250, 50);
             
             createView.startDateButton.TouchUpInside += (sender, e) =>
             {

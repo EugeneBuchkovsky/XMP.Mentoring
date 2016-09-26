@@ -64,7 +64,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             //DATA PICKER 
             var start = new UIDatePicker();
             start.Mode = UIDatePickerMode.Date;
-            start.Frame = new CoreGraphics.CGRect(0, 0, 300, 50);
+            start.Frame = new CoreGraphics.CGRect(0, 0, 280, 50);
 
             createView.startDateButton.TouchUpInside += (sender, e) =>
             {
@@ -93,7 +93,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
             var end = new UIDatePicker();
             end.Mode = UIDatePickerMode.Date;
-            end.Frame = new CoreGraphics.CGRect(0, 0, 250, 50);
+            end.Frame = new CoreGraphics.CGRect(0, 0, 280, 50);
 
             createView.endDateButton.TouchUpInside += (sender, e) =>
             {

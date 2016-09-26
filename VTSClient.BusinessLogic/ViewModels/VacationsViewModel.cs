@@ -132,7 +132,13 @@ namespace VTSClient.BusinessLogic.ViewModels
              { 
                  return this.m_SelectMenuItemCommand ?? (this.m_SelectMenuItemCommand = new MvxCommand<MenuViewModel>(this.ExecuteSelectMenuItemCommand)); 
              } 
-         } 
+         }
+
+        private MvxCommand addCommand;
+        public ICommand AddCommand
+        {
+            get { return this.addCommand ?? (this.addCommand = new MvxCommand(() => ShowViewModel<CreateVacationViewModel>())); }
+        }
  
          private void ExecuteSelectMenuItemCommand(MenuViewModel item)
          { 

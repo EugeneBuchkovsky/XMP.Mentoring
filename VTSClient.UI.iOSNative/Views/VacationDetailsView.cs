@@ -84,14 +84,14 @@ namespace VTSClient.UI.iOSNative.Views
             var comment = new UIButton();
             comment.Frame = new CoreGraphics.CGRect(50, 260, 200, 40);
             //var comment = new UILabel(new RectangleF(50, 260, 200, 40));
-            comment.BackgroundColor = UIColor.FromRGBA(10, 10, 10, 10);
+            comment.BackgroundColor = UIColor.FromRGB(57, 194, 215);
             comment.SetTitle("Comment>", new UIControlState());
             Add(comment);
             //var commentEdit = new UITextField(new RectangleF(50, 310, 200, 40));
             var commentEdit = new UITextField();
-            commentEdit.Frame = new CoreGraphics.CGRect(0, 0, 250, 35);
+            commentEdit.Frame = new CoreGraphics.CGRect(13, 0, 250, 35);
             commentEdit.BackgroundColor = UIColor.Clear;
-            commentEdit.Layer.BorderWidth = 1;
+            //commentEdit.Layer.BorderWidth = 1;
             commentEdit.Layer.CornerRadius = 10;
             //Add(commentEdit);
             var saveButton = new UIButton(new CoreGraphics.CGRect(50, 310, 200, 40));
