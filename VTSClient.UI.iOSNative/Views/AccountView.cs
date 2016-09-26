@@ -96,6 +96,12 @@ namespace VTSClient.UI.iOSNative.Views
     [Register("Account View")]
     public class AccountView : MvxViewController
     {
+        private UIView activeview;             // Controller that activated the keyboard
+        private float scroll_amount = 0.0f;    // amount to scroll 
+        private float bottom = 0.0f;           // bottom point
+        private float offset = 10.0f;          // extra offset
+        private bool moveViewUp = false;           // which direction are we moving
+
         public AccountViewMain accountView;
 
         public AccountView()
@@ -121,6 +127,9 @@ namespace VTSClient.UI.iOSNative.Views
 
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                 EdgesForExtendedLayout = UIRectEdge.None;
+
+            NSNotificationCenter.DefaultCenter.AddObserver(UIKeyboard.DidShowNotification, KeyBoardUpNotification);
+            NSNotificationCenter.DefaultCenter.AddObserver(UIKeyboard.WillHideNotification, KeyBoardDownNotification);
 
             //accountView.enterButton.TouchUpInside += (sender, e) =>
             //{
@@ -155,6 +164,62 @@ namespace VTSClient.UI.iOSNative.Views
                 accountView.passwordEdit.ResignFirstResponder();
             });
             View.AddGestureRecognizer(gesture);
+        }
+
+        private void KeyBoardUpNotification(NSNotification notification)
+        {
+            // get the keyboard size
+            CoreGraphics.CGRect r = UIKeyboard.BoundsFromNotification(notification);
+
+            // Find what opened the keyboard
+            foreach (UIView view in this.View.Subviews)
+            {
+                if (view.IsFirstResponder)
+                    activeview = view;
+            }
+
+            // Bottom of the controller = initial position + height + offset      
+            bottom = (float)(activeview.Frame.Y + activeview.Frame.Height + offset);
+
+            // Calculate how far we need to scroll
+            scroll_amount = (float)(r.Height - (View.Frame.Size.Height - bottom));
+
+            // Perform the scrolling
+            if (scroll_amount > 0)
+            {
+                moveViewUp = true;
+                ScrollTheView(moveViewUp);
+            }
+            else {
+                moveViewUp = false;
+            }
+        }
+
+        private void KeyBoardDownNotification(NSNotification notification)
+        {
+            if (moveViewUp) { ScrollTheView(false); }
+        }
+
+        private void ScrollTheView(bool move)
+        {
+
+            // scroll the view up or down
+            UIView.BeginAnimations(string.Empty, System.IntPtr.Zero);
+            UIView.SetAnimationDuration(0.3);
+
+            CoreGraphics.CGRect frame = View.Frame;
+
+            if (move)
+            {
+                frame.Y -= scroll_amount;
+            }
+            else {
+                frame.Y += scroll_amount;
+                scroll_amount = 0;
+            }
+
+            View.Frame = frame;
+            UIView.CommitAnimations();
         }
     }
 }
