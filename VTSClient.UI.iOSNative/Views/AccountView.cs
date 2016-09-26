@@ -117,6 +117,8 @@ namespace VTSClient.UI.iOSNative.Views
 
             base.ViewDidLoad();
 
+            NavigationController.NavigationBarHidden = true;
+
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                 EdgesForExtendedLayout = UIRectEdge.None;
 

@@ -9,8 +9,9 @@ using VTSClient.UI.iOSNative.Helpers;
 
 namespace VTSClient.UI.iOSNative.Views.Tabs
 {
-    public class CreateView : MvxView
+    public class CreateView : UIScrollView
     {
+        public UIPickerView picker;
         public UILabel startNameLabel;
         public UILabel startDateLabel;
         public UILabel endNameLabel;
@@ -21,6 +22,10 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
         public UIButton endDateButton;
         public UIButton saveButton;
         public UILabel message;
+        public UIButton chooseImage;
+        public MvxImageView selected;
+
+        public MvxPickerViewModel pickerViewModel;
 
         public CreateView()
         {
@@ -34,6 +39,14 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
         void Initialize()
         {
+
+            picker = new UIPickerView();
+            pickerViewModel = new MvxPickerViewModel(picker);
+            picker.Model = pickerViewModel;
+            picker.ShowSelectionIndicator = true;
+            //picker.Frame = new CoreGraphics.CGRect(0, 200, 200, 100);
+            picker.BackgroundColor = UIColor.White;
+            picker.TranslatesAutoresizingMaskIntoConstraints = false;
 
             startNameLabel = new UILabel();
             startNameLabel.BackgroundColor = UIColor.Clear;
@@ -90,6 +103,15 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             message.TextColor = UIColor.Red;
             message.TranslatesAutoresizingMaskIntoConstraints = false;
 
+            chooseImage = new UIButton();
+            chooseImage.SetTitle("Choose image", new UIControlState());
+            chooseImage.BackgroundColor = UIColor.Red;
+            chooseImage.TranslatesAutoresizingMaskIntoConstraints = false;
+
+            selected = new MvxImageView();
+            selected.TranslatesAutoresizingMaskIntoConstraints = false;
+
+            AddSubview(picker);
             AddSubview(startNameLabel);
             AddSubview(startDateLabel);
             AddSubview(endNameLabel);
@@ -100,11 +122,16 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddSubview(endDateButton);
             AddSubview(saveButton);
             AddSubview(message);
+            AddSubview(chooseImage);
+            AddSubview(selected);
 
-
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Top, NSLayoutRelation.Equal, this, NSLayoutAttribute.Top, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.15), 0));
 
             AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, this, NSLayoutAttribute.TopMargin, 1, 70));
+            AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Top, NSLayoutRelation.Equal, this, NSLayoutAttribute.Bottom, 1, 100));
             //AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
             AddConstraint(NSLayoutConstraint.Create(startNameLabel, NSLayoutAttribute.Left, NSLayoutRelation.Equal, this, NSLayoutAttribute.Left, 1, 0));
@@ -118,7 +145,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddConstraint(NSLayoutConstraint.Create(endNameLabel, NSLayoutAttribute.CenterY, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.CenterY, 1, 0));
 
             AddConstraint(NSLayoutConstraint.Create(endDateLabel, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(endDateLabel, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, startDateButton, NSLayoutAttribute.BottomMargin, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(endDateLabel, NSLayoutAttribute.Top, NSLayoutRelation.Equal, startDateButton, NSLayoutAttribute.Bottom, 1, 30));
             //AddConstraint(NSLayoutConstraint.Create(endDateLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
             AddConstraint(NSLayoutConstraint.Create(endDateButton, NSLayoutAttribute.Left, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.Right, 1, 0));
@@ -130,19 +157,27 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             //AddConstraint(NSLayoutConstraint.Create(commentLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
             AddConstraint(NSLayoutConstraint.Create(commentEdit, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(commentEdit, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.BottomMargin, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(commentEdit, NSLayoutAttribute.Top, NSLayoutRelation.Equal, endDateLabel, NSLayoutAttribute.Bottom, 1, 30));
             AddConstraint(NSLayoutConstraint.Create(commentEdit, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
             AddConstraint(NSLayoutConstraint.Create(saveButton, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(saveButton, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, commentEdit, NSLayoutAttribute.TopMargin, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(saveButton, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, commentEdit, NSLayoutAttribute.Bottom, 1, 30));
             AddConstraint(NSLayoutConstraint.Create(saveButton, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
             AddConstraint(NSLayoutConstraint.Create(message, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(message, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, saveButton, NSLayoutAttribute.TopMargin, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(message, NSLayoutAttribute.TopMargin, NSLayoutRelation.Equal, saveButton, NSLayoutAttribute.Bottom, 1, 30));
+
+            AddConstraint(NSLayoutConstraint.Create(chooseImage, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(chooseImage, NSLayoutAttribute.Top, NSLayoutRelation.Equal, saveButton, NSLayoutAttribute.Bottom, 1, 30));
+
+            AddConstraint(NSLayoutConstraint.Create(selected, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
+            AddConstraint(NSLayoutConstraint.Create(selected, NSLayoutAttribute.Top, NSLayoutRelation.Equal, chooseImage, NSLayoutAttribute.Bottom, 1, 30));
+            AddConstraint(NSLayoutConstraint.Create(selected, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
+            AddConstraint(NSLayoutConstraint.Create(selected, NSLayoutAttribute.Height, NSLayoutRelation.Equal, selected, NSLayoutAttribute.Width, 1, 0));
 
             BackgroundColor = UIColor.White;
             //Frame = new CoreGraphics.CGRect(0, 0, this.Layer.Frame.Width, 5000);
-            //ContentSize = new CoreGraphics.CGSize(this.Layer.Frame.Width, 5000);
+            ContentSize = new CoreGraphics.CGSize(this.Layer.Frame.Width, chooseImage.Layer.Frame.Y + 400);
         }
     }
 }

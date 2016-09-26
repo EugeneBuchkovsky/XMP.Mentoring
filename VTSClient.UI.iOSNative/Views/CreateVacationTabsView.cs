@@ -34,6 +34,9 @@ namespace VTSClient.UI.iOSNative.Views
             //if (ViewModel == null)
             //    return;
 
+            //TabBarController.HidesBottomBarWhenPushed = true;
+            //TabBarController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+
 
         }
 
@@ -51,6 +54,12 @@ namespace VTSClient.UI.iOSNative.Views
             ViewControllers = viewControllers;
             CustomizableViewControllers = new UIViewController[] { };
             SelectedViewController = ViewControllers[0];
+
+            //TabBarController.ModalPresentationStyle = UIModalPresentationStyle.PageSheet;
+            TabBar.ContentMode = UIViewContentMode.Bottom;
+            TabBar.BarStyle = UIBarStyle.Default;
+            TabBar.ItemPositioning = UITabBarItemPositioning.Centered;
+            TabBar.SelectedImageTintColor = UIColor.Black;
         }
 
         private int _createdSoFarCount = 0;
@@ -59,12 +68,13 @@ namespace VTSClient.UI.iOSNative.Views
         {
             var controller = new UINavigationController();
             var screen = this.CreateViewControllerFor(viewModel) as UIViewController;
+            //screen.NavigationController.NavigationBar.Hidden = true;
+            //screen.NavigationController.NavigationBarHidden = true;
             screen.Title = title;
+            controller.NavigationBar.Hidden = true;
             _createdSoFarCount++;
             controller.PushViewController(screen, false);
             return controller;
         }
-
-
     }
 }

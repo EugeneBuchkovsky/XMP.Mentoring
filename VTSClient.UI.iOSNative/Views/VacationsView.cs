@@ -112,6 +112,7 @@ namespace VTSClient.UI.iOSNative.Views
             base.ViewWillAppear(animated);
 
             isOpen = false;
+            NavigationController.NavigationBarHidden = false;
         }
 
         public override void ViewDidLayoutSubviews()

@@ -16,29 +16,12 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
     [Register("CreateOvertimeView")]
     public class CreateOvertimeView : CreateView
     {
-        public UIPickerView picker;
-        public MvxPickerViewModel pickerViewModel;
         public CreateOvertimeView()
             : base()
         { Initialize(); }
 
         void Initialize()
         {
-            picker = new UIPickerView();
-            pickerViewModel = new MvxPickerViewModel(picker);
-            picker.Model = pickerViewModel;
-            picker.ShowSelectionIndicator = true;
-            //picker.Frame = new CoreGraphics.CGRect(0, 200, 200, 100);
-            picker.BackgroundColor = UIColor.White;
-            picker.TranslatesAutoresizingMaskIntoConstraints = false;
-
-            AddSubview(picker);
-
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Bottom, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Top, 1, -30));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.15), 0));
-
             BackgroundColor = UIColor.FromRGB(240, 240, 240);
         }
     }
@@ -55,6 +38,11 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
         public override void ViewDidLoad()
         {
             View = createView = new CreateOvertimeView();
+            //createView = new CreateOvertimeView();
+            //var scroll = new UIScrollView();
+            //scroll.AddSubview(createView);
+            //scroll.Frame = new CoreGraphics.CGRect(0,0, UIScreen.MainScreen.ApplicationFrame.Width, 5000);
+            //View.AddSubview(scroll);
 
             base.ViewDidLoad();
 

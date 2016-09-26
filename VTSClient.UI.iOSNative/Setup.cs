@@ -18,6 +18,10 @@ using MvvmCross.Core.Views;
 using VtsMockClient.Domain.Models;
 using VTSClient.BusinessLogic.ViewModels.CreateTabViewModel;
 using VTSClient.UI.iOSNative.Views.Tabs;
+using MvvmCross.Plugins.PictureChooser;
+using System.Reflection;
+using System.Linq;
+using MvvmCross.Plugins.PictureChooser.iOS;
 
 namespace VTSClient.UI.iOSNative
 {
@@ -36,6 +40,7 @@ namespace VTSClient.UI.iOSNative
             Mvx.RegisterType<IWEB, LoginWebService>();
             Mvx.RegisterType<IVacationsService, VacationsService>();
             Mvx.RegisterType<IVacationsWebService, VacationsWebService>();
+            //Mvx.RegisterType<IMvxPictureChooserTask, MvxPictureChooserTask>();
             return new App();
         }
 
@@ -59,5 +64,26 @@ namespace VTSClient.UI.iOSNative
             var container = Mvx.Resolve<IMvxViewsContainer>();
             container.AddAll(dict);
         }
+
+        protected override IEnumerable<Assembly> ValueConverterAssemblies
+        {
+            get
+            {
+                // return base.ValueConverterAssemblies;
+                var toReturn = base.ValueConverterAssemblies;
+                toReturn.ToList().Add(typeof(MvxInMemoryImageValueConverter).Assembly);
+                return toReturn;
+            }
+        }
+
+        //protected override System.Collections.Generic.List<System.Reflection.Assembly> ValueConverterAssemblies
+        //{
+        //    get
+        //    {
+        //        var toReturn = base.ValueConverterAssemblies;
+        //        toReturn.Add(typeof(MvvmCross.Plugins.PictureChooser.MvxInMemoryImageValueConverter).Assembly);
+        //        return toReturn;
+        //    }
+        //}
     }
 }

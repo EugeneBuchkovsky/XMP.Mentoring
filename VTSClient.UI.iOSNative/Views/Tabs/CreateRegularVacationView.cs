@@ -16,29 +16,16 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
     [Register("CreateRegularView")]
     public class CreateRegularView : CreateView
     {
-        public UIPickerView picker;
-        public MvxPickerViewModel pickerViewModel;
+        
         public CreateRegularView()
             : base()
         { Initialize(); }
 
         void Initialize()
         {
-            picker = new UIPickerView();
-            pickerViewModel = new MvxPickerViewModel(picker);
-            picker.Model = pickerViewModel;
-            picker.ShowSelectionIndicator = true;
-            //picker.Frame = new CoreGraphics.CGRect(0, 200, 200, 100);
-            picker.BackgroundColor = UIColor.White;
-            picker.TranslatesAutoresizingMaskIntoConstraints = false;
+            
 
-
-            AddSubview(picker);
-
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Bottom, NSLayoutRelation.Equal, startDateLabel, NSLayoutAttribute.Top, 1, -20));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.15), 0));
+            //startDateLabel.RemoveFromSuperview();
 
             BackgroundColor = UIColor.FromRGB(240, 240, 240);
         }
@@ -61,44 +48,6 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                 EdgesForExtendedLayout = UIRectEdge.None;
-
-            //var startDate = new UIDatePicker(new CoreGraphics.CGRect(50, 150, 200, 200));
-            //Add(startDate);
-
-            //var comment = new UILabel(new RectangleF(0, 0, 200, 40));
-            //comment.BackgroundColor = UIColor.Clear;
-            //comment.Text = "Comment";
-            //Add(comment);
-
-            //var commentEdit = new UITextField(new RectangleF(0, 50, 200, 40));
-            //commentEdit.BackgroundColor = UIColor.DarkGray;
-            //Add(commentEdit);
-
-
-            //var actionDatePicker = new ActionShowDatePicker(this.View);
-
-            //var title = new UILabel(new CoreGraphics.CGRect(0, 150, 300, 50));
-            //title.TextColor = UIColor.Black;
-            //var dateButton = new UIButton(new CoreGraphics.CGRect(0, 200, 50, 50));
-            //dateButton.BackgroundColor = UIColor.Yellow;
-
-
-            //dateButton.TouchUpInside += (sender, e) =>
-            //{
-            //    actionDatePicker.Show();
-            //};
-
-
-            //actionDatePicker.Title = "Choose Date:";
-            //actionDatePicker.DatePicker.Mode = UIDatePickerMode.DateAndTime;
-            //actionDatePicker.DatePicker.MinimumDate = NSDate.Now;
-            //actionDatePicker.DatePicker.MaximumDate = NSDate.Now;
-
-
-
-            //actionDatePicker.DatePicker.ValueChanged += (s, e) => {
-            //    title.Text = (s as UIDatePicker).Date.ToString();
-            //  };
 
             //DATA PICKER 
             var start = new UIDatePicker();
@@ -185,6 +134,8 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
             set.Bind(createView.message).To(vm => vm.Message);
 
+            set.Bind(createView.chooseImage).To(vm => vm.AddPicture);
+            set.Bind(createView.selected).To(vm => vm.PictureBytes).WithConversion("InMemoryImage");
 
             //set.Bind(name).To(vm => vm.Name);
 

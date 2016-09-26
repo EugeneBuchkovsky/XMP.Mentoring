@@ -15,7 +15,15 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
     [Register("CreateSickView")]
     public class CreateSickView : CreateView
     {
+        public CreateSickView()
+            : base()
+        { Initialize(); }
 
+        void Initialize()
+        {
+            picker.RemoveFromSuperview();
+            BackgroundColor = UIColor.FromRGB(240, 240, 240);
+        }
     }
 
     [Register("CreateSickLeaveView")]

@@ -1,4 +1,5 @@
 ﻿using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.PictureChooser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,10 +29,10 @@ namespace VTSClient.BusinessLogic.ViewModels
         //    Comment = model.Comment;
         //}
 
-        public CreateVacationViewModel(IVacationsService service, IRepository repo)
+        public CreateVacationViewModel(IVacationsService service, IRepository repo, IMvxPictureChooserTask chooser)
         {
             //this.vacationService = _vacationService;
-            RegularVacation = new CreateRegularVacationViewModel(service, repo);
+            RegularVacation = new CreateRegularVacationViewModel(service, repo, chooser);
             SickLeave = new CreateSickLeaveViewModel(service, repo);
             Overtime = new CreateOvertimeVacationViewModel(service, repo);
         }

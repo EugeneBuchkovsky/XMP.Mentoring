@@ -9,7 +9,9 @@ using VTSClient.BusinessLogic.Converters;
 using VTSClient.BusinessLogic.Services.Interfaces;
 using VTSClient.DataAccess.Repositories;
 using VtsMockClient.Domain.Enums;
+using MvvmCross.Plugins.PictureChooser;
 using VtsMockClient.Domain.Models;
+using System.IO;
 
 namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
 {
@@ -17,13 +19,13 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
     {
         private IVacationsService service;
         private IRepository repo;
+        private IMvxPictureChooserTask pictureChooser;
 
-        public CreateRegularVacationViewModel(IVacationsService vs, IRepository repo)
+        public CreateRegularVacationViewModel(IVacationsService vs, IRepository repo, IMvxPictureChooserTask chooser)
         {
             this.service = vs;
             this.repo = repo;
-
-            
+            this.pictureChooser = chooser;
 
             ApproverList = service.GetApproversSync();
         }
@@ -64,7 +66,7 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
         //    return new MvxCommand(() => );
         //}
 
-        public override void SaveChanges()
+        public override async void SaveChanges()
         {
             var start = MyStringToDateConverter.Convert(StartD);
             var end = MyStringToDateConverter.Convert(EndD);
@@ -88,12 +90,45 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
 
                 var a = MyStringToDateConverter.Convert(StartD);
 
-                service.UpdateVacationInfo(model);
+                await service.UpdateVacationInfo(model);
                 ShowViewModel<VacationsViewModel>();
             }
             else
                 Message = "Invalid dates!";
             //Close(this);
         }
+
+        //add picture
+
+        private MvxCommand addPicture;
+        public ICommand AddPicture
+        {
+            get
+            {
+                addPicture = addPicture ?? new MvxCommand(DoPicture);
+                return addPicture;
+            }
+        }
+
+        private void DoPicture()
+        {
+            pictureChooser.ChoosePictureFromLibrary(400, 95, OnPicture, () => { });
+        }
+
+        private void OnPicture(Stream stream)
+        {
+            var memoryStream = new MemoryStream();
+            stream.CopyTo(memoryStream);
+            PictureBytes = memoryStream.ToArray();
+        }
+
+        private byte[] _pictureBytes;
+        public byte[] PictureBytes
+        {
+            get { return _pictureBytes; }
+            set { _pictureBytes = value; RaisePropertyChanged(() => PictureBytes); }
+        }
+
+        //___________
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.PictureChooser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,6 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
             EndDate = DateTime.Now.AddHours(8);
             base.Start();
         }
-
 
         private IEnumerable<Person> approverList;
         public IEnumerable<Person> ApproverList
