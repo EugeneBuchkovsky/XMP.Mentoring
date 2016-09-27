@@ -22,6 +22,8 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
         void Initialize()
         {
             picker.RemoveFromSuperview();
+            pickerPosition1.Active = false;
+            pickerPosition2.Active = true;
             BackgroundColor = UIColor.FromRGB(240, 240, 240);
         }
     }

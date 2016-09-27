@@ -99,7 +99,7 @@ namespace VTSClient.UI.iOSNative.Views
         private UIView activeview;             // Controller that activated the keyboard
         private float scroll_amount = 0.0f;    // amount to scroll 
         private float bottom = 0.0f;           // bottom point
-        private float offset = 10.0f;          // extra offset
+        private float offset = 30.0f;          // extra offset
         private bool moveViewUp = false;           // which direction are we moving
 
         public AccountViewMain accountView;
@@ -168,6 +168,20 @@ namespace VTSClient.UI.iOSNative.Views
 
         private void KeyBoardUpNotification(NSNotification notification)
         {
+            //var frame = View.Frame;
+            //if (scroll_amount > 0)
+            //    frame.Y -= scroll_amount;
+            //else
+            //    frame.Y += scroll_amount;
+            //scroll_amount = 0;
+            //View.Frame = frame;
+
+            //if (scroll_amount > 0)
+            //    ScrollTheView(false);
+            //else
+            //    ScrollTheView(true);
+            //scroll_amount = 0;
+
             // get the keyboard size
             CoreGraphics.CGRect r = UIKeyboard.BoundsFromNotification(notification);
 
@@ -184,7 +198,7 @@ namespace VTSClient.UI.iOSNative.Views
             // Calculate how far we need to scroll
             scroll_amount = (float)(r.Height - (View.Frame.Size.Height - bottom));
 
-            // Perform the scrolling
+            //Perform the scrolling
             if (scroll_amount > 0)
             {
                 moveViewUp = true;
@@ -193,6 +207,12 @@ namespace VTSClient.UI.iOSNative.Views
             else {
                 moveViewUp = false;
             }
+
+
+            //moveViewUp = true;
+            //ScrollTheView(moveViewUp);
+
+
         }
 
         private void KeyBoardDownNotification(NSNotification notification)
@@ -205,7 +225,7 @@ namespace VTSClient.UI.iOSNative.Views
 
             // scroll the view up or down
             UIView.BeginAnimations(string.Empty, System.IntPtr.Zero);
-            UIView.SetAnimationDuration(0.3);
+            UIView.SetAnimationDuration(0.2);
 
             CoreGraphics.CGRect frame = View.Frame;
 
@@ -213,7 +233,8 @@ namespace VTSClient.UI.iOSNative.Views
             {
                 frame.Y -= scroll_amount;
             }
-            else {
+            else
+            {
                 frame.Y += scroll_amount;
                 scroll_amount = 0;
             }

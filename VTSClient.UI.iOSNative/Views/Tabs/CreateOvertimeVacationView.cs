@@ -22,6 +22,8 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
         void Initialize()
         {
+            pickerPosition1.Active = true;
+            pickerPosition2.Active = false;
             BackgroundColor = UIColor.FromRGB(240, 240, 240);
         }
     }

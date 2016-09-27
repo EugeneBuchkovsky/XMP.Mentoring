@@ -25,6 +25,9 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
         public UIButton chooseImage;
         public MvxImageView selected;
 
+        public NSLayoutConstraint pickerPosition1;
+        public NSLayoutConstraint pickerPosition2;
+
         public MvxPickerViewModel pickerViewModel;
 
         public CreateView()
@@ -125,13 +128,21 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddSubview(chooseImage);
             AddSubview(selected);
 
+
+
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Top, NSLayoutRelation.Equal, this, NSLayoutAttribute.Top, 1, 30));
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Height, NSLayoutRelation.Equal, this, NSLayoutAttribute.Height, new nfloat(0.15), 0));
 
+            pickerPosition1 = NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Top, NSLayoutRelation.Equal, picker, NSLayoutAttribute.Bottom, 1, 30);
+            pickerPosition2 = NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Top, NSLayoutRelation.Equal, this, NSLayoutAttribute.Top, 1, 30);
+
+            pickerPosition2.Active = false;
+
             AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
-            AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Top, NSLayoutRelation.Equal, this, NSLayoutAttribute.Bottom, 1, 100));
+            AddConstraint(pickerPosition1);
+            AddConstraint(pickerPosition2);
             //AddConstraint(NSLayoutConstraint.Create(startDateLabel, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
 
             AddConstraint(NSLayoutConstraint.Create(startNameLabel, NSLayoutAttribute.Left, NSLayoutRelation.Equal, this, NSLayoutAttribute.Left, 1, 0));
