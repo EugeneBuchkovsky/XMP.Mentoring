@@ -40,11 +40,6 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
         public override void ViewDidLoad()
         {
             View = createView = new CreateOvertimeView();
-            //createView = new CreateOvertimeView();
-            //var scroll = new UIScrollView();
-            //scroll.AddSubview(createView);
-            //scroll.Frame = new CoreGraphics.CGRect(0,0, UIScreen.MainScreen.ApplicationFrame.Width, 5000);
-            //View.AddSubview(scroll);
 
             base.ViewDidLoad();
 
@@ -109,24 +104,15 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
             //__________________end picker____________________
 
-
-
-            //var picker = new UIPickerView();
-            //var pickerViewModel = new MvxPickerViewModel(picker);
-            //picker.Model = pickerViewModel;
-            //picker.ShowSelectionIndicator = true;
-            //picker.Frame = new CoreGraphics.CGRect(0, 200, 200, 100);
-            //picker.BackgroundColor = UIColor.White;
-
             //Add(picker);         
 
             (ViewModel as CreateOvertimeVacationViewModel).StartD = NSDate.Now.ToDateTime().ToShortDateString();
             (ViewModel as CreateOvertimeVacationViewModel).EndD = NSDate.Now.ToDateTime().ToShortDateString();
             var set = this.CreateBindingSet<CreateOvertimeVacationView, CreateOvertimeVacationViewModel>();
             //set.Bind(createView.startDateLabel).For(v=>v.Text).To(vm => vm.StartD).TwoWay();
-            //set.Bind(createView.startDateLabel).To(vm => vm.StartD).TwoWay();
 
-            set.Bind(createView.endDateLabel.Text).To(vm => vm.EndD).TwoWay();
+            set.Bind(createView.startDateLabel).To(vm => vm.StartD).TwoWay();
+            set.Bind(createView.endDateLabel).To(vm => vm.EndD).TwoWay();
             set.Bind(createView.commentEdit).To(vm => vm.Comment).TwoWay();
             set.Bind(createView.saveButton).To(vm => vm.Save);
 
@@ -134,10 +120,9 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             set.Bind(createView.pickerViewModel).For(p => p.SelectedItem).To(vm => vm.SelectedApprover);
             set.Bind(createView.message).To(vm => vm.Message);
 
-
-            //set.Bind(name).To(vm => vm.Name);
-
-            //set.Bind(status).To(vm => vm.Status);
+            set.Bind(createView.chooseImage).To(vm => vm.AddPicture);
+            set.Bind(createView.selected).To(vm => vm.PictureBytes).WithConversion("InMemoryImage");
+            
             // Perform any additional setup after loading the view
             set.Apply();
 

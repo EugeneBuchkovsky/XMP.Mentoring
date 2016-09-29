@@ -1,4 +1,5 @@
 ﻿using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.PictureChooser;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,22 +19,14 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
         private IVacationsService service;
         private IRepository repo;
 
-        public CreateOvertimeVacationViewModel(IVacationsService vs, IRepository repo)
+        public CreateOvertimeVacationViewModel(IVacationsService vs, IRepository repo, IMvxPictureChooserTask chooser)
         {
             this.service = vs;
             this.repo = repo;
-
-            
+            this.PictureChooser = chooser;
 
             ApproverList = service.GetApproversSync();
         }
-
-        //public override void Start()
-        //{
-        //    //ApproverList = await service.GetApprovers();
-        //    base.Start();
-        //}
-
 
         private Person selectedApprover;
         public Person SelectedApprover
@@ -85,7 +78,8 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
                 };
 
                 service.UpdateVacationInfo(model);
-                ShowViewModel<VacationsViewModel>();
+                //ShowViewModel<VacationsViewModel>();
+                OnClose();
             }
             else
                 Message = "Invalid dates!";

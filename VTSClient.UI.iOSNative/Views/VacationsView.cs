@@ -113,6 +113,8 @@ namespace VTSClient.UI.iOSNative.Views
 
             isOpen = false;
             NavigationController.NavigationBarHidden = false;
+
+            (ViewModel as VacationsViewModel).UpdateVacation();
         }
 
         public override void ViewDidLayoutSubviews()

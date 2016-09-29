@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvvmCross.Plugins.PictureChooser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,15 +17,16 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
         private IVacationsService service;
         private IRepository repo;
 
-        public CreateSickLeaveViewModel(IVacationsService vs, IRepository repo)
+        public CreateSickLeaveViewModel(IVacationsService vs, IRepository repo, IMvxPictureChooserTask chooser)
         {
             this.service = vs;
             this.repo = repo;
-
-
+            this.PictureChooser = chooser;
 
             ApproverList = service.GetApproversSync();
         }
+
+        //public event Action Close;
 
         public override void SaveChanges()
         {
@@ -47,7 +49,8 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
                 };
                 
                 service.UpdateVacationInfo(model);
-                ShowViewModel<VacationsViewModel>();
+                OnClose();
+                //ShowViewModel<VacationsViewModel>();
             }
             else
                 Message = "Invalid dates!";

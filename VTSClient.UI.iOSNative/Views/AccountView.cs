@@ -168,6 +168,8 @@ namespace VTSClient.UI.iOSNative.Views
 
         private void KeyBoardUpNotification(NSNotification notification)
         {
+            
+            
             //var frame = View.Frame;
             //if (scroll_amount > 0)
             //    frame.Y -= scroll_amount;
@@ -192,11 +194,19 @@ namespace VTSClient.UI.iOSNative.Views
                     activeview = view;
             }
 
-            // Bottom of the controller = initial position + height + offset      
-            bottom = (float)(activeview.Frame.Y + activeview.Frame.Height + offset);
+            var a = r.Height;
+            //System.Diagnostics.Debug.Print("1___________");
+            //System.Diagnostics.Debug.Print("scroll" + scroll_amount.ToString());
+            //System.Diagnostics.Debug.Print("Frame Y" + activeview.Frame.Y.ToString());
+            //System.Diagnostics.Debug.Print("frame height" + activeview.Frame.Height.ToString());
 
-            // Calculate how far we need to scroll
-            scroll_amount = (float)(r.Height - (View.Frame.Size.Height - bottom));
+            //// Bottom of the controller = initial position + height + offset      
+            //bottom = (float)(activeview.Frame.Y + activeview.Frame.Height + offset);
+
+            //// Calculate how far we need to scroll
+            //scroll_amount = (float)(r.Height - (View.Frame.Size.Height - bottom));
+
+            scroll_amount = (float)r.Height/3;
 
             //Perform the scrolling
             if (scroll_amount > 0)
@@ -217,6 +227,8 @@ namespace VTSClient.UI.iOSNative.Views
 
         private void KeyBoardDownNotification(NSNotification notification)
         {
+            System.Diagnostics.Debug.Print("2");
+
             if (moveViewUp) { ScrollTheView(false); }
         }
 

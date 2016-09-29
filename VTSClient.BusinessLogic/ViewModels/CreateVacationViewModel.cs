@@ -33,8 +33,13 @@ namespace VTSClient.BusinessLogic.ViewModels
         {
             //this.vacationService = _vacationService;
             RegularVacation = new CreateRegularVacationViewModel(service, repo, chooser);
-            SickLeave = new CreateSickLeaveViewModel(service, repo);
-            Overtime = new CreateOvertimeVacationViewModel(service, repo);
+            RegularVacation.Close += () => {
+                Close(this);
+            };
+            SickLeave = new CreateSickLeaveViewModel(service, repo, chooser);
+            SickLeave.Close += () => Close(this);
+            Overtime = new CreateOvertimeVacationViewModel(service, repo, chooser);
+            Overtime.Close += () => Close(this);
         }
 
         private CreateRegularVacationViewModel regularVacation;

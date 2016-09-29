@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using UIKit;
 using VTSClient.UI.iOSNative.Helpers;
+using CoreGraphics;
 
 namespace VTSClient.UI.iOSNative.Views.Tabs
 {
@@ -29,6 +30,8 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
         public NSLayoutConstraint pickerPosition2;
 
         public MvxPickerViewModel pickerViewModel;
+
+        public UIScrollView scroll;
 
         public CreateView()
         {
@@ -128,7 +131,29 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddSubview(chooseImage);
             AddSubview(selected);
 
+            //scroll = new UIScrollView();
 
+            //AddSubview(picker);
+            //scroll.AddSubview(startNameLabel);
+            //scroll.AddSubview(startDateLabel);
+            //scroll.AddSubview(endNameLabel);
+            //scroll.AddSubview(endDateLabel);
+            //scroll.AddSubview(commentLabel);
+            //scroll.AddSubview(commentEdit);
+            //scroll.AddSubview(startDateButton);
+            //scroll.AddSubview(endDateButton);
+            //scroll.AddSubview(saveButton);
+            //scroll.AddSubview(message);
+            //scroll.AddSubview(chooseImage);
+            //scroll.AddSubview(selected);
+            //AddSubview(scroll);
+
+            //if(this.Superview.IsKindOfClass())
+            //{
+
+            //}
+            //if(picker.)
+                //this.ScrollEnabled = false;
 
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
             AddConstraint(NSLayoutConstraint.Create(picker, NSLayoutAttribute.Top, NSLayoutRelation.Equal, this, NSLayoutAttribute.Top, 1, 30));
@@ -186,9 +211,39 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             AddConstraint(NSLayoutConstraint.Create(selected, NSLayoutAttribute.Width, NSLayoutRelation.Equal, this, NSLayoutAttribute.Width, new nfloat(0.5), 0));
             AddConstraint(NSLayoutConstraint.Create(selected, NSLayoutAttribute.Height, NSLayoutRelation.Equal, selected, NSLayoutAttribute.Width, 1, 0));
 
+            //AddConstraint(NSLayoutConstraint.Create(scroll, NSLayoutAttribute.CenterX, NSLayoutRelation.Equal, this, NSLayoutAttribute.CenterX, 1, 0));
+            //AddConstraint(NSLayoutConstraint.Create(scroll, NSLayoutAttribute.Top, NSLayoutRelation.Equal, picker, NSLayoutAttribute.Bottom, 1, -30));
+
             BackgroundColor = UIColor.White;
-            //Frame = new CoreGraphics.CGRect(0, 0, this.Layer.Frame.Width, 5000);
+            //scroll.Frame = new CoreGraphics.CGRect(0, 100, this.Layer.Frame.Width, 5000);
+            //scroll.ContentSize = new CoreGraphics.CGSize(this.Layer.Frame.Width, chooseImage.Layer.Frame.Y + 400);
             ContentSize = new CoreGraphics.CGSize(this.Layer.Frame.Width, chooseImage.Layer.Frame.Y + 400);
+        }
+
+        public override UIView HitTest(CGPoint point, UIEvent uievent)
+        {
+            var result = base.HitTest(point, uievent);
+
+            //        UIView* result = [super hitTest: point withEvent:event];
+
+            //if ([result.superview isKindOfClass:[UIPickerView class]])
+            //{
+            //    self.scrollEnabled = NO;
+            //}
+            //else 
+            //{
+            //    self.scrollEnabled = YES;    
+            //}
+            //return result
+
+            //System.Diagnostics.Debug.WriteLine(result.Superview.GetType());
+            
+            if (result.Superview.GetType() == typeof(UITableView))
+                this.ScrollEnabled = false;
+            else
+                this.ScrollEnabled = true;
+
+            return result;
         }
     }
 }

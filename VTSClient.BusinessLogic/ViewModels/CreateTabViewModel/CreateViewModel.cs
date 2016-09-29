@@ -2,6 +2,7 @@
 using MvvmCross.Plugins.PictureChooser;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,26 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
 {
     public abstract class CreateViewModel : MvxViewModel
     {
+        private IMvxPictureChooserTask pictureChooser;
+        public IMvxPictureChooserTask PictureChooser
+        {
+            get { return pictureChooser; }
+            protected set { pictureChooser = value; }
+        }
         public override void Start()
         {
             StartDate = DateTime.Now;
             EndDate = DateTime.Now.AddHours(8);
             base.Start();
+        }
+
+        public event Action Close;
+
+        protected virtual void OnClose()
+        {
+            Action action = Close;
+            if (action != null)
+                action();
         }
 
         private IEnumerable<Person> approverList;
@@ -163,5 +179,39 @@ namespace VTSClient.BusinessLogic.ViewModels.CreateTabViewModel
         {
             return start <= end && start >= DateTime.Now.Date;
         }
+
+
+        //add picture
+
+        private MvxCommand addPicture;
+        public ICommand AddPicture
+        {
+            get
+            {
+                addPicture = addPicture ?? new MvxCommand(DoPicture);
+                return addPicture;
+            }
+        }
+
+        private void DoPicture()
+        {
+            pictureChooser.ChoosePictureFromLibrary(400, 95, OnPicture, () => { });
+        }
+
+        private void OnPicture(Stream stream)
+        {
+            var memoryStream = new MemoryStream();
+            stream.CopyTo(memoryStream);
+            PictureBytes = memoryStream.ToArray();
+        }
+
+        private byte[] _pictureBytes;
+        public byte[] PictureBytes
+        {
+            get { return _pictureBytes; }
+            set { _pictureBytes = value; RaisePropertyChanged(() => PictureBytes); }
+        }
+
+        //___________
     }
 }

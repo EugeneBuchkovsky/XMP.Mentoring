@@ -107,18 +107,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
             };
 
             //__________________end picker____________________
-
-
-
-            //var picker = new UIPickerView();
-            //var pickerViewModel = new MvxPickerViewModel(picker);
-            //picker.Model = pickerViewModel;
-            //picker.ShowSelectionIndicator = true;
-            //picker.Frame = new CoreGraphics.CGRect(0, 200, 200, 100);
-            //picker.BackgroundColor = UIColor.White;
-
-            //Add(picker);         
-
+            
             (ViewModel as CreateRegularVacationViewModel).StartD = NSDate.Now.ToDateTime().ToShortDateString();
             (ViewModel as CreateRegularVacationViewModel).EndD = NSDate.Now.ToDateTime().ToShortDateString();
             var set = this.CreateBindingSet<CreateRegularVacationView, CreateRegularVacationViewModel>();
@@ -137,10 +126,7 @@ namespace VTSClient.UI.iOSNative.Views.Tabs
 
             set.Bind(createView.chooseImage).To(vm => vm.AddPicture);
             set.Bind(createView.selected).To(vm => vm.PictureBytes).WithConversion("InMemoryImage");
-
-            //set.Bind(name).To(vm => vm.Name);
-
-            //set.Bind(status).To(vm => vm.Status);
+            
             // Perform any additional setup after loading the view
             set.Apply();
 

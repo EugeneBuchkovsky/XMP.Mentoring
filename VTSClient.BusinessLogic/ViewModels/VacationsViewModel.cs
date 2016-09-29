@@ -45,10 +45,17 @@ namespace VTSClient.BusinessLogic.ViewModels
 
         }
 
-        public override async void Start()
+        public override void Start()
+        {
+            UpdateVacation();
+            base.Start();
+        }
+
+        public async Task UpdateVacation()
         {
             VocationList = await vocationsService.GetAllVocations();
-            base.Start();
+
+            return;
         }
 
         private string name;
