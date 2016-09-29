@@ -27,14 +27,7 @@ namespace VTSClient.UI.iOSNative.Views
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             base.RowSelected(tableView, indexPath);
-
-            //var item = this.GetItemAt(indexPath);
-
-            //var command = this.SelectionChangedCommand;
-            //if (command != null && command.CanExecute(item))
-            //    command.Execute(item);
-
-            //this.SelectedItem = item;
+            
             tableView.DeselectRow(indexPath, true);
             this.SelectedItem = null;
         }
@@ -171,6 +164,8 @@ namespace VTSClient.UI.iOSNative.Views
             TableScreen.RowHeight = 100;
             //var source = new MvxStandardTableViewSource(TableView, "TitleText Type");
             TableScreen.Source = source;
+            TableScreen.SeparatorColor = UIColor.Gray;
+            TableScreen.SeparatorStyle = UITableViewCellSeparatorStyle.SingleLine;
 
             //_____Menu___________
             var menuSource = new MyTableController(MenuScreen, typeof(MenuItemView), MenuItemView.Key);

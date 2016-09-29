@@ -28,18 +28,8 @@ namespace VTSClient.BusinessLogic.ViewModels
                                        },
                                    new MenuViewModel
                                        {
-                                           Section = Enums.MenuItems.Vacations,
-                                           Title = "Vacations"
-                                       },
-                                   new MenuViewModel
-                                       {
                                            Section =  Enums.MenuItems.LogOn,
                                            Title = "Log out"
-                                       },
-                                    new MenuViewModel
-                                       {
-                                           Section =  Enums.MenuItems.SickToday,
-                                           Title = "Sick today"
                                        }
                                };
 
@@ -157,16 +147,10 @@ namespace VTSClient.BusinessLogic.ViewModels
                  case Enums.MenuItems.AddVcation:
                      this.ShowViewModel<CreateVacationViewModel>();
                     //Close(this);
-                     break; 
-                 case Enums.MenuItems.SickToday: 
-                     //this.ShowViewModel<>(new { item.Id });
-                     break; 
-                 case Enums.MenuItems.LogOn: 
-                     this.ShowViewModel<AccountViewModel>(); 
                      break;
-                case Enums.MenuItems.Vacations:
-                    this.ShowViewModel<VacationsViewModel>();
-                    break; 
+                 case Enums.MenuItems.LogOn: 
+                     Close(this);
+                     break;
              } 
          } 
     }

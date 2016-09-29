@@ -95,6 +95,9 @@ namespace VTSClient.BusinessLogic.ViewModels
                 Close(this);
                 //ShowViewModel<SubViewModel>();
                 ShowViewModel<VacationsViewModel>();
+                ErrorMessage = "";
+                Login = null;
+                Password = null;
             }
 
         }
